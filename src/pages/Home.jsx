@@ -243,33 +243,6 @@ const Home = () => {
 
       </section>
 
-      {/* ================= CTA ================= */}
-
-      <section className="py-28">
-
-        <div className="max-w-5xl mx-auto px-6">
-
-          <div className="bg-linear-to-r from-blue-900 to-blue-700 rounded-[40px] px-10 py-20 text-center text-white shadow-xl">
-
-            <h2 className="text-5xl font-bold">
-              Ready to Join CardioCon Arunachal 2026?
-            </h2>
-
-            <p className="mt-8 text-xl text-blue-100 max-w-2xl mx-auto leading-9">
-              Register today and become part of one of Northeast India's premier
-              cardiovascular conferences.
-            </p>
-
-            <button className="mt-12 bg-white text-blue-900 px-10 py-4 rounded-xl font-semibold hover:bg-slate-100 transition">
-              Register Now
-            </button>
-
-          </div>
-
-        </div>
-
-      </section>
-
     </main>
   );
 };
