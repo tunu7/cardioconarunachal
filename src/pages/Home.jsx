@@ -1,250 +1,240 @@
-import { homeData } from "../data/homeData";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Stethoscope,
+  ArrowRight,
+} from "lucide-react";
 
-const Home = () => {
+function Home() {
   return (
-    <main className="bg-slate-50">
+    <>
+      <Navbar />
 
-      {/* ================= HERO ================= */}
+      <main className="pt-20">
 
-      <section className="bg-linear-to-br from-blue-950 via-blue-900 to-blue-700 text-white">
+    
+        {/* Hero */}
+<section className="relative overflow-hidden bg-linear-to-br from-blue-900 via-blue-800 to-slate-900 text-white">
+  <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-36">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <div className="min-h-screen flex items-center">
 
-            {/* Left */}
+      <div className="max-w-3xl">
 
-            <div>
+        <span className="inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-medium backdrop-blur">
+          Annual Cardiovascular Conference
+        </span>
 
-              <span className="inline-block px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm tracking-wide">
-                Official Conference Website
-              </span>
+        <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+          CardioCon
+          <span className="block text-cyan-300">
+            Arunachal 2026
+          </span>
+        </h1>
 
-              <h1 className="mt-8 text-5xl lg:text-7xl font-bold leading-tight">
-                {homeData.hero.title}
-              </h1>
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-200">
+          Bringing together leading cardiologists, physicians,
+          researchers, healthcare professionals and students to
+          shape the future of cardiovascular medicine through
+          innovation, collaboration and education.
+        </p>
 
-              <h2 className="mt-6 text-2xl lg:text-3xl text-blue-100 font-light">
-                {homeData.hero.subtitle}
-              </h2>
+        {/* CTA */}
+        <div className="mt-10 mb-28 flex flex-col sm:flex-row gap-4">
 
-              <p className="mt-8 text-lg leading-9 text-blue-100 max-w-xl">
-                {homeData.hero.description}
-              </p>
+          <button className="flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-8 py-4 font-semibold shadow-lg transition hover:bg-cyan-400 hover:shadow-xl">
+            Register Now
+            <ArrowRight size={18} />
+          </button>
 
-              <div className="flex flex-wrap gap-5 mt-12">
-
-                <button className="px-8 py-4 bg-white text-blue-900 rounded-xl font-semibold hover:bg-slate-100 transition">
-                  {homeData.hero.buttonPrimary}
-                </button>
-
-                <button className="px-8 py-4 border border-white rounded-xl hover:bg-white hover:text-blue-900 transition">
-                  {homeData.hero.buttonSecondary}
-                </button>
-
-              </div>
-
-            </div>
-
-            {/* Right */}
-
-            <div>
-
-              <img
-                src={homeData.hero.image}
-                alt="CardioCon Arunachal"
-                className="rounded-3xl shadow-2xl object-cover w-full h-130"
-              />
-
-            </div>
-
-          </div>
+          <button className="rounded-xl border border-white px-8 py-4 font-semibold transition hover:bg-white hover:text-slate-900">
+            View Program
+          </button>
 
         </div>
 
-      </section>
+      </div>
 
-      {/* ================= QUICK INFO ================= */}
+    </div>
 
-      <section className="-mt-12 relative z-20">
+  </div>
+</section>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Quick Info */}
+<section className="relative -mt-10 lg:-mt-12 z-20 pb-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {homeData.highlights.map((item, index) => (
+      <div className="bg-white rounded-2xl shadow-xl p-8 flex items-center gap-5">
+        <Calendar
+          className="text-blue-700 shrink-0"
+          size={34}
+        />
 
-              <div
-                key={index}
-                className="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 hover:-translate-y-2 hover:shadow-xl transition duration-300"
-              >
+        <div>
+          <h3 className="font-bold text-lg text-slate-800">
+            Conference Date
+          </h3>
 
-                <div className="text-5xl">
-                  {item.icon}
-                </div>
+          <p className="text-slate-600">
+            15–17 March 2026
+          </p>
+        </div>
+      </div>
 
-                <h3 className="mt-6 text-xl font-semibold text-slate-800">
-                  {item.title}
-                </h3>
+      <div className="bg-white rounded-2xl shadow-xl p-8 flex items-center gap-5">
+        <MapPin
+          className="text-blue-700 shrink-0"
+          size={34}
+        />
 
-                <p className="mt-3 text-slate-500 leading-7">
-                  {item.value}
+        <div>
+          <h3 className="font-bold text-lg text-slate-800">
+            Venue
+          </h3>
+
+          <p className="text-slate-600">
+            Itanagar, Arunachal Pradesh
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-xl p-8 flex items-center gap-5">
+        <Users
+          className="text-blue-700 shrink-0"
+          size={34}
+        />
+
+        <div>
+          <h3 className="font-bold text-lg text-slate-800">
+            500+ Delegates
+          </h3>
+
+          <p className="text-slate-600">
+            Doctors, Researchers & Students
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+        {/* About */}
+        <section className="bg-slate-50 py-24">
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+
+              <div className="max-w-xl">
+
+                <span className="uppercase tracking-widest font-semibold text-blue-700">
+                  About The Conference
+                </span>
+
+                <h2 className="mt-4 text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                  Advancing Cardiovascular Care Together
+                </h2>
+
+                <p className="mt-6 text-lg leading-8 text-slate-600">
+                  CardioCon Arunachal is one of the region's premier
+                  academic conferences dedicated to cardiovascular
+                  medicine. The conference serves as a platform for
+                  knowledge exchange, research presentations, clinical
+                  discussions and collaboration among healthcare
+                  professionals.
                 </p>
 
+                <button className="mt-8 rounded-lg bg-blue-700 px-8 py-3 text-white font-semibold transition hover:bg-blue-800">
+                  Learn More
+                </button>
+
               </div>
 
-            ))}
+              <div className="w-full h-112.5 rounded-3xl bg-linear-to-br from-slate-200 to-slate-300 flex items-center justify-center shadow-lg">
 
-          </div>
+                <Stethoscope
+                  size={120}
+                  className="text-slate-500"
+                />
 
-        </div>
-
-      </section>
-
-      {/* ================= ABOUT ================= */}
-
-      <section className="py-28">
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-
-            <div>
-
-              <img
-                src={homeData.hero.image}
-                alt="Conference"
-                className="rounded-3xl shadow-xl"
-              />
+              </div>
 
             </div>
 
-            <div>
+          </div>
 
-              <span className="text-blue-700 font-semibold uppercase tracking-wider">
-                About The Conference
-              </span>
+        </section>
 
-              <h2 className="mt-4 text-5xl font-bold text-slate-900 leading-tight">
-                {homeData.about.title}
+        {/* Highlights */}
+        <section className="py-24">
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div className="max-w-2xl mx-auto text-center">
+
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
+                Conference Highlights
               </h2>
 
-              <p className="mt-8 text-lg leading-9 text-slate-600">
-                {homeData.about.description}
+              <p className="mt-5 text-lg leading-8 text-slate-600">
+                Learn from nationally renowned experts and explore the latest
+                advances in cardiovascular medicine through scientific sessions,
+                workshops and collaborative discussions.
               </p>
 
             </div>
 
-          </div>
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-        </div>
-
-      </section>
-
-      {/* ================= STATISTICS ================= */}
-
-      <section className="pb-28">
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-          <div className="bg-blue-900 rounded-[40px] px-10 py-16">
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
-
-              {homeData.stats.map((item, index) => (
-
+              {[
+                "Keynote Sessions",
+                "Live Case Discussions",
+                "Research Presentations",
+                "Hands-on Workshops",
+              ].map((item) => (
                 <div
-                  key={index}
-                  className="text-center text-white"
+                  key={item}
+                  className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center"
                 >
+                  <div className="mb-6 rounded-full bg-blue-100 p-5">
+                    <Stethoscope
+                      size={36}
+                      className="text-blue-700"
+                    />
+                  </div>
 
-                  <h2 className="text-5xl lg:text-6xl font-bold">
-                    {item.number}
-                  </h2>
+                  <h3 className="text-xl font-semibold text-slate-800">
+                    {item}
+                  </h3>
 
-                  <p className="mt-4 text-blue-200 text-lg">
-                    {item.label}
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    Gain valuable insights through expert-led sessions
+                    and practical learning opportunities.
                   </p>
 
                 </div>
-
               ))}
 
             </div>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+      </main>
 
-      {/* ================= WHY ATTEND ================= */}
-
-      <section className="py-28 bg-white">
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-          <div className="text-center max-w-3xl mx-auto">
-
-            <span className="text-blue-700 uppercase font-semibold tracking-widest">
-              Why Attend
-            </span>
-
-            <h2 className="mt-4 text-5xl font-bold text-slate-900">
-              Learn, Network & Collaborate
-            </h2>
-
-            <p className="mt-6 text-lg text-slate-600 leading-9">
-              Gain insights from leading cardiologists, participate in
-              scientific discussions, discover cutting-edge innovations and
-              connect with healthcare professionals from across the country.
-            </p>
-
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-20">
-
-            <div className="bg-slate-50 rounded-3xl p-8">
-              <div className="text-5xl">🎤</div>
-              <h3 className="mt-6 text-2xl font-semibold">
-                Expert Speakers
-              </h3>
-              <p className="mt-4 leading-8 text-slate-600">
-                Learn directly from nationally renowned cardiologists and
-                healthcare experts.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 rounded-3xl p-8">
-              <div className="text-5xl">🫀</div>
-              <h3 className="mt-6 text-2xl font-semibold">
-                Scientific Sessions
-              </h3>
-              <p className="mt-4 leading-8 text-slate-600">
-                Explore the latest research, clinical practices and innovative
-                treatment approaches.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 rounded-3xl p-8">
-              <div className="text-5xl">🤝</div>
-              <h3 className="mt-6 text-2xl font-semibold">
-                Networking
-              </h3>
-              <p className="mt-4 leading-8 text-slate-600">
-                Connect with peers, faculty members and healthcare leaders from
-                across India.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
+      <Footer />
+    </>
   );
-};
+}
 
 export default Home;

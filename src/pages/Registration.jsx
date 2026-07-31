@@ -1,41 +1,37 @@
-const Registration = () => {
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+function Registration() {
   return (
-    <section className="max-w-3xl mx-auto px-6 py-16">
+    <>
+      <Navbar />
 
-      <h1 className="text-4xl font-bold text-blue-900">
-        Registration
-      </h1>
+      <main className="min-h-screen pt-20">
+        <div className="max-w-5xl mx-auto px-6 py-16">
+          <h1 className="text-4xl font-bold text-slate-800">
+            Registration
+          </h1>
 
-      <form className="mt-10 bg-white shadow rounded-xl p-8 space-y-5">
+          <div className="mt-10 rounded-xl border bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold">
+              Register for CardioCon Arunachal
+            </h2>
 
-        <input
-          className="w-full border p-3 rounded-lg"
-          placeholder="Full Name"
-        />
+            <p className="mt-4 text-slate-600">
+              Registration details, delegate fees, payment instructions and
+              important dates will be available here.
+            </p>
 
-        <input
-          className="w-full border p-3 rounded-lg"
-          placeholder="Email"
-        />
+            <button className="mt-8 rounded-lg bg-blue-700 px-6 py-3 font-medium text-white hover:bg-blue-800">
+              Register Now
+            </button>
+          </div>
+        </div>
+      </main>
 
-        <input
-          className="w-full border p-3 rounded-lg"
-          placeholder="Phone Number"
-        />
-
-        <input
-          className="w-full border p-3 rounded-lg"
-          placeholder="Hospital"
-        />
-
-        <button className="bg-blue-900 text-white px-6 py-3 rounded-lg">
-          Register
-        </button>
-
-      </form>
-
-    </section>
+      <Footer />
+    </>
   );
-};
+}
 
 export default Registration;

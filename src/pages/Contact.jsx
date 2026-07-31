@@ -1,51 +1,46 @@
-const Contact = () => {
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+function Contact() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16">
+    <>
+      <Navbar />
 
-      <h1 className="text-4xl font-bold text-blue-900">
-        Contact Us
-      </h1>
+      <main className="min-h-screen pt-20">
+        <div className="max-w-6xl mx-auto px-6 py-16">
+          <h1 className="text-4xl font-bold text-slate-800">
+            Contact Us
+          </h1>
 
-      <div className="mt-10 grid md:grid-cols-2 gap-10">
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">
+                Organizing Committee
+              </h3>
 
-        <div>
+              <p className="mt-4 text-slate-600">
+                Email: info@cardioconarunachal.com
+              </p>
 
-          <h2 className="text-xl font-semibold">
-            Venue
-          </h2>
+              <p className="mt-2 text-slate-600">
+                Phone: +91 XXXXX XXXXX
+              </p>
 
-          <p className="mt-2 text-gray-600">
-            Itanagar, Arunachal Pradesh
-          </p>
+              <p className="mt-2 text-slate-600">
+                Itanagar, Arunachal Pradesh
+              </p>
+            </div>
 
-          <h2 className="mt-8 text-xl font-semibold">
-            Email
-          </h2>
-
-          <p className="text-gray-600">
-            info@cardioconarunachal.org
-          </p>
-
-          <h2 className="mt-8 text-xl font-semibold">
-            Phone
-          </h2>
-
-          <p className="text-gray-600">
-            +91 98765 43210
-          </p>
-
+            <div className="h-72 rounded-xl bg-slate-200 flex items-center justify-center">
+              Google Map
+            </div>
+          </div>
         </div>
+      </main>
 
-        <iframe
-          title="Google Map"
-          src="https://www.google.com/maps?q=Itanagar&output=embed"
-          className="w-full h-96 rounded-xl shadow"
-        />
-
-      </div>
-
-    </section>
+      <Footer />
+    </>
   );
-};
+}
 
 export default Contact;

@@ -1,34 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Layout from "./components/layout/Layout";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Programme from "./pages/Programme";
 import Speakers from "./pages/Speakers";
+import Schedule from "./pages/Schedule";
 import Registration from "./pages/Registration";
 import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <BrowserRouter>
-
-      <Routes>
-
-        <Route element={<Layout />}>
-
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/programme" element={<Programme />} />
-          <Route path="/speakers" element={<Speakers />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/contact" element={<Contact />} />
-
-        </Route>
-
-      </Routes>
-
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/speakers" element={<Speakers />} />
+      <Route path="/schedule" element={<Schedule />} />
+      <Route path="/registration" element={<Registration />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 
