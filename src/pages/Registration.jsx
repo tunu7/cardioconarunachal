@@ -24,6 +24,9 @@ import {
   LockKeyhole,
   Users,
   Stethoscope,
+  BadgeCheck,
+  Landmark,
+  Sparkles,
 } from "lucide-react";
 
 /* =========================================================
@@ -34,13 +37,13 @@ const delegateCategories = [
   {
     id: "consultant",
     name: "Consultant",
-    description: "Practicing specialists & consultants",
+    description: "Practicing specialists and consultants",
     icon: Stethoscope,
   },
   {
     id: "resident",
-    name: "Resident Doctor",
-    description: "Residents & postgraduate trainees",
+    name: "Resident / PG",
+    description: "Residents and postgraduate trainees",
     icon: BriefcaseMedical,
   },
   {
@@ -52,8 +55,14 @@ const delegateCategories = [
   {
     id: "faculty",
     name: "Faculty",
-    description: "Academic & institutional faculty",
+    description: "Academic and institutional faculty",
     icon: Users,
+  },
+  {
+    id: "allied",
+    name: "Allied Healthcare",
+    description: "Eligible allied healthcare professionals",
+    icon: HeartPulse,
   },
 ];
 
@@ -67,15 +76,13 @@ function Registration() {
   const fadeUp = {
     hidden: {
       opacity: 0,
-      y: 30,
+      y: 24,
     },
-
     visible: {
       opacity: 1,
       y: 0,
-
       transition: {
-        duration: 0.6,
+        duration: 0.55,
         ease: "easeOut",
       },
     },
@@ -83,10 +90,9 @@ function Registration() {
 
   const stagger = {
     hidden: {},
-
     visible: {
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.07,
       },
     },
   };
@@ -94,32 +100,37 @@ function Registration() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add API / payment integration here later.
+    // Connect backend / registration API here.
     console.log("Registration submitted");
   };
+
+  const selectedCategory = delegateCategories.find(
+    (item) => item.id === category
+  );
 
   return (
     <>
       <Navbar />
 
-      <main className="overflow-hidden pt-20">
+      <main className="overflow-hidden bg-white pt-20">
 
         {/* =====================================================
             HERO
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-[#071a2d] text-white">
-
+        <section className="relative isolate overflow-hidden bg-[#061827] text-white">
           {/* Background */}
-
           <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
 
-            <div className="absolute -right-48 -top-48 h-150 w-150 rounded-full bg-cyan-500/10 blur-3xl" />
+            <div className="absolute -bottom-60 -left-40 h-125 w-125 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
 
-            <div className="absolute -bottom-60 -left-40 h-150 w-150 rounded-full bg-blue-600/10 blur-3xl" />
+            {/* Arunachal sunrise accent */}
+            <div className="absolute right-[8%] top-[14%] h-40 w-40 rounded-full bg-orange-400/10 blur-2xl sm:h-56 sm:w-56" />
 
+            {/* Pattern */}
             <div
-              className="absolute inset-0 opacity-[0.03]"
+              className="absolute inset-0 opacity-[0.025]"
               style={{
                 backgroundImage:
                   "radial-gradient(circle, white 1px, transparent 1px)",
@@ -127,248 +138,244 @@ function Registration() {
               }}
             />
 
+            {/* ECG pattern */}
+            <svg
+              className="absolute bottom-0 left-0 w-full opacity-[0.04]"
+              viewBox="0 0 1440 180"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0 100H230L270 100L305 55L340 145L380 25L425 100H650L690 100L720 60L750 140L790 40L830 100H1080L1120 100L1150 65L1180 135L1220 45L1260 100H1440"
+                stroke="currentColor"
+                strokeWidth="5"
+                className="text-cyan-300"
+              />
+            </svg>
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-
+          <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
             <motion.div
               variants={stagger}
               initial="hidden"
               animate="visible"
-              className="max-w-4xl"
+              className="max-w-5xl"
             >
+              {/* Conference badge */}
+              <motion.div
+                variants={fadeUp}
+                className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
+              >
+                <HeartPulse size={15} className="shrink-0" />
+                CSI Northeast Annual Conference 2026
+              </motion.div>
 
               <motion.div
                 variants={fadeUp}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur"
+                className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300 sm:text-sm"
               >
-                <HeartPulse size={17} />
-
-                CardioCon Arunachal 2026
+                <Sparkles size={15} />
+                Delegate Registration
               </motion.div>
 
+              {/* Heading */}
               <motion.h1
                 variants={fadeUp}
-                className="mt-7 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+                className="mt-5 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                Delegate
-                <span className="ml-3 text-cyan-300 sm:ml-4">
-                  Registration.
+                Register for
+                <span className="mt-1 block text-cyan-300">
+                  CardioCon Arunachal.
                 </span>
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
-                className="mt-7 max-w-2xl text-lg leading-8 text-slate-300"
+                className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg"
               >
-                Register for CardioCon Arunachal 2026 and join
-                cardiovascular professionals for three days of scientific
-                learning, clinical discussions and professional
-                collaboration.
+                Join cardiologists, physicians, academicians, researchers,
+                postgraduate students and healthcare professionals at the
+                24th CardioCon Arunachal — CSI Northeast Annual Conference
+                2026.
               </motion.p>
 
+              {/* Event information */}
               <motion.div
                 variants={fadeUp}
-                className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-300"
+                className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
               >
+                <HeroInfo
+                  icon={CalendarDays}
+                  label="Conference Dates"
+                  value="23–25 October 2026"
+                />
 
-                <span className="flex items-center gap-2">
-                  <CalendarDays
-                    size={17}
-                    className="text-cyan-300"
-                  />
-                  15–17 March 2026
-                </span>
-
-                <span className="flex items-center gap-2">
-                  <MapPin
-                    size={17}
-                    className="text-cyan-300"
-                  />
-                  Itanagar, Arunachal Pradesh
-                </span>
-
+                <HeroInfo
+                  icon={MapPin}
+                  label="Venue"
+                  value="Itanagar, Arunachal Pradesh"
+                  accent="orange"
+                />
               </motion.div>
-
             </motion.div>
-
           </div>
 
-          <div className="absolute bottom-0 h-1 w-full bg-linear-to-r from-blue-700 via-cyan-400 to-blue-700" />
-
+          {/* Arunachal inspired bottom accent */}
+          <div className="flex h-1.5">
+            <div className="flex-1 bg-orange-400" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-white" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-orange-400" />
+          </div>
         </section>
 
         {/* =====================================================
             REGISTRATION OVERVIEW
         ====================================================== */}
 
-        <section className="bg-white py-16 lg:py-20">
-
+        <section className="border-b border-slate-100 bg-white py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
-              className="grid gap-4 md:grid-cols-3"
+              viewport={{ once: true, amount: 0.15 }}
+              className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
             >
-
               {[
                 {
                   icon: CalendarDays,
-                  title: "15–17 March 2026",
-                  label: "Conference Dates",
+                  title: "23–25 October",
+                  label: "Three-Day Conference",
                 },
                 {
-                  icon: BriefcaseMedical,
-                  title: "Multiple Categories",
-                  label: "Doctors, Faculty & Students",
+                  icon: Users,
+                  title: "~200 Delegates",
+                  label: "Expected Participation",
+                },
+                {
+                  icon: Landmark,
+                  title: "CSI Northeast",
+                  label: "Annual Conference 2026",
                 },
                 {
                   icon: ShieldCheck,
-                  title: "Secure Registration",
-                  label: "Protected Delegate Information",
+                  title: "Delegate Registration",
+                  label: "Professional Conference",
                 },
               ].map(({ icon: Icon, title, label }) => (
-
                 <motion.div
                   variants={fadeUp}
+                  whileHover={{ y: -4 }}
                   key={title}
-                  className="group flex items-center gap-5 rounded-2xl border border-slate-200 p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-lg"
+                  className="group flex items-center gap-4 rounded-2xl border border-slate-200 p-5 transition-all hover:border-blue-100 hover:shadow-lg sm:p-6"
                 >
-
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
-                    <Icon size={26} />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
+                    <Icon size={22} />
                   </div>
 
-                  <div>
-
+                  <div className="min-w-0">
                     <h3 className="font-bold text-slate-900">
                       {title}
                     </h3>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
                       {label}
                     </p>
-
                   </div>
-
                 </motion.div>
-
               ))}
-
             </motion.div>
-
           </div>
-
         </section>
 
         {/* =====================================================
             REGISTRATION SECTION
         ====================================================== */}
 
-        <section className="bg-slate-50 py-20 lg:py-28">
-
+        <section className="bg-slate-50 py-20 sm:py-24 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             {/* Heading */}
-
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="mb-12 max-w-3xl"
+              className="mb-10 max-w-3xl sm:mb-12"
             >
-
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
+              <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
+                <span className="h-px w-7 bg-blue-700" />
                 Delegate Registration
-              </span>
+              </div>
 
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
+              <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
                 Complete Your Registration
               </h2>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Please provide accurate personal and professional
-                information. Fields marked with
-                <span className="font-semibold text-red-500"> *</span>
-                {" "}are required.
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                Please provide accurate personal and professional information.
+                Fields marked with{" "}
+                <span className="font-semibold text-red-500">*</span> are
+                required.
               </p>
-
             </motion.div>
 
             {/* FORM + SIDEBAR */}
-
-            <div className="grid gap-8 lg:grid-cols-[1fr_360px] lg:items-start">
+            <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_350px] lg:items-start lg:gap-8">
 
               {/* =================================================
                   FORM
               ================================================== */}
 
               <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
+                initial={{ opacity: 0, x: -25 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40"
+                transition={{ duration: 0.55 }}
+                className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40 sm:rounded-3xl"
               >
-
-                {/* Form header */}
-
-                <div className="border-b border-slate-100 px-6 py-7 sm:px-9">
-
+                {/* Form Header */}
+                <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
                   <div className="flex items-center gap-4">
-
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-                      <FileText size={23} />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
+                      <FileText size={22} />
                     </div>
 
                     <div>
-
-                      <h3 className="text-xl font-bold text-slate-900">
-                        Registration Form
+                      <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
+                        Delegate Registration Form
                       </h3>
 
-                      <p className="mt-1 text-sm text-slate-500">
-                        Personal & professional information
+                      <p className="mt-1 text-xs text-slate-500 sm:text-sm">
+                        Personal and professional information
                       </p>
-
                     </div>
-
                   </div>
-
                 </div>
 
                 <form
                   onSubmit={handleSubmit}
-                  className="p-6 sm:p-9"
+                  className="p-5 sm:p-8 lg:p-9"
                 >
-
                   {/* =============================================
-                      PERSONAL DETAILS
+                      01 PERSONAL DETAILS
                   ============================================== */}
 
                   <FormSectionHeader
                     number="01"
                     title="Personal Details"
-                    description="Your contact information"
+                    description="Your basic contact information"
                   />
 
-                  <div className="mt-7 grid gap-6 md:grid-cols-2">
-
+                  <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <Input
                       label="Full Name"
                       name="name"
                       icon={<User size={18} />}
                       placeholder="Enter your full name"
+                      autoComplete="name"
                       required
                     />
 
@@ -378,6 +385,7 @@ function Registration() {
                       icon={<Mail size={18} />}
                       type="email"
                       placeholder="name@example.com"
+                      autoComplete="email"
                       required
                     />
 
@@ -387,95 +395,104 @@ function Registration() {
                       icon={<Phone size={18} />}
                       type="tel"
                       placeholder="+91 XXXXX XXXXX"
+                      autoComplete="tel"
                       required
                     />
 
                     <Input
-                      label="Hospital / Institution"
-                      name="institution"
-                      icon={<Building2 size={18} />}
-                      placeholder="Hospital or institution name"
-                      required
+                      label="City / State"
+                      name="location"
+                      icon={<MapPin size={18} />}
+                      placeholder="e.g. Guwahati, Assam"
+                      autoComplete="address-level1"
                     />
-
                   </div>
 
                   {/* =============================================
-                      PROFESSIONAL DETAILS
+                      02 PROFESSIONAL DETAILS
                   ============================================== */}
 
-                  <div className="my-10 h-px bg-slate-100" />
+                  <FormDivider />
 
                   <FormSectionHeader
                     number="02"
                     title="Professional Details"
-                    description="Tell us about your medical background"
+                    description="Your institution and medical background"
                   />
 
-                  <div className="mt-7 grid gap-6 md:grid-cols-2">
+                  <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
+                    <Input
+                      label="Hospital / Institution"
+                      name="institution"
+                      icon={<Building2 size={18} />}
+                      placeholder="Institution name"
+                      required
+                    />
+
+                    <Input
+                      label="Designation"
+                      name="designation"
+                      icon={<BriefcaseMedical size={18} />}
+                      placeholder="e.g. Consultant Cardiologist"
+                    />
 
                     <Input
                       label="Specialization"
                       name="specialization"
-                      icon={<BriefcaseMedical size={18} />}
+                      icon={<HeartPulse size={18} />}
                       placeholder="e.g. Cardiology"
                     />
 
                     <Input
                       label="Medical Council Registration No."
                       name="registrationNumber"
-                      icon={<GraduationCap size={18} />}
+                      icon={<BadgeCheck size={18} />}
                       placeholder="Registration number"
                     />
-
                   </div>
 
                   {/* =============================================
-                      CATEGORY
+                      03 DELEGATE CATEGORY
                   ============================================== */}
 
-                  <div className="my-10 h-px bg-slate-100" />
+                  <FormDivider />
 
                   <FormSectionHeader
                     number="03"
                     title="Delegate Category"
-                    description="Select the category that best describes you"
+                    description="Choose the category applicable to you"
                   />
 
-                  <div className="mt-7 grid gap-4 sm:grid-cols-2">
-
+                  <div className="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
                     {delegateCategories.map(
                       ({ id, name, description, icon: Icon }) => {
-
                         const active = category === id;
 
                         return (
-
                           <button
                             key={id}
                             type="button"
+                            aria-pressed={active}
                             onClick={() => setCategory(id)}
-                            className={`relative flex items-start gap-4 rounded-2xl border p-5 text-left transition-all duration-200 ${
+                            className={`relative flex min-h-24 items-start gap-3 rounded-2xl border p-4 text-left outline-none transition-all sm:gap-4 sm:p-5 ${
                               active
-                                ? "border-blue-600 bg-blue-50/70 ring-1 ring-blue-600"
-                                : "border-slate-200 hover:border-blue-200 hover:bg-slate-50"
+                                ? "border-blue-600 bg-blue-50/80 ring-1 ring-blue-600"
+                                : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
                             }`}
                           >
-
                             <div
-                              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
+                              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition sm:h-11 sm:w-11 ${
                                 active
                                   ? "bg-blue-700 text-white"
                                   : "bg-slate-100 text-slate-600"
                               }`}
                             >
-                              <Icon size={21} />
+                              <Icon size={20} />
                             </div>
 
-                            <div className="pr-5">
-
+                            <div className="min-w-0 pr-5">
                               <p
-                                className={`font-bold ${
+                                className={`text-sm font-bold sm:text-base ${
                                   active
                                     ? "text-blue-800"
                                     : "text-slate-800"
@@ -487,13 +504,10 @@ function Registration() {
                               <p className="mt-1 text-xs leading-5 text-slate-500">
                                 {description}
                               </p>
-
                             </div>
 
-                            {/* Selection indicator */}
-
                             <div
-                              className={`absolute right-4 top-4 flex h-5 w-5 items-center justify-center rounded-full border ${
+                              className={`absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full border transition sm:right-4 sm:top-4 ${
                                 active
                                   ? "border-blue-700 bg-blue-700"
                                   : "border-slate-300"
@@ -501,21 +515,16 @@ function Registration() {
                             >
                               {active && (
                                 <CheckCircle2
-                                  size={13}
+                                  size={12}
                                   className="text-white"
                                 />
                               )}
                             </div>
-
                           </button>
-
                         );
                       }
                     )}
-
                   </div>
-
-                  {/* Hidden category field */}
 
                   <input
                     type="hidden"
@@ -524,19 +533,18 @@ function Registration() {
                   />
 
                   {/* =============================================
-                      ADDITIONAL INFORMATION
+                      04 ADDITIONAL INFORMATION
                   ============================================== */}
 
-                  <div className="my-10 h-px bg-slate-100" />
+                  <FormDivider />
 
                   <FormSectionHeader
                     number="04"
                     title="Additional Information"
-                    description="Optional information for the organising team"
+                    description="Information that may help the organising team"
                   />
 
                   <div className="mt-7">
-
                     <label
                       htmlFor="notes"
                       className="mb-2 block text-sm font-semibold text-slate-700"
@@ -548,83 +556,50 @@ function Registration() {
                       id="notes"
                       name="notes"
                       rows={5}
-                      placeholder="Dietary requirements, accessibility requirements or other information..."
+                      placeholder="Dietary requirements, accessibility requirements or any other relevant information..."
                       className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                     />
-
                   </div>
 
                   {/* =============================================
-                      CONSENT
+                      DECLARATION
                   ============================================== */}
 
-                  <div className="mt-8 rounded-2xl bg-slate-50 p-5">
-
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
                     <label className="flex cursor-pointer items-start gap-3">
-
                       <input
                         type="checkbox"
+                        name="declaration"
                         required
-                        className="mt-1 h-4 w-4 rounded border-slate-300 accent-blue-700"
+                        className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 accent-blue-700"
                       />
 
-                      <span className="text-sm leading-6 text-slate-600">
-
-                        I confirm that the information provided is accurate
-                        and agree to the{" "}
-
-                        <Link
-                          to="/terms"
-                          className="font-semibold text-blue-700 hover:underline"
-                        >
-                          registration terms
-                        </Link>
-
-                        {" "}and{" "}
-
-                        <Link
-                          to="/privacy"
-                          className="font-semibold text-blue-700 hover:underline"
-                        >
-                          privacy policy
-                        </Link>
-
-                        .
-
+                      <span className="text-xs leading-6 text-slate-600 sm:text-sm">
+                        I confirm that the information provided above is
+                        accurate and may be used by the organising committee
+                        for conference registration and related communication.
                       </span>
-
                     </label>
-
                   </div>
 
-                  {/* =============================================
-                      SUBMIT
-                  ============================================== */}
-
+                  {/* Submit */}
                   <button
                     type="submit"
-                    className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-4 font-bold text-white shadow-lg shadow-blue-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl"
+                    className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-blue-900/10 transition-all hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl sm:text-base"
                   >
-
                     Continue Registration
 
                     <ArrowRight
                       size={18}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                      className="transition-transform group-hover:translate-x-1"
                     />
-
                   </button>
 
-                  <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400">
-
-                    <LockKeyhole size={13} />
-
-                    Your information is submitted securely.
-
+                  <div className="mt-4 flex items-center justify-center gap-2 text-center text-[11px] leading-5 text-slate-400 sm:text-xs">
+                    <LockKeyhole size={13} className="shrink-0" />
+                    Your registration information will be handled securely.
                   </div>
-
                 </form>
-
               </motion.div>
 
               {/* =================================================
@@ -632,72 +607,64 @@ function Registration() {
               ================================================== */}
 
               <motion.aside
-                initial={{
-                  opacity: 0,
-                  x: 30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
+                initial={{ opacity: 0, x: 25 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.1,
+                  duration: 0.55,
+                  delay: 0.08,
                 }}
-                className="space-y-5 lg:sticky lg:top-28"
+                className="space-y-4 sm:space-y-5 lg:sticky lg:top-28"
               >
+                {/* Summary */}
+                <div className="relative overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
+                  <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-400/10 blur-2xl" />
 
-                {/* Conference Summary */}
-
-                <div className="overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
-
-                  <div className="border-b border-white/10 p-6">
-
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">
+                  <div className="relative border-b border-white/10 p-5 sm:p-6">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 sm:text-xs">
                       Registration Summary
                     </p>
 
                     <h3 className="mt-2 text-xl font-bold">
-                      CardioCon Arunachal 2026
+                      CardioCon Arunachal
                     </h3>
 
+                    <p className="mt-1 text-xs text-slate-400">
+                      CSI Northeast Annual Conference 2026
+                    </p>
                   </div>
 
-                  <div className="space-y-5 p-6">
-
+                  <div className="relative space-y-5 p-5 sm:p-6">
                     <SummaryItem
                       icon={CalendarDays}
                       label="Conference Dates"
-                      value="15–17 March 2026"
+                      value="23–25 October 2026"
                     />
 
                     <SummaryItem
                       icon={MapPin}
-                      label="Location"
+                      label="Venue"
                       value="Itanagar, Arunachal Pradesh"
                     />
 
                     <SummaryItem
                       icon={User}
                       label="Selected Category"
-                      value={
-                        delegateCategories.find(
-                          (item) => item.id === category
-                        )?.name
-                      }
+                      value={selectedCategory?.name}
                     />
-
                   </div>
-
                 </div>
 
-                {/* Payment */}
+                {/* Fee */}
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                      <CreditCard size={21} />
+                    </div>
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-6">
-
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                    <CreditCard size={21} />
+                    <span className="rounded-full bg-amber-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+                      To be announced
+                    </span>
                   </div>
 
                   <h3 className="mt-5 font-bold text-slate-900">
@@ -705,134 +672,197 @@ function Registration() {
                   </h3>
 
                   <p className="mt-2 text-sm leading-6 text-slate-500">
-                    Applicable registration fees and payment instructions
-                    will be displayed before final confirmation.
+                    Category-wise registration fees and payment details will
+                    be published once confirmed by the organising committee.
                   </p>
-
                 </div>
 
-                {/* Help */}
-
-                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
-
+                {/* Secretariat */}
+                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
                   <div className="flex items-center gap-3">
-
-                    <Info
-                      size={20}
-                      className="text-blue-700"
-                    />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
+                      <Info size={18} />
+                    </div>
 
                     <h3 className="font-bold text-blue-950">
-                      Need Assistance?
+                      Registration Assistance
                     </h3>
-
                   </div>
 
-                  <p className="mt-3 text-sm leading-6 text-blue-900/70">
-                    Contact the CardioCon registration team if you have
-                    questions regarding delegate registration.
+                  <p className="mt-4 text-sm leading-6 text-blue-950/65">
+                    For registration-related queries, contact the CardioCon
+                    Arunachal organising team.
                   </p>
+
+                  <a
+                    href="mailto:cardioconarunachal@gmail.com"
+                    className="mt-4 flex min-w-0 items-center gap-2 text-sm font-bold text-blue-700 hover:underline"
+                  >
+                    <Mail size={15} className="shrink-0" />
+
+                    <span className="min-w-0 break-all">
+                      cardioconarunachal@gmail.com
+                    </span>
+                  </a>
 
                   <Link
                     to="/contact"
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
+                    className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
                   >
-                    Contact Support
-                    <ArrowRight size={14} />
+                    Contact Secretariat
+
+                    <ArrowRight
+                      size={14}
+                      className="transition group-hover:translate-x-1"
+                    />
                   </Link>
-
                 </div>
-
               </motion.aside>
-
             </div>
-
           </div>
-
         </section>
 
         {/* =====================================================
             IMPORTANT INFORMATION
         ====================================================== */}
 
-        <section className="bg-white py-24">
-
+        <section className="bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
-
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-3xl border border-blue-100 bg-blue-50/60 p-7 sm:p-10"
+              className="rounded-3xl border border-blue-100 bg-blue-50/60 p-5 sm:rounded-3xl sm:p-8 lg:p-10"
             >
-
               <div className="flex items-start gap-4">
-
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white">
-                  <Info size={23} />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white sm:h-12 sm:w-12">
+                  <Info size={22} />
                 </div>
 
                 <div>
-
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700 sm:text-xs">
                     Before You Register
                   </p>
 
-                  <h2 className="mt-2 text-2xl font-bold text-blue-950 sm:text-3xl">
-                    Important Registration Information
+                  <h2 className="mt-2 text-2xl font-bold tracking-tight text-blue-950 sm:text-3xl">
+                    Registration Information
                   </h2>
-
                 </div>
-
               </div>
 
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-
+              <div className="mt-7 grid gap-3 sm:mt-8 md:grid-cols-2">
                 {[
-                  "Registration is confirmed only after successful payment.",
-                  "Please provide accurate professional and contact information.",
-                  "A valid professional or student ID may be required during check-in.",
-                  "E-certificates will be issued to eligible registered delegates.",
-                  "Conference materials will be available at the registration desk.",
-                  "CME accreditation and credit information will be announced separately.",
+                  "Please provide accurate personal and professional information.",
+                  "Select the delegate category applicable to your professional status.",
+                  "Professional or student identification may be requested for applicable categories.",
+                  "Registration fees and payment instructions will be announced separately.",
+                  "Final confirmation will be issued according to the registration process announced by the organising committee.",
+                  "Additional conference and academic information will be updated as it is finalised.",
                 ].map((item) => (
-
                   <div
                     key={item}
-                    className="flex items-start gap-3 rounded-xl bg-white/70 p-4"
+                    className="flex items-start gap-3 rounded-xl border border-white/70 bg-white/75 p-4"
                   >
-
                     <CheckCircle2
-                      size={19}
+                      size={18}
                       className="mt-0.5 shrink-0 text-emerald-600"
                     />
 
-                    <p className="text-sm leading-6 text-slate-700">
+                    <p className="text-xs leading-6 text-slate-700 sm:text-sm">
                       {item}
                     </p>
-
                   </div>
-
                 ))}
-
               </div>
-
             </motion.div>
-
           </div>
-
         </section>
 
+        {/* =====================================================
+            CONTACT CTA
+        ====================================================== */}
+
+        <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
+          <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
+
+          <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
+          >
+            <HeartPulse
+              size={40}
+              className="mx-auto text-cyan-300"
+            />
+
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200 sm:text-xs">
+              23–25 October 2026 · Arunachal Pradesh
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              We look forward to welcoming you.
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
+              Be part of CSI Northeast Annual Conference 2026 and experience
+              three days of cardiovascular science, collaboration and academic
+              exchange in Arunachal Pradesh.
+            </p>
+
+            <Link
+              to="/contact"
+              className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl sm:w-auto"
+            >
+              Contact Organising Team
+
+              <ArrowRight
+                size={17}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          </motion.div>
+        </section>
       </main>
 
       <Footer />
     </>
+  );
+}
+
+/* =========================================================
+   HERO INFO
+========================================================= */
+
+function HeroInfo({
+  icon: Icon,
+  label,
+  value,
+  accent = "cyan",
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+      <Icon
+        size={18}
+        className={`shrink-0 ${
+          accent === "orange"
+            ? "text-orange-300"
+            : "text-cyan-300"
+        }`}
+      />
+
+      <div>
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+          {label}
+        </p>
+
+        <p className="mt-0.5 text-sm font-semibold text-slate-200">
+          {value}
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -851,8 +881,7 @@ function Input({
   const inputId = id || name;
 
   return (
-    <div>
-
+    <div className="min-w-0">
       <label
         htmlFor={inputId}
         className="mb-2 block text-sm font-semibold text-slate-700"
@@ -860,15 +889,11 @@ function Input({
         {label}
 
         {required && (
-          <span className="ml-1 text-red-500">
-            *
-          </span>
+          <span className="ml-1 text-red-500">*</span>
         )}
-
       </label>
 
       <div className="relative">
-
         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
           {icon}
         </span>
@@ -878,11 +903,9 @@ function Input({
           name={name}
           required={required}
           {...props}
-          className="w-full rounded-xl border border-slate-300 bg-white py-3.5 pl-12 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+          className="w-full min-w-0 rounded-xl border border-slate-300 bg-white py-3.5 pl-11 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100 sm:pl-12"
         />
-
       </div>
-
     </div>
   );
 }
@@ -897,26 +920,30 @@ function FormSectionHeader({
   description,
 }) {
   return (
-    <div className="flex items-center gap-4">
-
+    <div className="flex items-start gap-3 sm:gap-4">
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xs font-bold text-blue-700">
         {number}
       </span>
 
       <div>
-
         <h3 className="font-bold text-slate-900">
           {title}
         </h3>
 
-        <p className="mt-0.5 text-xs text-slate-500">
+        <p className="mt-0.5 text-xs leading-5 text-slate-500">
           {description}
         </p>
-
       </div>
-
     </div>
   );
+}
+
+/* =========================================================
+   FORM DIVIDER
+========================================================= */
+
+function FormDivider() {
+  return <div className="my-8 h-px bg-slate-100 sm:my-10" />;
 }
 
 /* =========================================================
@@ -930,23 +957,19 @@ function SummaryItem({
 }) {
   return (
     <div className="flex items-start gap-3">
-
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-cyan-300">
         <Icon size={17} />
       </div>
 
-      <div>
-
+      <div className="min-w-0">
         <p className="text-xs text-slate-500">
           {label}
         </p>
 
-        <p className="mt-1 text-sm font-semibold leading-5 text-slate-200">
+        <p className="mt-1 wrap-break-word text-sm font-semibold leading-5 text-slate-200">
           {value}
         </p>
-
       </div>
-
     </div>
   );
 }
