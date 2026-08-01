@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import {
   CalendarDays,
   MapPin,
@@ -10,22 +12,32 @@ import {
   Stethoscope,
   Microscope,
   Presentation,
-  Award,
-  Plane,
-  Mountain,
-  Clock3,
-  CheckCircle2,
+  GraduationCap,
+  Building2,
+  Mail,
   Sparkles,
-  Quote,
+  UserRound,
+  BookOpen,
+  Network,
+  ChevronRight,
+  Landmark,
+  CheckCircle2,
 } from "lucide-react";
 
 function Home() {
+  /* =========================================================
+     ANIMATIONS
+  ========================================================= */
+
   const fadeUp = {
-    hidden: { opacity: 0, y: 35 },
+    hidden: { opacity: 0, y: 28 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.65, ease: "easeOut" },
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
   };
 
@@ -33,63 +45,78 @@ function Home() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.12,
+        staggerChildren: 0.08,
       },
     },
   };
 
+  /* =========================================================
+     DATA
+  ========================================================= */
+
   const highlights = [
     {
       icon: Presentation,
-      title: "Keynote Sessions",
-      text: "Insights from leading cardiologists and healthcare experts.",
+      title: "Scientific Sessions",
+      text: "Contemporary discussions on advances, evidence and evolving practices in cardiovascular medicine.",
     },
     {
       icon: HeartPulse,
-      title: "Live Case Discussions",
-      text: "Interactive clinical discussions built around real-world cases.",
+      title: "Clinical Discussions",
+      text: "Interactive conversations focused on clinical decision-making, complex cases and patient care.",
     },
     {
       icon: Microscope,
-      title: "Research Presentations",
-      text: "Discover emerging research and innovations in cardiovascular care.",
+      title: "Research & Innovation",
+      text: "Encouraging scientific research, emerging ideas and evidence relevant to cardiovascular medicine.",
+    },
+    {
+      icon: Network,
+      title: "Professional Collaboration",
+      text: "Connecting cardiologists, physicians, academicians, researchers and the next generation of clinicians.",
+    },
+  ];
+
+  const leadership = [
+    {
+      name: "Dr. Rinchin Megeji",
+      role: "Organising Chairman",
+    },
+    {
+      name: "Dr. Tony Ete",
+      role: "Organising Secretary cum Treasurer",
+    },
+    {
+      name: "Dr. Romar Dabu",
+      role: "Convenor",
+    },
+    {
+      name: "Dr. Amit Malviya",
+      role: "Scientific Chairman",
+    },
+    {
+      name: "Dr. D.J. Dutta",
+      role: "President Elect",
+    },
+  ];
+
+  const attendees = [
+    {
+      icon: HeartPulse,
+      title: "Cardiologists",
     },
     {
       icon: Stethoscope,
-      title: "Hands-on Workshops",
-      text: "Practical learning sessions designed for clinical application.",
-    },
-  ];
-
-  const program = [
-    {
-      day: "Day 01",
-      date: "15 March",
-      title: "Foundations & Innovations",
-      description:
-        "Inauguration, keynote addresses, preventive cardiology and emerging innovations.",
+      title: "Physicians",
     },
     {
-      day: "Day 02",
-      date: "16 March",
-      title: "Clinical Excellence",
-      description:
-        "Complex case discussions, interventions, workshops and research presentations.",
+      icon: Microscope,
+      title: "Researchers & Academicians",
     },
     {
-      day: "Day 03",
-      date: "17 March",
-      title: "Future of Cardiology",
-      description:
-        "Future technologies, young investigator sessions, awards and closing ceremony.",
+      icon: GraduationCap,
+      title: "Postgraduate Students",
     },
-  ];
-
-  const stats = [
-    ["500+", "Delegates"],
-    ["40+", "Expert Speakers"],
-    ["25+", "Scientific Sessions"],
-    ["3", "Days of Learning"],
   ];
 
   return (
@@ -98,447 +125,445 @@ function Home() {
 
       <main className="overflow-hidden bg-white pt-20">
 
-        {/* ======================================================
+        {/* =====================================================
             HERO
         ====================================================== */}
-        <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-[#071a2d] text-white">
 
-          {/* Decorative background */}
-          <div className="absolute inset-0">
-            <div className="absolute -right-40 -top-40 h-150 w-150 rounded-full bg-cyan-500/10 blur-3xl" />
-            <div className="absolute -left-40 top-1/3 h-125 w-125 rounded-full bg-orange-400/10 blur-3xl" />
+        <section className="relative isolate overflow-hidden bg-[#061827] text-white">
 
-            {/* Arunachal inspired sun */}
-            <div className="absolute right-[8%] top-[14%] h-48 w-48 rounded-full bg-orange-400/15 blur-sm sm:h-64 sm:w-64" />
+          {/* Background */}
+          <div className="pointer-events-none absolute inset-0">
 
-            {/* Himalayan layers */}
+            <div className="absolute -right-40 -top-40 h-100 w-100 rounded-full bg-cyan-400/10 blur-3xl sm:h-140 sm:w-140" />
+
+            <div className="absolute -bottom-64 -left-40 h-125 w-125 rounded-full bg-blue-500/10 blur-3xl" />
+
+            <div className="absolute right-[5%] top-[10%] h-40 w-40 rounded-full bg-orange-400/10 blur-md sm:h-60 sm:w-60" />
+
+            {/* Dotted pattern */}
             <div
-              className="absolute bottom-0 left-0 right-0 h-[45%] opacity-60"
+              className="absolute inset-0 opacity-[0.025]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, white 1px, transparent 1px)",
+                backgroundSize: "28px 28px",
+              }}
+            />
+
+            {/* Mountain layer */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-[30%] opacity-70"
               style={{
                 clipPath:
-                  "polygon(0 75%, 12% 48%, 21% 68%, 34% 25%, 45% 67%, 57% 42%, 68% 70%, 80% 28%, 91% 61%, 100% 43%, 100% 100%, 0 100%)",
+                  "polygon(0 76%, 11% 49%, 22% 68%, 34% 30%, 46% 68%, 58% 45%, 69% 72%, 81% 34%, 91% 62%, 100% 45%, 100% 100%, 0 100%)",
                 background:
-                  "linear-gradient(to bottom, rgba(15,118,110,.35), rgba(3,19,33,.95))",
+                  "linear-gradient(to bottom, rgba(13,148,136,.16), rgba(3,15,25,.9))",
               }}
             />
 
             <div
-              className="absolute bottom-0 left-0 right-0 h-[30%]"
+              className="absolute bottom-0 left-0 right-0 h-[18%] bg-[#04111d]"
               style={{
                 clipPath:
-                  "polygon(0 60%, 14% 30%, 28% 67%, 43% 24%, 55% 61%, 70% 34%, 84% 68%, 100% 25%, 100% 100%, 0 100%)",
-                background: "#061522",
+                  "polygon(0 62%, 14% 29%, 28% 68%, 43% 27%, 56% 65%, 70% 36%, 84% 69%, 100% 28%, 100% 100%, 0 100%)",
               }}
             />
+
           </div>
 
-          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl items-center px-4 py-24 sm:px-6 lg:px-8">
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              animate="visible"
-              className="max-w-4xl"
-            >
-              <motion.div
-                variants={fadeUp}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-cyan-100 backdrop-blur-md"
-              >
-                <HeartPulse size={17} className="text-cyan-300" />
-                Annual Cardiovascular Conference · Arunachal Pradesh
-              </motion.div>
+          {/* HERO CONTENT */}
 
-              <motion.h1
-                variants={fadeUp}
-                className="mt-7 max-w-4xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-8xl"
-              >
-                Advancing Hearts.
-                <span className="mt-2 block bg-linear-to-r from-cyan-300 via-cyan-400 to-emerald-300 bg-clip-text text-transparent">
-                  Inspiring Care.
-                </span>
-              </motion.h1>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-              <motion.p
-                variants={fadeUp}
-                className="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg lg:text-xl"
-              >
-                CardioCon Arunachal 2026 brings clinicians, researchers,
-                healthcare professionals and future medical leaders together
-                in the heart of Northeast India.
-              </motion.p>
+            <div className="grid min-h-[calc(100svh-5rem)] items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-24">
+
+              {/* LEFT */}
 
               <motion.div
-                variants={fadeUp}
-                className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-200"
+                variants={stagger}
+                initial="hidden"
+                animate="visible"
+                className="relative z-10"
               >
-                <span className="flex items-center gap-2">
-                  <CalendarDays size={18} className="text-cyan-300" />
-                  15–17 March 2026
-                </span>
 
-                <span className="flex items-center gap-2">
-                  <MapPin size={18} className="text-orange-300" />
-                  Itanagar, Arunachal Pradesh
-                </span>
-              </motion.div>
+                {/* CSI Label */}
 
-              <motion.div
-                variants={fadeUp}
-                className="mt-10 flex flex-col gap-4 sm:flex-row"
-              >
-                <button className="group flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-cyan-950/30 transition hover:-translate-y-0.5 hover:bg-cyan-400">
-                  Register Now
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </button>
-
-                <button className="rounded-xl border border-white/25 bg-white/5 px-8 py-4 font-semibold backdrop-blur-sm transition hover:bg-white hover:text-slate-900">
-                  Explore Program
-                </button>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Arunachal inspired border */}
-          <div className="absolute bottom-0 z-20 flex h-3 w-full overflow-hidden">
-            {Array.from({ length: 30 }).map((_, index) => (
-              <div
-                key={index}
-                className={`h-full flex-1 ${
-                  index % 3 === 0
-                    ? "bg-orange-400"
-                    : index % 3 === 1
-                    ? "bg-cyan-500"
-                    : "bg-white"
-                }`}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* ======================================================
-            QUICK INFO
-        ====================================================== */}
-        <section className="relative z-20 -mt-8 px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mx-auto grid max-w-7xl gap-4 rounded-3xl border border-slate-100 bg-white p-4 shadow-2xl shadow-slate-900/10 md:grid-cols-3"
-          >
-            {[
-              {
-                icon: CalendarDays,
-                title: "Conference Date",
-                text: "15–17 March 2026",
-              },
-              {
-                icon: MapPin,
-                title: "Conference Venue",
-                text: "Itanagar, Arunachal Pradesh",
-              },
-              {
-                icon: Users,
-                title: "500+ Delegates",
-                text: "Doctors, Researchers & Students",
-              },
-            ].map(({ icon: Icon, title, text }) => (
-              <motion.div
-                variants={fadeUp}
-                key={title}
-                className="flex items-center gap-5 rounded-2xl p-5 transition hover:bg-slate-50 sm:p-6"
-              >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
-                  <Icon size={27} />
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1 text-sm text-slate-500">{text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* ======================================================
-            ABOUT
-        ====================================================== */}
-        <section className="py-28">
-          <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <div className="relative min-h-125 overflow-hidden rounded-4xl bg-linear-to-br from-blue-950 via-blue-800 to-teal-700 p-10 text-white shadow-2xl">
-
-                <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-300/15" />
-
-                <div className="relative flex h-full min-h-105 flex-col justify-between">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-white/10 backdrop-blur">
-                    <HeartPulse size={42} className="text-cyan-300" />
-                  </div>
-
-                  <div>
-                    <Mountain
-                      size={70}
-                      strokeWidth={1}
-                      className="mb-5 text-white/50"
-                    />
-
-                    <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
-                      Medicine meets the mountains
-                    </p>
-
-                    <h3 className="mt-4 max-w-md text-3xl font-bold leading-tight sm:text-4xl">
-                      World-class cardiovascular learning in Arunachal Pradesh.
-                    </h3>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-7 -right-3 rounded-2xl border border-slate-100 bg-white p-5 shadow-xl sm:right-8">
-                <div className="flex items-center gap-4">
-                  <div className="rounded-xl bg-orange-50 p-3 text-orange-500">
-                    <Sparkles size={25} />
-                  </div>
-
-                  <div>
-                    <p className="text-xl font-bold text-slate-900">
-                      Arunachal 2026
-                    </p>
-                    <p className="text-sm text-slate-500">
-                      Knowledge · Community · Care
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="max-w-xl"
-            >
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
-                About CardioCon
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-                Advancing Cardiovascular
-                <span className="text-blue-700"> Care Together.</span>
-              </h2>
-
-              <p className="mt-7 text-lg leading-8 text-slate-600">
-                CardioCon Arunachal is a premier academic gathering dedicated
-                to cardiovascular medicine, connecting clinical expertise,
-                scientific research and healthcare innovation.
-              </p>
-
-              <p className="mt-4 leading-7 text-slate-500">
-                Hosted in Arunachal Pradesh, the conference creates a platform
-                for specialists, physicians, researchers and students to
-                exchange knowledge while strengthening cardiovascular care
-                across the region.
-              </p>
-
-              <div className="mt-8 space-y-4">
-                {[
-                  "Evidence-based scientific discussions",
-                  "Collaboration between specialists and young doctors",
-                  "Focus on cardiovascular care in the Northeast",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={21}
-                      className="mt-0.5 shrink-0 text-teal-600"
-                    />
-                    <span className="text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button className="group mt-9 flex items-center gap-2 font-semibold text-blue-700">
-                Discover CardioCon
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
-              </button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ======================================================
-            STATS
-        ====================================================== */}
-        <section className="border-y border-slate-100 bg-slate-50">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
-            {stats.map(([number, label], index) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="border-slate-200 px-4 py-5 text-center lg:not-last:border-r"
-              >
-                <p className="text-4xl font-bold text-blue-800 lg:text-5xl">
-                  {number}
-                </p>
-                <p className="mt-2 text-sm font-medium text-slate-500">
-                  {label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* ======================================================
-            HIGHLIGHTS
-        ====================================================== */}
-        <section className="py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mx-auto max-w-3xl text-center"
-            >
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
-                Scientific Experience
-              </span>
-
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-                Conference Highlights
-              </h2>
-
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Three days of scientific exchange, practical learning and
-                meaningful conversations shaping the future of cardiovascular
-                medicine.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
-            >
-              {highlights.map(({ icon: Icon, title, text }) => (
                 <motion.div
                   variants={fadeUp}
-                  whileHover={{ y: -8 }}
-                  key={title}
-                  className="group rounded-3xl border border-slate-200 bg-white p-8 transition-shadow hover:shadow-2xl hover:shadow-slate-200/70"
+                  className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
-                    <Icon size={27} />
+                  <HeartPulse
+                    size={15}
+                    className="shrink-0 text-cyan-300"
+                  />
+
+                  <span>
+                    CSI Northeast Annual Conference 2026
+                  </span>
+                </motion.div>
+
+                {/* Historic */}
+
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-300 sm:text-sm"
+                >
+                  <Sparkles size={16} />
+
+                  A Historic First in Arunachal Pradesh
+                </motion.div>
+
+                {/* Main heading */}
+
+                <motion.h1
+                  variants={fadeUp}
+                  className="mt-5 max-w-4xl text-[3.25rem] font-black leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl lg:text-[5.4rem]"
+                >
+                  CardioCon
+                  <span className="block text-cyan-300">
+                    Arunachal
+                  </span>
+                  <span className="block text-white">
+                    2026
+                  </span>
+                </motion.h1>
+
+                {/* Copy */}
+
+                <motion.p
+                  variants={fadeUp}
+                  className="mt-7 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8"
+                >
+                  The Annual Conference of the Cardiology Society of India,
+                  Northeast Chapter — bringing the cardiovascular community
+                  together for scientific exchange, academic collaboration and
+                  clinical advancement.
+                </motion.p>
+
+                {/* Date / Venue */}
+
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2"
+                >
+
+                  <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
+                      <CalendarDays size={19} />
+                    </div>
+
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                        Conference Dates
+                      </p>
+
+                      <p className="mt-1 text-sm font-bold text-white sm:text-base">
+                        23–25 October 2026
+                      </p>
+                    </div>
+
                   </div>
 
-                  <h3 className="mt-7 text-xl font-bold text-slate-900">
-                    {title}
-                  </h3>
+                  <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
 
-                  <p className="mt-3 text-sm leading-7 text-slate-500">
-                    {text}
-                  </p>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-400/10 text-orange-300">
+                      <MapPin size={19} />
+                    </div>
 
-                  <ArrowRight
-                    size={19}
-                    className="mt-6 text-slate-300 transition group-hover:translate-x-1 group-hover:text-blue-700"
-                  />
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                        Conference Venue
+                      </p>
+
+                      <p className="mt-1 text-sm font-bold leading-5 text-white">
+                        Donyi Polo International Hotel
+                      </p>
+
+                      <p className="text-xs text-slate-400">
+                        Itanagar, Arunachal Pradesh
+                      </p>
+                    </div>
+
+                  </div>
+
                 </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
 
-        {/* ======================================================
-            PROGRAM PREVIEW
-        ====================================================== */}
-        <section className="bg-[#071a2d] py-28 text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                {/* CTA */}
 
-            <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-              <motion.div
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="max-w-2xl"
-              >
-                <span className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
-                  Scientific Program
-                </span>
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-8 flex flex-col gap-3 sm:flex-row"
+                >
 
-                <h2 className="mt-4 text-4xl font-bold lg:text-5xl">
-                  Three Days of Discovery
-                </h2>
+                  <Link
+                    to="/registration"
+                    className="group flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-cyan-950/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400 sm:text-base"
+                  >
+                    Register Now
 
-                <p className="mt-5 text-lg leading-8 text-slate-300">
-                  A carefully curated program combining science, clinical
-                  expertise, research and practical learning.
-                </p>
+                    <ArrowRight
+                      size={17}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </Link>
+
+                  <Link
+                    to="/schedule"
+                    className="group flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/4 px-7 py-3.5 text-sm font-semibold backdrop-blur transition hover:bg-white hover:text-slate-900 sm:text-base"
+                  >
+                    Scientific Program
+
+                    <ChevronRight
+                      size={17}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </Link>
+
+                </motion.div>
+
               </motion.div>
 
-              <button className="flex w-fit items-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold transition hover:bg-white hover:text-slate-900">
-                View Full Program
-                <ArrowRight size={18} />
-              </button>
-            </div>
+              {/* =================================================
+                  RIGHT HERO PANEL
+              ================================================== */}
 
-            <div className="mt-14 grid gap-5 lg:grid-cols-3">
-              {program.map((item, index) => (
-                <motion.div
-                  key={item.day}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.12 }}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:bg-white/10"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-cyan-300">
-                      {item.day}
-                    </span>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: 35,
+                  scale: 0.97,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                }}
+                className="relative hidden lg:block"
+              >
 
-                    <span className="flex items-center gap-2 text-sm text-slate-400">
-                      <CalendarDays size={15} />
-                      {item.date}
-                    </span>
+                {/* Main panel */}
+
+                <div className="relative min-h-135 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5.5 p-8 shadow-2xl shadow-black/20 backdrop-blur-xl">
+
+                  {/* Sun */}
+
+                  <div className="absolute right-10 top-10 h-32 w-32 rounded-full bg-orange-300/80 shadow-[0_0_100px_rgba(251,146,60,.25)]" />
+
+                  {/* Mountains */}
+
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-[65%] bg-teal-800/80"
+                    style={{
+                      clipPath:
+                        "polygon(0 70%, 13% 47%, 24% 59%, 38% 21%, 52% 61%, 66% 35%, 79% 64%, 91% 31%, 100% 48%, 100% 100%, 0 100%)",
+                    }}
+                  />
+
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-[44%] bg-[#061827]"
+                    style={{
+                      clipPath:
+                        "polygon(0 58%, 16% 25%, 31% 65%, 48% 30%, 63% 70%, 80% 21%, 100% 60%, 100% 100%, 0 100%)",
+                    }}
+                  />
+
+                  {/* Top content */}
+
+                  <div className="relative z-10">
+
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
+                      <HeartPulse
+                        size={27}
+                        className="text-cyan-300"
+                      />
+                    </div>
+
+                    <p className="mt-6 text-xs font-bold uppercase tracking-[0.25em] text-cyan-200">
+                      CSI Northeast 2026
+                    </p>
+
+                    <h2 className="mt-3 max-w-sm text-3xl font-bold leading-tight">
+                      A landmark chapter for cardiovascular medicine in
+                      Arunachal Pradesh.
+                    </h2>
+
                   </div>
 
-                  <h3 className="mt-8 text-2xl font-bold">{item.title}</h3>
+                  {/* Bottom */}
 
-                  <p className="mt-4 leading-7 text-slate-400">
-                    {item.description}
-                  </p>
+                  <div className="absolute bottom-8 left-8 right-8 z-10">
+
+                    <div className="flex items-center justify-between border-t border-white/10 pt-6">
+
+                      <div>
+                        <p className="text-4xl font-black">
+                          ~200
+                        </p>
+
+                        <p className="mt-1 text-xs uppercase tracking-wider text-slate-400">
+                          Expected Delegates
+                        </p>
+                      </div>
+
+                      <div className="text-right">
+                        <p className="text-4xl font-black">
+                          3
+                        </p>
+
+                        <p className="mt-1 text-xs uppercase tracking-wider text-slate-400">
+                          Conference Days
+                        </p>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* Floating badge */}
+
+                <motion.div
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -bottom-5 -left-7 rounded-2xl border border-white/10 bg-white p-4 text-slate-900 shadow-2xl"
+                >
+
+                  <div className="flex items-center gap-3">
+
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-orange-500">
+                      <Landmark size={21} />
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-semibold text-slate-400">
+                        First time hosted in
+                      </p>
+
+                      <p className="font-bold">
+                        Arunachal Pradesh
+                      </p>
+                    </div>
+
+                  </div>
+
                 </motion.div>
-              ))}
+
+              </motion.div>
+
             </div>
+
           </div>
+
+          {/* Arunachal accent */}
+
+          <div className="relative z-20 flex h-1.5 w-full">
+
+            <div className="flex-1 bg-orange-400" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-white" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-orange-400" />
+
+          </div>
+
         </section>
 
-        {/* ======================================================
-            WHO SHOULD ATTEND
+        {/* =====================================================
+            EVENT INFORMATION STRIP
         ====================================================== */}
-        <section className="py-28">
+
+        <section className="relative z-20 bg-white">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-            <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid border-b border-slate-200 py-5 md:grid-cols-3 md:divide-x md:divide-slate-200 md:py-8"
+            >
+
+              {[
+                {
+                  icon: CalendarDays,
+                  label: "Conference",
+                  title: "23–25 October 2026",
+                  text: "Three days of academic exchange",
+                },
+                {
+                  icon: MapPin,
+                  label: "Venue",
+                  title: "Donyi Polo International Hotel",
+                  text: "Itanagar, Arunachal Pradesh",
+                },
+                {
+                  icon: Users,
+                  label: "Community",
+                  title: "Around 200 Delegates",
+                  text: "From the Northeast and across India",
+                },
+              ].map(({ icon: Icon, label, title, text }) => (
+
+                <motion.div
+                  variants={fadeUp}
+                  key={label}
+                  className="flex items-start gap-4 border-b border-slate-100 px-1 py-5 last:border-0 md:border-0 md:px-7 md:py-0 first:md:pl-0 last:md:pr-0"
+                >
+
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                    <Icon size={21} />
+                  </div>
+
+                  <div>
+
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                      {label}
+                    </p>
+
+                    <h3 className="mt-1.5 font-bold text-slate-900">
+                      {title}
+                    </h3>
+
+                    <p className="mt-1 text-sm text-slate-500">
+                      {text}
+                    </p>
+
+                  </div>
+
+                </motion.div>
+
+              ))}
+
+            </motion.div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            HISTORIC FIRST
+        ====================================================== */}
+
+        <section className="py-20 sm:py-24 lg:py-32">
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+              {/* Content */}
 
               <motion.div
                 variants={fadeUp}
@@ -546,207 +571,815 @@ function Home() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
-                  Who Should Attend
+
+                <SectionLabel>
+                  A Historic Milestone
+                </SectionLabel>
+
+                <h2 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                  CSI Northeast comes to
+                  <span className="text-blue-700">
+                    {" "}Arunachal Pradesh.
+                  </span>
+                </h2>
+
+                <p className="mt-7 text-lg leading-8 text-slate-600">
+                  For the first time, the prestigious CSI Northeast Annual
+                  Conference will be hosted in Arunachal Pradesh — marking an
+                  important milestone for cardiovascular medicine and academic
+                  healthcare in the state.
+                </p>
+
+                <p className="mt-5 leading-8 text-slate-500">
+                  CardioCon Arunachal 2026 reflects the state's growing
+                  contribution to modern healthcare while creating new
+                  opportunities for academic exchange, research, training and
+                  collaboration.
+                </p>
+
+                <div className="mt-8 space-y-4">
+
+                  {[
+                    "Strengthening cardiovascular academics across the region",
+                    "Encouraging research and scientific innovation",
+                    "Creating mentorship opportunities for young clinicians",
+                  ].map((item) => (
+
+                    <div
+                      key={item}
+                      className="flex items-start gap-3"
+                    >
+
+                      <CheckCircle2
+                        size={20}
+                        className="mt-0.5 shrink-0 text-emerald-600"
+                      />
+
+                      <p className="text-slate-700">
+                        {item}
+                      </p>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+                <Link
+                  to="/about"
+                  className="group mt-9 inline-flex items-center gap-2 font-bold text-blue-700"
+                >
+                  About CardioCon
+
+                  <ArrowRight
+                    size={17}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </Link>
+
+              </motion.div>
+
+              {/* Visual */}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: 40,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative"
+              >
+
+                <div className="relative min-h-105 overflow-hidden rounded-4xl bg-[#071a2d] p-7 text-white shadow-2xl sm:min-h-125 sm:p-10">
+
+                  <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+
+                  <div className="absolute right-7 top-7 text-[7rem] font-black leading-none text-white/[0.035] sm:text-[10rem]">
+                    01
+                  </div>
+
+                  <div className="relative flex min-h-90 flex-col justify-between sm:min-h-105">
+
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-cyan-300">
+                      <Landmark size={27} />
+                    </div>
+
+                    <div>
+
+                      <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-300">
+                        First in Arunachal Pradesh
+                      </p>
+
+                      <h3 className="mt-4 max-w-md text-3xl font-bold leading-tight sm:text-4xl">
+                        A new chapter in the academic journey of cardiovascular
+                        medicine in Northeast India.
+                      </h3>
+
+                      <div className="mt-7 h-1 w-14 rounded-full bg-cyan-400" />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </motion.div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            AT A GLANCE
+        ====================================================== */}
+
+        <section className="bg-slate-50 py-16 sm:py-20">
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+
+                <SectionLabel>
+                  Conference at a Glance
+                </SectionLabel>
+
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                  Three days.
+                  <span className="block text-blue-700">
+                    One scientific community.
+                  </span>
+                </h2>
+
+              </motion.div>
+
+              <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-4">
+
+                {[
+                  ["3", "Conference Days"],
+                  ["~200", "Delegates"],
+                  ["CSI NER", "Annual Conference"],
+                  ["Itanagar", "Host City"],
+                ].map(([number, label], index) => (
+
+                  <motion.div
+                    key={label}
+                    initial={{
+                      opacity: 0,
+                      y: 15,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: index * 0.07,
+                    }}
+                    className="bg-white px-3 py-8 text-center sm:px-4"
+                  >
+
+                    <p className="text-2xl font-black tracking-tight text-blue-800 sm:text-3xl lg:text-4xl">
+                      {number}
+                    </p>
+
+                    <p className="mt-2 text-xs font-semibold text-slate-500 sm:text-sm">
+                      {label}
+                    </p>
+
+                  </motion.div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            SCIENTIFIC EXPERIENCE
+        ====================================================== */}
+
+        <section className="py-20 sm:py-24 lg:py-32">
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="max-w-3xl"
+            >
+
+              <SectionLabel>
+                Scientific Experience
+              </SectionLabel>
+
+              <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                Advancing knowledge.
+                <span className="block text-blue-700">
+                  Improving cardiovascular care.
+                </span>
+              </h2>
+
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                A comprehensive academic environment designed around
+                contemporary cardiovascular medicine, clinical practice,
+                scientific research and professional collaboration.
+              </p>
+
+            </motion.div>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4"
+            >
+
+              {highlights.map(
+                ({
+                  icon: Icon,
+                  title,
+                  text,
+                }) => (
+
+                  <motion.div
+                    variants={fadeUp}
+                    whileHover={{ y: -6 }}
+                    key={title}
+                    className="group flex min-h-70 flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-blue-100 hover:shadow-xl sm:p-7"
+                  >
+
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
+                      <Icon size={23} />
+                    </div>
+
+                    <h3 className="mt-6 text-lg font-bold text-slate-900 sm:text-xl">
+                      {title}
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-7 text-slate-500">
+                      {text}
+                    </p>
+
+                    <div className="mt-auto pt-6">
+
+                      <ArrowRight
+                        size={18}
+                        className="text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-blue-700"
+                      />
+
+                    </div>
+
+                  </motion.div>
+
+                )
+              )}
+
+            </motion.div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            CARDIOLOGY IN ARUNACHAL
+        ====================================================== */}
+
+        <section className="relative overflow-hidden bg-[#071a2d] py-20 text-white sm:py-24 lg:py-32">
+
+          <div className="pointer-events-none absolute -right-60 -top-60 h-150 w-150 rounded-full bg-cyan-400/10 blur-3xl" />
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-20">
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{ once: true }}
+              >
+
+                <span className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300 sm:text-sm">
+                  Advancing Cardiology in Arunachal
                 </span>
 
-                <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-                  Built for the cardiovascular community.
+                <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                  Building a stronger
+                  <span className="block text-cyan-300">
+                    cardiovascular ecosystem.
+                  </span>
+                </h2>
+
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+                  Cardiovascular care in Arunachal Pradesh continues to grow
+                  through expanding specialist services, infrastructure,
+                  interventional cardiology and critical care.
+                </p>
+
+                <p className="mt-5 max-w-2xl leading-8 text-slate-400">
+                  CardioCon creates an opportunity to strengthen academic
+                  medicine, research, evidence-based practice and
+                  multidisciplinary collaboration across the region.
+                </p>
+
+              </motion.div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+
+                {[
+                  {
+                    icon: HeartPulse,
+                    title: "Cardiac Care",
+                    text: "Strengthening specialist cardiovascular services.",
+                  },
+                  {
+                    icon: Stethoscope,
+                    title: "Clinical Excellence",
+                    text: "Promoting evidence-based clinical practice.",
+                  },
+                  {
+                    icon: GraduationCap,
+                    title: "Academic Medicine",
+                    text: "Encouraging mentorship, education and training.",
+                  },
+                  {
+                    icon: Microscope,
+                    title: "Clinical Research",
+                    text: "Building evidence around regional health challenges.",
+                  },
+                ].map(({ icon: Icon, title, text }, index) => (
+
+                  <motion.div
+                    key={title}
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: index * 0.07,
+                    }}
+                    className="rounded-2xl border border-white/10 bg-white/4.5 p-5 backdrop-blur sm:p-6"
+                  >
+
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-cyan-300">
+                      <Icon size={20} />
+                    </div>
+
+                    <h3 className="mt-5 font-bold">
+                      {title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-slate-400">
+                      {text}
+                    </p>
+
+                  </motion.div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            WHO SHOULD ATTEND
+        ====================================================== */}
+
+        <section className="py-20 sm:py-24 lg:py-32">
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
+
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+
+                <SectionLabel>
+                  Who Should Attend
+                </SectionLabel>
+
+                <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                  Built for the
+                  <span className="block text-blue-700">
+                    cardiovascular community.
+                  </span>
                 </h2>
 
                 <p className="mt-6 text-lg leading-8 text-slate-600">
-                  Whether you're an experienced specialist or beginning your
-                  medical journey, CardioCon creates opportunities to learn,
-                  connect and contribute.
+                  A platform for experienced specialists, academics,
+                  researchers and young clinicians to learn, exchange ideas and
+                  contribute to cardiovascular medicine.
                 </p>
+
               </motion.div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  ["Cardiologists", HeartPulse],
-                  ["Physicians", Stethoscope],
-                  ["Researchers", Microscope],
-                  ["Medical Students", Award],
-                ].map(([title, Icon], index) => (
+              <div className="grid gap-3 sm:grid-cols-2">
+
+                {attendees.map(({ icon: Icon, title }, index) => (
+
                   <motion.div
                     key={title}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{
+                      opacity: 0,
+                      y: 15,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="flex items-center gap-5 rounded-2xl border border-slate-200 p-6 transition hover:border-blue-200 hover:bg-blue-50/40"
+                    transition={{
+                      delay: index * 0.07,
+                    }}
+                    className="group flex items-center gap-4 rounded-2xl border border-slate-200 p-5 transition hover:border-blue-200 hover:bg-blue-50/40 sm:p-6"
                   >
-                    <div className="rounded-xl bg-slate-100 p-3 text-blue-700">
-                      <Icon size={25} />
+
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
+                      <Icon size={21} />
                     </div>
 
-                    <span className="font-bold text-slate-800">{title}</span>
+                    <span className="font-bold text-slate-800">
+                      {title}
+                    </span>
+
                   </motion.div>
+
                 ))}
+
               </div>
+
             </div>
+
           </div>
+
         </section>
 
-        {/* ======================================================
-            ARUNACHAL EXPERIENCE
+        {/* =====================================================
+            SCIENTIFIC PROGRAM
         ====================================================== */}
-        <section className="bg-emerald-950 py-28 text-white">
-          <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+
+        <section className="bg-slate-50 py-20 sm:py-24">
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             <motion.div
-              initial={{ opacity: 0, x: -35 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
               viewport={{ once: true }}
+              className="relative overflow-hidden rounded-4xl bg-linear-to-br from-blue-800 to-blue-950 px-6 py-10 text-white shadow-2xl sm:px-10 sm:py-12 lg:px-14 lg:py-16"
             >
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-orange-300">
-                Experience Arunachal
-              </span>
 
-              <h2 className="mt-5 text-4xl font-bold tracking-tight lg:text-5xl">
-                Where science meets the
-                <span className="text-orange-300"> land of dawn-lit mountains.</span>
-              </h2>
+              <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-emerald-100/75">
-                Beyond the scientific program, experience the warmth,
-                landscapes and cultural richness of Arunachal Pradesh — one
-                of India's most remarkable Himalayan destinations.
-              </p>
+              <div className="relative grid gap-9 lg:grid-cols-[1fr_auto] lg:items-center">
 
-              <div className="mt-9 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl bg-white/7 p-5">
-                  <Mountain className="text-orange-300" />
-                  <h3 className="mt-4 font-bold">Himalayan Landscape</h3>
-                  <p className="mt-2 text-sm text-emerald-100/60">
-                    Discover the spectacular Eastern Himalayas.
+                <div className="max-w-3xl">
+
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-cyan-300">
+                    <BookOpen size={23} />
+                  </div>
+
+                  <p className="mt-6 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">
+                    Scientific Program
                   </p>
+
+                  <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                    A comprehensive scientific agenda is being prepared.
+                  </h2>
+
+                  <p className="mt-5 max-w-2xl leading-7 text-blue-100/75 sm:text-lg sm:leading-8">
+                    The program will feature contemporary scientific
+                    discussions, clinical insights, research, expert faculty
+                    and collaborative learning opportunities.
+                  </p>
+
+                  <p className="mt-4 text-sm text-blue-200/60">
+                    Detailed sessions and faculty announcements will be
+                    published as they are confirmed.
+                  </p>
+
                 </div>
 
-                <div className="rounded-2xl bg-white/7 p-5">
-                  <Plane className="text-orange-300" />
-                  <h3 className="mt-4 font-bold">Travel Assistance</h3>
-                  <p className="mt-2 text-sm text-emerald-100/60">
-                    Helpful information for delegates visiting Arunachal.
-                  </p>
-                </div>
+                <Link
+                  to="/schedule"
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl sm:w-fit"
+                >
+                  View Program
+
+                  <ArrowRight
+                    size={17}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </Link>
+
               </div>
+
             </motion.div>
 
-            {/* Arunachal visual */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative min-h-115 overflow-hidden rounded-4xl bg-linear-to-br from-orange-300 via-orange-400 to-emerald-800 shadow-2xl"
-            >
-              <div className="absolute left-1/2 top-14 h-32 w-32 -translate-x-1/2 rounded-full bg-yellow-200/80 shadow-[0_0_80px_rgba(253,224,71,.5)]" />
-
-              <div
-                className="absolute bottom-0 h-[72%] w-full bg-emerald-800"
-                style={{
-                  clipPath:
-                    "polygon(0 66%, 14% 42%, 25% 57%, 39% 20%, 52% 58%, 65% 34%, 78% 60%, 91% 28%, 100% 45%, 100% 100%, 0 100%)",
-                }}
-              />
-
-              <div
-                className="absolute bottom-0 h-[48%] w-full bg-emerald-950"
-                style={{
-                  clipPath:
-                    "polygon(0 53%, 17% 22%, 34% 63%, 48% 31%, 63% 67%, 81% 20%, 100% 55%, 100% 100%, 0 100%)",
-                }}
-              />
-
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-orange-200">
-                  Arunachal Pradesh
-                </p>
-                <p className="mt-2 text-3xl font-bold">
-                  The Land of Dawn-Lit Mountains
-                </p>
-              </div>
-            </motion.div>
           </div>
+
         </section>
 
-        {/* ======================================================
-            TESTIMONIAL / MESSAGE
+        {/* =====================================================
+            ORGANISING COMMITTEE
         ====================================================== */}
-        <section className="bg-slate-50 py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl px-4 text-center sm:px-6"
-          >
-            <Quote
-              size={48}
-              className="mx-auto text-blue-200"
-              fill="currentColor"
-            />
 
-            <h2 className="mt-8 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
-              “Building stronger cardiovascular care begins with sharing
-              knowledge, experience and ideas.”
-            </h2>
+        <section className="py-20 sm:py-24 lg:py-32">
 
-            <div className="mx-auto mt-8 h-px w-14 bg-blue-700" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-            <p className="mt-5 font-bold text-slate-800">
-              CardioCon Arunachal 2026
-            </p>
+            <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
 
-            <p className="mt-1 text-sm text-slate-500">
-              Scientific Organising Committee
-            </p>
-          </motion.div>
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="max-w-3xl"
+              >
+
+                <SectionLabel>
+                  Conference Leadership
+                </SectionLabel>
+
+                <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                  Organising Committee
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+                  The leadership guiding CardioCon Arunachal 2026 and the
+                  historic hosting of CSI Northeast in Arunachal Pradesh.
+                </p>
+
+              </motion.div>
+
+              <Link
+                to="/about"
+                className="group flex w-fit items-center gap-2 font-bold text-blue-700"
+              >
+                View Full Committee
+
+                <ArrowRight
+                  size={17}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+
+            </div>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"
+            >
+
+              {leadership.map((member) => (
+
+                <motion.div
+                  variants={fadeUp}
+                  whileHover={{
+                    y: -5,
+                  }}
+                  key={member.name}
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:border-blue-100 hover:shadow-xl sm:p-6"
+                >
+
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
+                    <UserRound size={21} />
+                  </div>
+
+                  <h3 className="mt-5 font-bold leading-6 text-slate-900">
+                    {member.name}
+                  </h3>
+
+                  <p className="mt-2 text-sm font-semibold leading-5 text-blue-700">
+                    {member.role}
+                  </p>
+
+                </motion.div>
+
+              ))}
+
+            </motion.div>
+
+          </div>
+
         </section>
 
-        {/* ======================================================
+        {/* =====================================================
+            SECRETARIAT
+        ====================================================== */}
+
+        <section className="border-y border-slate-200 bg-slate-50 py-16">
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{ once: true }}
+              className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-center"
+            >
+
+              <div>
+
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-blue-700">
+                  Conference Secretariat
+                </p>
+
+                <h2 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">
+                  Department of Cardiology, TRIHMS
+                </h2>
+
+                <div className="mt-5 flex max-w-2xl items-start gap-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
+
+                  <Building2
+                    size={19}
+                    className="mt-1 shrink-0 text-blue-700"
+                  />
+
+                  <p>
+                    Tomo Riba Institute of Health and Medical Sciences
+                    (TRIHMS), Naharlagun, Arunachal Pradesh – 791110
+                  </p>
+
+                </div>
+
+                <a
+                  href="mailto:cardioconarunachal@gmail.com"
+                  className="mt-4 flex w-fit items-center gap-3 text-sm font-medium text-slate-600 transition hover:text-blue-700 sm:text-base"
+                >
+
+                  <Mail
+                    size={18}
+                    className="shrink-0 text-blue-700"
+                  />
+
+                  <span className="break-all">
+                    cardioconarunachal@gmail.com
+                  </span>
+
+                </a>
+
+              </div>
+
+              <Link
+                to="/contact"
+                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-3.5 font-bold text-white transition hover:bg-blue-800 sm:w-fit"
+              >
+                Contact Secretariat
+
+                <ArrowRight
+                  size={17}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+
+            </motion.div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
             FINAL CTA
         ====================================================== */}
-        <section className="relative overflow-hidden bg-blue-800 py-24 text-white">
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
+
+        <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
+
+          <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+
+          <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             viewport={{ once: true }}
             className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
           >
-            <HeartPulse size={45} className="mx-auto text-cyan-300" />
 
-            <h2 className="mt-7 text-4xl font-bold tracking-tight sm:text-5xl">
-              Join us in Arunachal Pradesh.
-            </h2>
+            <HeartPulse
+              size={40}
+              className="mx-auto text-cyan-300"
+            />
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100">
-              Be part of three inspiring days of science, collaboration and
-              cardiovascular learning at CardioCon Arunachal 2026.
+            <p className="mt-6 text-xs font-bold uppercase tracking-[0.22em] text-cyan-200 sm:text-sm">
+              23–25 October 2026 · Itanagar
             </p>
 
-            <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-              <button className="group flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 font-bold text-blue-800 transition hover:-translate-y-1 hover:shadow-xl">
-                Register for CardioCon
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
-              </button>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              Be part of a historic CardioCon.
+            </h2>
 
-              <button className="flex items-center justify-center gap-2 rounded-xl border border-white/30 px-8 py-4 font-semibold transition hover:bg-white/10">
-                <Clock3 size={18} />
-                View Schedule
-              </button>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
+              Join the cardiovascular community for three days of science,
+              collaboration and academic exchange as CSI Northeast comes to
+              Arunachal Pradesh.
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+
+              <Link
+                to="/registration"
+                className="group flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Register for CardioCon
+
+                <ArrowRight
+                  size={17}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+
+              <Link
+                to="/about"
+                className="flex items-center justify-center rounded-xl border border-white/25 px-7 py-3.5 font-semibold transition hover:bg-white/10"
+              >
+                About the Conference
+              </Link>
+
             </div>
+
           </motion.div>
+
         </section>
+
       </main>
 
       <Footer />
     </>
+  );
+}
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+function SectionLabel({ children }) {
+  return (
+    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
+      <span className="h-px w-7 bg-blue-700" />
+      {children}
+    </span>
   );
 }
 
