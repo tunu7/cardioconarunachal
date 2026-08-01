@@ -4,9 +4,7 @@ import Footer from "../components/Footer";
 
 import {
   Mail,
-  Phone,
   MapPin,
-  Clock3,
   Send,
   HeartPulse,
   MessageSquare,
@@ -16,19 +14,25 @@ import {
   CalendarDays,
   HelpCircle,
   ExternalLink,
+  Landmark,
+  Hotel,
+  Navigation,
+  Stethoscope,
 } from "lucide-react";
 
 function Contact() {
   const fadeUp = {
     hidden: {
       opacity: 0,
-      y: 30,
+      y: 24,
     },
+
     visible: {
       opacity: 1,
       y: 0,
+
       transition: {
-        duration: 0.6,
+        duration: 0.55,
         ease: "easeOut",
       },
     },
@@ -36,6 +40,7 @@ function Contact() {
 
   const stagger = {
     hidden: {},
+
     visible: {
       transition: {
         staggerChildren: 0.08,
@@ -46,7 +51,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Connect this to your backend/email service later.
+    // Connect this to your backend / Formspree / EmailJS later.
     console.log("Contact form submitted");
   };
 
@@ -54,128 +59,172 @@ function Contact() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden pt-20">
+      <main className="overflow-hidden bg-white pt-20">
 
         {/* =====================================================
             HERO
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-[#071a2d] text-white">
-          {/* Background decorations */}
+        <section className="relative isolate overflow-hidden bg-[#061827] text-white">
+
+          {/* Background */}
 
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -right-48 -top-48 h-150 w-150 rounded-full bg-cyan-500/10 blur-3xl" />
 
-            <div className="absolute -bottom-60 -left-40 h-150 w-150 rounded-full bg-blue-600/10 blur-3xl" />
+            <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
+
+            <div className="absolute -bottom-60 -left-40 h-125 w-125 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
+
+            <div className="absolute right-[10%] top-[15%] h-40 w-40 rounded-full bg-orange-400/10 blur-2xl sm:h-56 sm:w-56" />
 
             <div
-              className="absolute inset-0 opacity-[0.03]"
+              className="absolute inset-0 opacity-[0.025]"
               style={{
                 backgroundImage:
                   "radial-gradient(circle, white 1px, transparent 1px)",
                 backgroundSize: "28px 28px",
               }}
             />
+
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+          <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+
             <motion.div
               variants={stagger}
               initial="hidden"
               animate="visible"
-              className="max-w-4xl"
+              className="max-w-5xl"
             >
+
+              {/* Conference Badge */}
+
               <motion.div
                 variants={fadeUp}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur"
+                className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
               >
-                <MessageSquare size={17} />
-                Contact CardioCon
+                <HeartPulse size={15} className="shrink-0" />
+
+                CSI Northeast Annual Conference 2026
               </motion.div>
+
+              {/* Label */}
+
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300 sm:text-sm"
+              >
+                <MessageSquare size={15} />
+
+                Conference Secretariat
+              </motion.div>
+
+              {/* Heading */}
 
               <motion.h1
                 variants={fadeUp}
-                className="mt-7 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+                className="mt-5 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                We're Here to
-                <span className="ml-3 text-cyan-300 sm:ml-4">
-                  Help.
+                Get in Touch with
+                <span className="mt-1 block text-cyan-300">
+                  CardioCon Arunachal.
                 </span>
               </motion.h1>
 
+              {/* Description */}
+
               <motion.p
                 variants={fadeUp}
-                className="mt-7 max-w-2xl text-lg leading-8 text-slate-300"
+                className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg"
               >
-                Have questions about registration, the scientific program,
-                venue, participation or CardioCon Arunachal 2026? Get in touch
-                with our organising team.
+                For enquiries regarding registration, scientific sessions,
+                participation, venue information or general conference
+                assistance, contact the CardioCon Arunachal 2026 organising
+                team.
               </motion.p>
+
+              {/* Event Information */}
 
               <motion.div
                 variants={fadeUp}
-                className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-300"
+                className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
               >
-                <span className="flex items-center gap-2">
-                  <CalendarDays
-                    size={17}
-                    className="text-cyan-300"
-                  />
-                  15–17 March 2026
-                </span>
 
-                <span className="flex items-center gap-2">
-                  <MapPin
-                    size={17}
-                    className="text-cyan-300"
-                  />
-                  Itanagar, Arunachal Pradesh
-                </span>
+                <HeroInfo
+                  icon={CalendarDays}
+                  label="Conference Dates"
+                  value="23–25 October 2026"
+                />
+
+                <HeroInfo
+                  icon={MapPin}
+                  label="Conference Location"
+                  value="Itanagar, Arunachal Pradesh"
+                  accent="orange"
+                />
+
               </motion.div>
+
             </motion.div>
+
           </div>
 
-          <div className="absolute bottom-0 h-1 w-full bg-linear-to-r from-blue-700 via-cyan-400 to-blue-700" />
+          {/* Accent */}
+
+          <div className="flex h-1.5">
+
+            <div className="flex-1 bg-orange-400" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-white" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-orange-400" />
+
+          </div>
+
         </section>
 
         {/* =====================================================
             CONTACT OPTIONS
         ====================================================== */}
 
-        <section className="bg-white py-16 lg:py-20">
+        <section className="bg-white py-14 sm:py-16 lg:py-20">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid gap-4 md:grid-cols-3"
+              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
             >
+
               {/* Email */}
 
               <motion.a
                 variants={fadeUp}
-                whileHover={{ y: -5 }}
-                href="mailto:info@cardioconarunachal.com"
-                className="group rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
+                whileHover={{ y: -4 }}
+                href="mailto:cardioconarunachal@gmail.com"
+                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 sm:p-6"
               >
+
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
-                  <Mail size={23} />
+                  <Mail size={22} />
                 </div>
 
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-                  Email Us
+                <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                  Email
                 </p>
 
                 <h3 className="mt-2 font-bold text-slate-900">
-                  General Enquiries
+                  Conference Enquiries
                 </h3>
 
-                <p className="mt-2 break-all text-sm text-slate-500">
-                  info@cardioconarunachal.com
+                <p className="mt-2 break-all text-sm leading-6 text-slate-500">
+                  cardioconarunachal@gmail.com
                 </p>
 
-                <span className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-700">
+                <span className="mt-auto flex items-center gap-2 pt-5 text-sm font-bold text-blue-700">
                   Send Email
 
                   <ArrowRight
@@ -183,79 +232,74 @@ function Contact() {
                     className="transition-transform group-hover:translate-x-1"
                   />
                 </span>
+
               </motion.a>
 
-              {/* Phone */}
-
-              <motion.a
-                variants={fadeUp}
-                whileHover={{ y: -5 }}
-                href="tel:+91XXXXXXXXXX"
-                className="group rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
-                  <Phone size={23} />
-                </div>
-
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-                  Call Us
-                </p>
-
-                <h3 className="mt-2 font-bold text-slate-900">
-                  Registration Support
-                </h3>
-
-                <p className="mt-2 text-sm text-slate-500">
-                  +91 XXXXX XXXXX
-                </p>
-
-                <span className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-700">
-                  Call Support
-
-                  <ArrowRight
-                    size={15}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </span>
-              </motion.a>
-
-              {/* Location */}
+              {/* Secretariat */}
 
               <motion.div
                 variants={fadeUp}
-                whileHover={{ y: -5 }}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
+                whileHover={{ y: -4 }}
+                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 sm:p-6"
               >
+
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
-                  <MapPin size={23} />
+                  <Stethoscope size={22} />
                 </div>
 
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-                  Conference Location
+                <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                  Secretariat
                 </p>
 
                 <h3 className="mt-2 font-bold text-slate-900">
-                  Itanagar
+                  Department of Cardiology
                 </h3>
 
-                <p className="mt-2 text-sm text-slate-500">
-                  Arunachal Pradesh, India
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Tomo Riba Institute of Health and Medical Sciences
+                  (TRIHMS)
                 </p>
 
-                <span className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-700">
-                  Venue Details
-                  <ArrowRight size={15} />
-                </span>
               </motion.div>
+
+              {/* Venue */}
+
+              <motion.div
+                variants={fadeUp}
+                whileHover={{ y: -4 }}
+                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 sm:col-span-2 sm:p-6 lg:col-span-1"
+              >
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
+                  <Hotel size={22} />
+                </div>
+
+                <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                  Conference Venue
+                </p>
+
+                <h3 className="mt-2 font-bold text-slate-900">
+                  Donyi Polo International Hotel
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Itanagar, Arunachal Pradesh
+                </p>
+
+              </motion.div>
+
             </motion.div>
+
           </div>
+
         </section>
 
         {/* =====================================================
-            MAIN CONTACT SECTION
+            CONTACT + FORM
         ====================================================== */}
 
-        <section className="bg-slate-50 py-20 lg:py-28">
+        <section className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             {/* Heading */}
@@ -267,64 +311,84 @@ function Contact() {
               viewport={{ once: true }}
               className="max-w-3xl"
             >
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
-                Get in Touch
-              </span>
 
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-                How Can We Assist You?
+              <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
+
+                <span className="h-px w-7 bg-blue-700" />
+
+                Get in Touch
+
+              </div>
+
+              <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                How can we
+                <span className="text-blue-700">
+                  {" "}assist you?
+                </span>
               </h2>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Send us your enquiry and the appropriate member of the
-                CardioCon organising team can assist you.
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                Submit your enquiry and the CardioCon Arunachal organising
+                team can assist with conference-related information.
               </p>
+
             </motion.div>
 
-            <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_380px] lg:items-start">
+            <div className="mt-10 grid gap-7 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
 
               {/* =================================================
-                  CONTACT FORM
+                  FORM
               ================================================== */}
 
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: -30,
+                  x: -25,
                 }}
                 whileInView={{
                   opacity: 1,
                   x: 0,
                 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40"
+                transition={{ duration: 0.55 }}
+                className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40"
               >
-                {/* Form Header */}
 
-                <div className="border-b border-slate-100 px-6 py-7 sm:px-9">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-                      <MessageSquare size={23} />
+                {/* Header */}
+
+                <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
+
+                  <div className="flex items-start gap-4 sm:items-center">
+
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
+                      <MessageSquare size={22} />
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900">
+
+                      <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
                         Send an Enquiry
                       </h3>
 
-                      <p className="mt-1 text-sm text-slate-500">
-                        Complete the form and our team will respond.
+                      <p className="mt-1 text-sm leading-6 text-slate-500">
+                        Complete the form with your conference-related query.
                       </p>
+
                     </div>
+
                   </div>
+
                 </div>
+
+                {/* Form */}
 
                 <form
                   onSubmit={handleSubmit}
-                  className="p-6 sm:p-9"
+                  className="p-5 sm:p-8 lg:p-9"
                 >
-                  <div className="grid gap-6 md:grid-cols-2">
+
+                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+
                     <Input
                       label="Full Name"
                       name="name"
@@ -345,8 +409,6 @@ function Contact() {
                     <Input
                       label="Mobile Number"
                       name="phone"
-                      icon={<Phone size={18} />}
-                      type="tel"
                       placeholder="+91 XXXXX XXXXX"
                     />
 
@@ -356,11 +418,13 @@ function Contact() {
                       icon={<Building2 size={18} />}
                       placeholder="Institution name"
                     />
+
                   </div>
 
                   {/* Enquiry Type */}
 
                   <div className="mt-6">
+
                     <label
                       htmlFor="enquiryType"
                       className="mb-2 block text-sm font-semibold text-slate-700"
@@ -376,6 +440,7 @@ function Contact() {
                       defaultValue=""
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-700 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                     >
+
                       <option value="" disabled>
                         Select enquiry type
                       </option>
@@ -388,27 +453,34 @@ function Contact() {
                         Registration
                       </option>
 
-                      <option value="scientific-program">
+                      <option value="scientific">
                         Scientific Program
                       </option>
 
-                      <option value="speakers">
+                      <option value="faculty">
                         Faculty / Speakers
                       </option>
 
                       <option value="venue">
-                        Venue Information
+                        Venue & Travel
+                      </option>
+
+                      <option value="abstract">
+                        Abstract / Scientific Submission
                       </option>
 
                       <option value="other">
                         Other
                       </option>
+
                     </select>
+
                   </div>
 
                   {/* Subject */}
 
                   <div className="mt-6">
+
                     <Input
                       label="Subject"
                       name="subject"
@@ -416,11 +488,13 @@ function Contact() {
                       placeholder="What is your enquiry about?"
                       required
                     />
+
                   </div>
 
                   {/* Message */}
 
                   <div className="mt-6">
+
                     <label
                       htmlFor="message"
                       className="mb-2 block text-sm font-semibold text-slate-700"
@@ -435,34 +509,38 @@ function Contact() {
                       required
                       rows={6}
                       placeholder="Please describe your enquiry..."
-                      className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                      className="w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                     />
+
                   </div>
 
                   {/* Submit */}
 
                   <button
                     type="submit"
-                    className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-4 font-bold text-white shadow-lg shadow-blue-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl sm:w-auto sm:px-8"
+                    className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-blue-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl sm:w-auto sm:px-8"
                   >
                     Send Enquiry
 
                     <Send
                       size={17}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                      className="transition-transform group-hover:translate-x-1"
                     />
+
                   </button>
+
                 </form>
+
               </motion.div>
 
               {/* =================================================
-                  CONTACT SIDEBAR
+                  SIDEBAR
               ================================================== */}
 
               <motion.aside
                 initial={{
                   opacity: 0,
-                  x: 30,
+                  x: 25,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -470,141 +548,147 @@ function Contact() {
                 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.1,
+                  duration: 0.55,
+                  delay: 0.08,
                 }}
-                className="space-y-5 lg:sticky lg:top-28"
+                className="min-w-0 space-y-5 lg:sticky lg:top-28"
               >
-                {/* Organising Committee */}
+
+                {/* Secretariat */}
 
                 <div className="overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
-                  <div className="border-b border-white/10 p-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">
-                      Conference Secretariat
+
+                  <div className="border-b border-white/10 p-5 sm:p-6">
+
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
+                      Official Contact
                     </p>
 
                     <h3 className="mt-2 text-xl font-bold">
-                      Organising Committee
+                      Conference Secretariat
                     </h3>
 
                     <p className="mt-3 text-sm leading-6 text-slate-400">
-                      For conference-related enquiries, please contact the
-                      CardioCon Arunachal organising team.
+                      CardioCon Arunachal 2026
+                      <br />
+                      CSI Northeast Annual Conference
                     </p>
+
                   </div>
 
-                  <div className="space-y-6 p-6">
+                  <div className="space-y-6 p-5 sm:p-6">
+
                     <ContactItem
-                      icon={Mail}
-                      label="Email"
-                      value="info@cardioconarunachal.com"
-                      href="mailto:info@cardioconarunachal.com"
+                      icon={Stethoscope}
+                      label="Department"
+                      value="Department of Cardiology"
                     />
 
                     <ContactItem
-                      icon={Phone}
-                      label="Phone"
-                      value="+91 XXXXX XXXXX"
-                      href="tel:+91XXXXXXXXXX"
+                      icon={Landmark}
+                      label="Institution"
+                      value="Tomo Riba Institute of Health and Medical Sciences (TRIHMS)"
                     />
 
                     <ContactItem
                       icon={MapPin}
-                      label="Location"
-                      value="Itanagar, Arunachal Pradesh"
+                      label="Address"
+                      value="Naharlagun, Arunachal Pradesh – 791110"
                     />
+
+                    <ContactItem
+                      icon={Mail}
+                      label="Email"
+                      value="cardioconarunachal@gmail.com"
+                      href="mailto:cardioconarunachal@gmail.com"
+                    />
+
                   </div>
+
                 </div>
 
-                {/* Office Hours */}
+                {/* Conference */}
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-                    <Clock3 size={21} />
-                  </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
 
-                  <h3 className="mt-5 font-bold text-slate-900">
-                    Secretariat Hours
+                  <CalendarDays
+                    size={22}
+                    className="text-blue-700"
+                  />
+
+                  <h3 className="mt-4 font-bold text-slate-900">
+                    Conference Dates
                   </h3>
 
-                  <div className="mt-4 space-y-3 text-sm">
-                    <div className="flex justify-between gap-4">
-                      <span className="text-slate-500">
-                        Monday – Friday
-                      </span>
+                  <p className="mt-2 text-lg font-bold text-blue-700">
+                    23–25 October 2026
+                  </p>
 
-                      <span className="font-semibold text-slate-700">
-                        10:00 AM – 5:00 PM
-                      </span>
-                    </div>
+                  <p className="mt-2 text-sm leading-6 text-slate-500">
+                    CSI Northeast Annual Conference 2026 · CardioCon
+                    Arunachal
+                  </p>
 
-                    <div className="flex justify-between gap-4">
-                      <span className="text-slate-500">
-                        Saturday
-                      </span>
-
-                      <span className="font-semibold text-slate-700">
-                        10:00 AM – 1:00 PM
-                      </span>
-                    </div>
-
-                    <div className="flex justify-between gap-4">
-                      <span className="text-slate-500">
-                        Sunday
-                      </span>
-
-                      <span className="font-semibold text-slate-400">
-                        Closed
-                      </span>
-                    </div>
-                  </div>
                 </div>
 
-                {/* Registration Help */}
+                {/* Email */}
 
-                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
+                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+
                   <HeartPulse
                     size={23}
                     className="text-blue-700"
                   />
 
                   <h3 className="mt-4 font-bold text-blue-950">
-                    Registration Enquiry?
+                    Need conference assistance?
                   </h3>
 
                   <p className="mt-2 text-sm leading-6 text-blue-900/70">
-                    For questions regarding delegate categories,
-                    registration confirmation or payment, contact our
-                    registration team.
+                    Contact the organising team for registration,
+                    participation, scientific program or venue-related
+                    enquiries.
                   </p>
 
                   <a
-                    href="mailto:info@cardioconarunachal.com"
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
+                    href="mailto:cardioconarunachal@gmail.com"
+                    className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
                   >
-                    Contact Registration Team
-                    <ArrowRight size={14} />
+                    Email Secretariat
+
+                    <ArrowRight
+                      size={14}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+
                   </a>
+
                 </div>
+
               </motion.aside>
+
             </div>
+
           </div>
+
         </section>
 
         {/* =====================================================
             VENUE
         ====================================================== */}
 
-        <section className="bg-white py-24 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <section className="bg-white py-20 sm:py-24 lg:py-28">
 
-              {/* Venue Info */}
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+
+              {/* Venue Details */}
 
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: -30,
+                  x: -25,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -612,122 +696,157 @@ function Contact() {
                 }}
                 viewport={{ once: true }}
               >
-                <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
+
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
                   Conference Venue
                 </span>
 
-                <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-                  CardioCon Arunachal
+                <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                  Donyi Polo
                   <span className="text-blue-700">
-                    {" "}2026 Venue
+                    {" "}International Hotel.
                   </span>
                 </h2>
 
-                <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                  The conference will be held in Itanagar, Arunachal Pradesh.
-                  Detailed venue information and delegate instructions will
-                  be published once finalised.
+                <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
+                  CardioCon Arunachal 2026 will welcome delegates to
+                  Itanagar for three days of scientific exchange,
+                  professional collaboration and cardiovascular learning.
                 </p>
 
-                <div className="mt-8 flex items-start gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-                    <MapPin size={21} />
+                <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+
+                  <div className="flex items-start gap-4">
+
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white">
+                      <Hotel size={21} />
+                    </div>
+
+                    <div>
+
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                        Venue
+                      </p>
+
+                      <p className="mt-1 font-bold leading-6 text-slate-900">
+                        Donyi Polo International Hotel
+                      </p>
+
+                      <p className="mt-1 text-sm text-slate-500">
+                        Itanagar, Arunachal Pradesh
+                      </p>
+
+                    </div>
+
                   </div>
 
-                  <div>
-                    <p className="text-sm text-slate-500">
-                      Location
-                    </p>
-
-                    <p className="mt-1 font-bold text-slate-900">
-                      Itanagar, Arunachal Pradesh
-                    </p>
-
-                    <p className="mt-1 text-sm text-slate-500">
-                      India
-                    </p>
-                  </div>
                 </div>
+
               </motion.div>
 
-              {/* Map Placeholder */}
+              {/* Venue Visual */}
 
               <motion.div
                 initial={{
                   opacity: 0,
-                  scale: 0.96,
+                  scale: 0.97,
                 }}
                 whileInView={{
                   opacity: 1,
                   scale: 1,
                 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative min-h-105 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100"
+                transition={{ duration: 0.55 }}
+                className="relative min-h-90 overflow-hidden rounded-3xl bg-[#071a2d] sm:min-h-105"
               >
-                {/* Map grid effect */}
+
+                {/* Background */}
 
                 <div
-                  className="absolute inset-0 opacity-40"
+                  className="absolute inset-0 opacity-[0.05]"
                   style={{
                     backgroundImage: `
-                      linear-gradient(to right, #cbd5e1 1px, transparent 1px),
-                      linear-gradient(to bottom, #cbd5e1 1px, transparent 1px)
+                      linear-gradient(to right, white 1px, transparent 1px),
+                      linear-gradient(to bottom, white 1px, transparent 1px)
                     `,
                     backgroundSize: "40px 40px",
                   }}
                 />
 
-                <div className="absolute inset-0 bg-linear-to-br from-blue-50/60 to-slate-100/50" />
+                <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
-                <div className="relative flex min-h-105 items-center justify-center p-8 text-center">
+                <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+
+                {/* Content */}
+
+                <div className="relative flex min-h-90 items-center justify-center p-6 text-center sm:min-h-105 sm:p-8">
+
                   <div>
+
                     <motion.div
                       animate={{
-                        y: [0, -8, 0],
+                        y: [0, -7, 0],
                       }}
                       transition={{
-                        duration: 2.5,
+                        duration: 2.6,
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
-                      className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-700 text-white shadow-xl shadow-blue-900/20"
+                      className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-400 text-[#071a2d] shadow-xl sm:h-18 sm:w-18"
                     >
-                      <MapPin size={29} />
+                      <MapPin size={30} />
                     </motion.div>
 
-                    <h3 className="mt-6 text-xl font-bold text-slate-900">
-                      Itanagar, Arunachal Pradesh
-                    </h3>
-
-                    <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-slate-500">
-                      Interactive map and exact conference venue details
-                      will be available once the venue is confirmed.
+                    <p className="mt-7 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
+                      CardioCon Arunachal 2026
                     </p>
 
-                    <button
-                      type="button"
-                      disabled
-                      className="mt-6 inline-flex cursor-not-allowed items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-400"
+                    <h3 className="mx-auto mt-3 max-w-md text-2xl font-bold text-white sm:text-3xl">
+                      Donyi Polo International Hotel
+                    </h3>
+
+                    <p className="mt-3 text-sm text-slate-400 sm:text-base">
+                      Itanagar, Arunachal Pradesh
+                    </p>
+
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Donyi+Polo+International+Hotel+Itanagar+Arunachal+Pradesh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group mt-7 inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-slate-900"
                     >
-                      <ExternalLink size={15} />
-                      Venue Map Coming Soon
-                    </button>
+                      <Navigation size={16} />
+
+                      Open in Maps
+
+                      <ExternalLink
+                        size={14}
+                        className="opacity-60"
+                      />
+
+                    </a>
+
                   </div>
+
                 </div>
+
               </motion.div>
+
             </div>
+
           </div>
+
         </section>
 
         {/* =====================================================
-            FINAL HELP CTA
+            FINAL CTA
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-blue-800 py-20 text-white">
+        <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
+
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
 
-          <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
 
           <motion.div
             initial={{
@@ -741,33 +860,43 @@ function Contact() {
             viewport={{ once: true }}
             className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
           >
+
             <Mail
-              size={42}
+              size={40}
               className="mx-auto text-cyan-300"
             />
 
-            <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-              Still have a question?
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200 sm:text-xs">
+              Conference Secretariat
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Have a question about CardioCon Arunachal?
             </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-100">
-              Our organising team can assist with conference registration,
-              scientific program enquiries and general information.
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
+              Contact the organising team for registration, scientific
+              program, participation, venue and general conference
+              enquiries.
             </p>
 
             <a
-              href="mailto:info@cardioconarunachal.com"
-              className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 font-bold text-blue-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              href="mailto:cardioconarunachal@gmail.com"
+              className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl sm:w-auto sm:px-8 sm:py-4"
             >
               Email the Organising Team
 
               <ArrowRight
-                size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                size={17}
+                className="transition-transform group-hover:translate-x-1"
               />
+
             </a>
+
           </motion.div>
+
         </section>
+
       </main>
 
       <Footer />
@@ -776,7 +905,45 @@ function Contact() {
 }
 
 /* =========================================================
-   INPUT COMPONENT
+   HERO INFO
+========================================================= */
+
+function HeroInfo({
+  icon: Icon,
+  label,
+  value,
+  accent = "cyan",
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+
+      <Icon
+        size={18}
+        className={`shrink-0 ${
+          accent === "orange"
+            ? "text-orange-300"
+            : "text-cyan-300"
+        }`}
+      />
+
+      <div>
+
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+          {label}
+        </p>
+
+        <p className="mt-0.5 text-sm font-semibold text-slate-200">
+          {value}
+        </p>
+
+      </div>
+
+    </div>
+  );
+}
+
+/* =========================================================
+   INPUT
 ========================================================= */
 
 function Input({
@@ -790,7 +957,8 @@ function Input({
   const inputId = id || name;
 
   return (
-    <div>
+    <div className="min-w-0">
+
       <label
         htmlFor={inputId}
         className="mb-2 block text-sm font-semibold text-slate-700"
@@ -805,18 +973,25 @@ function Input({
       </label>
 
       <div className="relative">
-        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-          {icon}
-        </span>
+
+        {icon && (
+          <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+            {icon}
+          </span>
+        )}
 
         <input
           id={inputId}
           name={name}
           required={required}
           {...props}
-          className="w-full rounded-xl border border-slate-300 bg-white py-3.5 pl-12 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+          className={`w-full rounded-xl border border-slate-300 bg-white py-3.5 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100 ${
+            icon ? "pl-12" : "pl-4"
+          }`}
         />
+
       </div>
+
     </div>
   );
 }
@@ -833,11 +1008,13 @@ function ContactItem({
 }) {
   const content = (
     <>
+
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-cyan-300">
         <Icon size={17} />
       </div>
 
       <div className="min-w-0">
+
         <p className="text-xs text-slate-500">
           {label}
         </p>
@@ -845,7 +1022,9 @@ function ContactItem({
         <p className="mt-1 wrap-break-word text-sm font-semibold leading-5 text-slate-200">
           {value}
         </p>
+
       </div>
+
     </>
   );
 
@@ -853,7 +1032,7 @@ function ContactItem({
     return (
       <a
         href={href}
-        className="flex items-start gap-3 transition hover:opacity-80"
+        className="flex min-w-0 items-start gap-3 transition hover:opacity-80"
       >
         {content}
       </a>
@@ -861,7 +1040,7 @@ function ContactItem({
   }
 
   return (
-    <div className="flex items-start gap-3">
+    <div className="flex min-w-0 items-start gap-3">
       {content}
     </div>
   );
