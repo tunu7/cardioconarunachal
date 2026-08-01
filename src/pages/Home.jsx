@@ -16,13 +16,19 @@ import {
   Building2,
   Mail,
   Sparkles,
-  UserRound,
   BookOpen,
   Network,
   ChevronRight,
   Landmark,
   CheckCircle2,
 } from "lucide-react";
+import rinchinMegeji from "../assets/rinchin-megeji.jpeg";
+import tonyEte from "../assets/tony-ete.jpeg";
+import romarDabu from "../assets/romar-davy.jpeg";
+import amitMalviya from "../assets/amit-malviya.jpeg";
+import animeshmishra from "../assets/animesh-mishra.jpeg";
+import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
+
 
 function Home() {
   /* =========================================================
@@ -77,28 +83,45 @@ function Home() {
     },
   ];
 
-  const leadership = [
-    {
-      name: "Dr. Rinchin Megeji",
-      role: "Organising Chairman",
-    },
-    {
-      name: "Dr. Tony Ete",
-      role: "Organising Secretary cum Treasurer",
-    },
-    {
-      name: "Dr. Romar Dabu",
-      role: "Convenor",
-    },
-    {
-      name: "Dr. Amit Malviya",
-      role: "Scientific Chairman",
-    },
-    {
-      name: "Dr. D.J. Dutta",
-      role: "President Elect",
-    },
-  ];
+  
+const leadership = [
+  {
+    name: "Dr. Rinchin Megeji",
+    role: "Organising Chairman",
+    image: rinchinMegeji,
+  },
+  {
+    name: "Dr. Tony Ete",
+    role: "Organising Secretary cum Treasurer",
+    image: tonyEte,
+  },
+  {
+    name: "Dr. Romar Dabu",
+    role: "Convenor",
+    image: romarDabu,
+  },
+  {
+    name: "Dr. Amit Malviya",
+    role: "Scientific Chairman",
+    image: amitMalviya,
+  },
+  {
+    name: "Dr. D.J. Dutta",
+    role: "President Elect",
+
+  },
+{
+    name: "Dr. animeshmishra ",
+    role: "Scientific Chairman",
+    image: animeshmishra,
+  },
+  {
+    name: "Dr. Rituparna Baruah",
+    role: "Secretary CSI",
+    image: rituparnabaruah,
+  }
+
+];
 
   const attendees = [
     {
@@ -1173,46 +1196,45 @@ function Home() {
             </div>
 
             <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"
-            >
+  variants={stagger}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
+>
+  {leadership.map((member) => (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{
+        y: -5,
+      }}
+      key={member.name}
+      className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all hover:border-blue-100 hover:shadow-xl"
+    >
+      {/* Doctor Photo */}
+      <div className="aspect-4/4 w-full overflow-hidden bg-slate-100">
+        <img
+          src={member.image}
+          alt={member.name}
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
-              {leadership.map((member) => (
+      {/* Doctor Details */}
+      <div className="p-5">
+        <h3 className="font-bold leading-6 text-slate-900">
+          {member.name}
+        </h3>
 
-                <motion.div
-                  variants={fadeUp}
-                  whileHover={{
-                    y: -5,
-                  }}
-                  key={member.name}
-                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:border-blue-100 hover:shadow-xl sm:p-6"
-                >
-
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition-colors group-hover:bg-blue-700 group-hover:text-white">
-                    <UserRound size={21} />
-                  </div>
-
-                  <h3 className="mt-5 font-bold leading-6 text-slate-900">
-                    {member.name}
-                  </h3>
-
-                  <p className="mt-2 text-sm font-semibold leading-5 text-blue-700">
-                    {member.role}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </motion.div>
-
-          </div>
-
-        </section>
-
+        <p className="mt-2 text-sm font-semibold leading-5 text-blue-700">
+          {member.role}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+</div>
+</section>
         {/* =====================================================
             SECRETARIAT
         ====================================================== */}
