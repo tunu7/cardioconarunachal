@@ -21,47 +21,56 @@ import {
   Stethoscope,
   FileText,
   Info,
+  Microscope,
+  Sparkles,
+  Building2,
+  BookOpen,
 } from "lucide-react";
 
 /* =========================================================
-   SCHEDULE DATA
+   PROVISIONAL SCHEDULE DATA
+
+   Replace these sessions once the final scientific program
+   is approved by the organising/scientific committee.
 ========================================================= */
 
 const scheduleData = {
   day1: {
     day: "Day 01",
-    date: "15 March 2026",
-    theme: "Opening & Scientific Foundations",
+    shortDate: "23 Oct",
+    date: "23 October 2026",
+    weekday: "Friday",
+    theme: "Opening & Scientific Exchange",
     description:
-      "Opening ceremony, keynote lectures and core scientific sessions.",
+      "Registration, inauguration and the opening scientific sessions of CardioCon Arunachal 2026.",
 
     sessions: [
       {
         time: "08:30 AM",
         endTime: "09:30 AM",
-        title: "Registration & Welcome Tea",
+        title: "Delegate Registration & Welcome",
         speaker: "",
-        venue: "Registration Area",
+        venue: "Registration Desk",
         type: "Registration",
         icon: Coffee,
       },
       {
         time: "09:30 AM",
-        endTime: "10:00 AM",
-        title: "Opening Ceremony",
+        endTime: "10:15 AM",
+        title: "Inaugural Ceremony",
         speaker: "Organising Committee",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Ceremony",
         icon: Users,
       },
       {
-        time: "10:00 AM",
+        time: "10:15 AM",
         endTime: "11:00 AM",
-        title: "Keynote Address",
-        speaker: "Keynote Faculty",
-        venue: "Main Auditorium",
-        type: "Keynote",
-        icon: Mic2,
+        title: "Opening Scientific Session",
+        speaker: "Invited Faculty",
+        venue: "Main Conference Hall",
+        type: "Scientific",
+        icon: Presentation,
       },
       {
         time: "11:00 AM",
@@ -75,11 +84,11 @@ const scheduleData = {
       {
         time: "11:30 AM",
         endTime: "01:00 PM",
-        title: "Scientific Session I",
+        title: "Scientific Session",
         speaker: "Scientific Faculty",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Scientific",
-        icon: Presentation,
+        icon: Microscope,
       },
       {
         time: "01:00 PM",
@@ -93,18 +102,18 @@ const scheduleData = {
       {
         time: "02:00 PM",
         endTime: "03:30 PM",
-        title: "Live Case Discussion",
+        title: "Clinical Case Discussions",
         speaker: "Expert Faculty Panel",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Clinical",
         icon: Stethoscope,
       },
       {
         time: "03:45 PM",
         endTime: "05:00 PM",
-        title: "Panel Discussion",
+        title: "Expert Panel Discussion",
         speaker: "Invited Faculty",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Discussion",
         icon: Users,
       },
@@ -113,10 +122,12 @@ const scheduleData = {
 
   day2: {
     day: "Day 02",
-    date: "16 March 2026",
+    shortDate: "24 Oct",
+    date: "24 October 2026",
+    weekday: "Saturday",
     theme: "Clinical Practice & Innovation",
     description:
-      "Advanced clinical discussions, specialist sessions and interactive learning.",
+      "A full day of cardiovascular science, clinical discussions, contemporary evidence and expert interaction.",
 
     sessions: [
       {
@@ -124,16 +135,16 @@ const scheduleData = {
         endTime: "10:00 AM",
         title: "Plenary Scientific Session",
         speaker: "Invited Faculty",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Scientific",
         icon: Presentation,
       },
       {
         time: "10:00 AM",
         endTime: "11:00 AM",
-        title: "Advances in Interventional Cardiology",
-        speaker: "Interventional Cardiology Faculty",
-        venue: "Main Auditorium",
+        title: "Contemporary Cardiology Session",
+        speaker: "Scientific Faculty",
+        venue: "Main Conference Hall",
         type: "Scientific",
         icon: HeartPulse,
       },
@@ -150,8 +161,8 @@ const scheduleData = {
         time: "11:30 AM",
         endTime: "01:00 PM",
         title: "Clinical Case Forum",
-        speaker: "Expert Panel",
-        venue: "Main Auditorium",
+        speaker: "Expert Faculty Panel",
+        venue: "Main Conference Hall",
         type: "Clinical",
         icon: Stethoscope,
       },
@@ -167,19 +178,19 @@ const scheduleData = {
       {
         time: "02:00 PM",
         endTime: "03:30 PM",
-        title: "Electrophysiology & Rhythm Disorders",
-        speaker: "Electrophysiology Faculty",
-        venue: "Main Auditorium",
+        title: "Advanced Cardiovascular Session",
+        speaker: "Invited Faculty",
+        venue: "Main Conference Hall",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
         time: "03:45 PM",
         endTime: "05:00 PM",
-        title: "Interactive Workshop",
-        speaker: "Workshop Faculty",
-        venue: "Workshop Hall",
-        type: "Workshop",
+        title: "Interactive Academic Session",
+        speaker: "Faculty Panel",
+        venue: "Main Conference Hall",
+        type: "Discussion",
         icon: UserRound,
       },
     ],
@@ -187,27 +198,29 @@ const scheduleData = {
 
   day3: {
     day: "Day 03",
-    date: "17 March 2026",
-    theme: "Research, Future & Collaboration",
+    shortDate: "25 Oct",
+    date: "25 October 2026",
+    weekday: "Sunday",
+    theme: "Research, Collaboration & Future",
     description:
-      "Research presentations, future-focused sessions and conference conclusions.",
+      "Research, emerging perspectives, academic collaboration and the conclusion of CardioCon Arunachal 2026.",
 
     sessions: [
       {
         time: "09:00 AM",
         endTime: "10:00 AM",
-        title: "Young Investigator Session",
+        title: "Research & Young Investigator Session",
         speaker: "Selected Presenters",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Research",
-        icon: UserRound,
+        icon: Microscope,
       },
       {
         time: "10:00 AM",
         endTime: "11:00 AM",
-        title: "Future of Cardiovascular Medicine",
+        title: "Future Perspectives in Cardiovascular Medicine",
         speaker: "Invited Faculty",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Keynote",
         icon: Mic2,
       },
@@ -240,19 +253,19 @@ const scheduleData = {
       },
       {
         time: "02:00 PM",
-        endTime: "03:30 PM",
-        title: "Multidisciplinary Panel Discussion",
-        speaker: "National Faculty Panel",
-        venue: "Main Auditorium",
+        endTime: "03:15 PM",
+        title: "Multidisciplinary Scientific Discussion",
+        speaker: "Faculty Panel",
+        venue: "Main Conference Hall",
         type: "Discussion",
         icon: Users,
       },
       {
-        time: "03:30 PM",
-        endTime: "04:30 PM",
-        title: "Awards & Closing Ceremony",
+        time: "03:15 PM",
+        endTime: "04:00 PM",
+        title: "Closing Ceremony",
         speaker: "Organising Committee",
-        venue: "Main Auditorium",
+        venue: "Main Conference Hall",
         type: "Ceremony",
         icon: Users,
       },
@@ -261,7 +274,7 @@ const scheduleData = {
 };
 
 /* =========================================================
-   BADGE STYLES
+   BADGES
 ========================================================= */
 
 const badgeColors = {
@@ -270,7 +283,6 @@ const badgeColors = {
   Keynote: "bg-emerald-50 text-emerald-700 border-emerald-100",
   Scientific: "bg-cyan-50 text-cyan-700 border-cyan-100",
   Clinical: "bg-rose-50 text-rose-700 border-rose-100",
-  Workshop: "bg-orange-50 text-orange-700 border-orange-100",
   Discussion: "bg-indigo-50 text-indigo-700 border-indigo-100",
   Research: "bg-purple-50 text-purple-700 border-purple-100",
   Break: "bg-slate-100 text-slate-600 border-slate-200",
@@ -288,13 +300,15 @@ function Schedule() {
   const fadeUp = {
     hidden: {
       opacity: 0,
-      y: 30,
+      y: 24,
     },
+
     visible: {
       opacity: 1,
       y: 0,
+
       transition: {
-        duration: 0.6,
+        duration: 0.55,
         ease: "easeOut",
       },
     },
@@ -302,9 +316,10 @@ function Schedule() {
 
   const stagger = {
     hidden: {},
+
     visible: {
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.07,
       },
     },
   };
@@ -313,154 +328,264 @@ function Schedule() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden pt-20">
+      <main className="overflow-hidden bg-white pt-20">
 
         {/* =====================================================
             HERO
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-[#071a2d] text-white">
-          {/* Background */}
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -right-48 -top-48 h-150 w-150 rounded-full bg-cyan-500/10 blur-3xl" />
+        <section className="relative isolate overflow-hidden bg-[#061827] text-white">
 
-            <div className="absolute -bottom-60 -left-40 h-150 w-150 rounded-full bg-blue-600/10 blur-3xl" />
+          {/* Background decorations */}
+
+          <div className="pointer-events-none absolute inset-0">
+
+            <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
+
+            <div className="absolute -bottom-60 -left-40 h-125 w-125 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
+
+            <div className="absolute right-[10%] top-[15%] h-40 w-40 rounded-full bg-orange-400/10 blur-2xl sm:h-56 sm:w-56" />
+
+            {/* Dot texture */}
 
             <div
-              className="absolute inset-0 opacity-[0.03]"
+              className="absolute inset-0 opacity-[0.025]"
               style={{
                 backgroundImage:
                   "radial-gradient(circle, white 1px, transparent 1px)",
+
                 backgroundSize: "28px 28px",
               }}
             />
+
+            {/* ECG */}
+
+            <svg
+              className="absolute bottom-0 left-0 w-full opacity-[0.045]"
+              viewBox="0 0 1440 200"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0 110H250L300 110L335 55L370 160L410 25L455 110H660L700 110L730 65L760 145L800 45L840 110H1100L1140 110L1170 70L1200 140L1240 50L1280 110H1440"
+                stroke="currentColor"
+                strokeWidth="5"
+                className="text-cyan-300"
+              />
+            </svg>
+
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+          <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+
             <motion.div
               variants={stagger}
               initial="hidden"
               animate="visible"
-              className="max-w-4xl"
+              className="max-w-5xl"
             >
+
+              {/* Conference badge */}
+
               <motion.div
                 variants={fadeUp}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur"
+                className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
               >
-                <CalendarDays size={17} />
+                <CalendarDays
+                  size={15}
+                  className="shrink-0"
+                />
+
+                CSI Northeast Annual Conference 2026
+              </motion.div>
+
+              {/* Program */}
+
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300 sm:text-sm"
+              >
+                <Sparkles size={15} />
+
                 Scientific Program
               </motion.div>
 
+              {/* Heading */}
+
               <motion.h1
                 variants={fadeUp}
-                className="mt-7 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+                className="mt-5 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                Conference
-                <span className="ml-3 text-cyan-300 sm:ml-4">
-                  Schedule.
+                Three Days of
+                <span className="mt-1 block text-cyan-300">
+                  Scientific Exchange.
                 </span>
               </motion.h1>
 
+              {/* Description */}
+
               <motion.p
                 variants={fadeUp}
-                className="mt-7 max-w-2xl text-lg leading-8 text-slate-300"
+                className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg"
               >
-                Three days of keynote lectures, scientific sessions,
-                clinical discussions, research presentations and interactive
-                learning at CardioCon Arunachal 2026.
+                Explore the scientific program of the 24th CardioCon
+                Arunachal — bringing together cardiovascular experts,
+                clinicians, researchers and young professionals for academic
+                discussion and collaborative learning.
               </motion.p>
 
-              {/* Hero details */}
+              {/* Details */}
 
               <motion.div
                 variants={fadeUp}
-                className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-300"
+                className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
               >
-                <span className="flex items-center gap-2">
-                  <CalendarDays
-                    size={17}
-                    className="text-cyan-300"
-                  />
-                  15–17 March 2026
-                </span>
 
-                <span className="flex items-center gap-2">
-                  <MapPin
-                    size={17}
-                    className="text-cyan-300"
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+
+                  <CalendarDays
+                    size={18}
+                    className="shrink-0 text-cyan-300"
                   />
-                  Itanagar, Arunachal Pradesh
-                </span>
+
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                      Conference Dates
+                    </p>
+
+                    <p className="mt-0.5 text-sm font-semibold text-slate-200">
+                      23–25 October 2026
+                    </p>
+                  </div>
+
+                </div>
+
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+
+                  <MapPin
+                    size={18}
+                    className="shrink-0 text-orange-300"
+                  />
+
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                      Host City
+                    </p>
+
+                    <p className="mt-0.5 text-sm font-semibold text-slate-200">
+                      Itanagar, Arunachal Pradesh
+                    </p>
+                  </div>
+
+                </div>
+
               </motion.div>
+
             </motion.div>
+
           </div>
 
-          <div className="absolute bottom-0 h-1 w-full bg-linear-to-r from-blue-700 via-cyan-400 to-blue-700" />
+          {/* Arunachal-inspired accent */}
+
+          <div className="flex h-1.5">
+            <div className="flex-1 bg-orange-400" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-white" />
+            <div className="flex-1 bg-cyan-500" />
+            <div className="flex-1 bg-orange-400" />
+          </div>
+
         </section>
 
         {/* =====================================================
-            PROGRAM OVERVIEW
+            CONFERENCE INFORMATION
         ====================================================== */}
 
-        <section className="bg-white py-16 lg:py-20">
+        <section className="border-b border-slate-100 bg-white py-12 sm:py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
-              className="grid gap-4 md:grid-cols-3"
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
+              className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
             >
+
               {[
                 {
                   icon: CalendarDays,
                   value: "3 Days",
-                  label: "Scientific Program",
+                  label: "23–25 October 2026",
                 },
-                {
-                  icon: Presentation,
-                  value: "40+ Sessions",
-                  label: "Scientific & Clinical Discussions",
-                },
+
                 {
                   icon: Users,
-                  value: "40+ Faculty",
-                  label: "Experts & Scientific Contributors",
+                  value: "~200 Delegates",
+                  label: "Expected Participants",
+                },
+
+                {
+                  icon: BookOpen,
+                  value: "Scientific",
+                  label: "Academic Programme",
+                },
+
+                {
+                  icon: Building2,
+                  value: "CSI Northeast",
+                  label: "Annual Conference 2026",
                 },
               ].map(({ icon: Icon, value, label }) => (
+
                 <motion.div
                   variants={fadeUp}
-                  key={value}
-                  className="group flex items-center gap-5 rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-lg"
+                  key={label}
+                  whileHover={{
+                    y: -4,
+                  }}
+                  className="group flex items-center gap-4 rounded-2xl border border-slate-200 p-5 transition-all hover:border-blue-100 hover:shadow-lg sm:p-6"
                 >
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
-                    <Icon size={26} />
+
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
+                    <Icon size={22} />
                   </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900">
-                      {value}
-                    </h3>
+                  <div className="min-w-0">
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="font-bold text-slate-900">
+                      {value}
+                    </p>
+
+                    <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
                       {label}
                     </p>
+
                   </div>
+
                 </motion.div>
+
               ))}
+
             </motion.div>
+
           </div>
+
         </section>
 
         {/* =====================================================
-            PROGRAM
+            SCIENTIFIC PROGRAM
         ====================================================== */}
 
-        <section className="bg-slate-50 py-20 lg:py-28">
+        <section className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-            {/* Section heading */}
+            {/* Heading */}
 
             <motion.div
               variants={fadeUp}
@@ -469,40 +594,52 @@ function Schedule() {
               viewport={{ once: true }}
               className="mx-auto max-w-3xl text-center"
             >
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-blue-700">
-                Scientific Agenda
-              </span>
 
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
+              <div className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
+
+                <span className="h-px w-7 bg-blue-700" />
+
+                Scientific Agenda
+
+                <span className="h-px w-7 bg-blue-700" />
+
+              </div>
+
+              <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
                 Explore the Program
               </h2>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Select a conference day to explore the scheduled sessions
-                and activities.
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                Select a conference day to view the provisional scientific
+                sessions and academic activities.
               </p>
+
             </motion.div>
 
             {/* =================================================
                 DAY SELECTOR
             ================================================== */}
 
-            <div className="mt-12 flex justify-center">
-              <div className="grid w-full max-w-3xl grid-cols-3 rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm">
+            <div className="mt-10 sm:mt-12">
+
+              <div className="mx-auto grid max-w-3xl grid-cols-3 gap-1 rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm sm:gap-2 sm:p-2">
 
                 {Object.entries(scheduleData).map(([key, day]) => {
+
                   const active = activeDay === key;
 
                   return (
                     <button
+                      type="button"
                       key={key}
                       onClick={() => setActiveDay(key)}
-                      className={`relative rounded-xl px-3 py-4 text-center transition sm:px-6 ${
+                      className={`relative min-w-0 overflow-hidden rounded-xl px-1 py-3.5 text-center outline-none transition sm:px-4 sm:py-4 ${
                         active
                           ? "text-white"
-                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                          : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
                       }`}
                     >
+
                       {active && (
                         <motion.div
                           layoutId="activeScheduleDay"
@@ -516,36 +653,42 @@ function Schedule() {
                       )}
 
                       <div className="relative z-10">
-                        <p className="text-sm font-bold sm:text-base">
+
+                        <p className="text-xs font-bold sm:text-base">
                           {day.day}
                         </p>
 
                         <p
-                          className={`mt-1 hidden text-xs sm:block ${
+                          className={`mt-1 text-[10px] font-medium sm:text-xs ${
                             active
                               ? "text-blue-100"
                               : "text-slate-400"
                           }`}
                         >
-                          {day.date}
+                          {day.shortDate}
                         </p>
+
                       </div>
+
                     </button>
                   );
                 })}
+
               </div>
+
             </div>
 
             {/* =================================================
-                DAY HEADER
+                ACTIVE DAY HEADER
             ================================================== */}
 
             <AnimatePresence mode="wait">
+
               <motion.div
                 key={`${activeDay}-header`}
                 initial={{
                   opacity: 0,
-                  y: 10,
+                  y: 12,
                 }}
                 animate={{
                   opacity: 1,
@@ -553,41 +696,63 @@ function Schedule() {
                 }}
                 exit={{
                   opacity: 0,
-                  y: -10,
+                  y: -8,
                 }}
                 transition={{
-                  duration: 0.3,
+                  duration: 0.25,
                 }}
-                className="mt-10 rounded-3xl bg-[#071a2d] p-7 text-white sm:p-9"
+                className="relative mt-8 overflow-hidden rounded-2xl bg-[#071a2d] p-5 text-white sm:mt-10 sm:rounded-3xl sm:p-8"
               >
-                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
 
-                  <div>
-                    <div className="flex items-center gap-2 text-sm font-semibold text-cyan-300">
-                      <CalendarDays size={17} />
-                      {selectedDay.date}
+                <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cyan-400/10 blur-2xl" />
+
+                <div className="relative flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+
+                  <div className="min-w-0">
+
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+
+                      <span className="flex items-center gap-2 text-xs font-bold text-cyan-300 sm:text-sm">
+
+                        <CalendarDays size={15} />
+
+                        {selectedDay.weekday},{" "}
+                        {selectedDay.date}
+
+                      </span>
+
+                      <span className="rounded-full border border-orange-300/20 bg-orange-300/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-orange-300">
+                        Provisional
+                      </span>
+
                     </div>
 
-                    <h3 className="mt-3 text-2xl font-bold sm:text-3xl">
+                    <h3 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
                       {selectedDay.theme}
                     </h3>
 
-                    <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:leading-7">
                       {selectedDay.description}
                     </p>
+
                   </div>
 
-                  <div className="shrink-0 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center">
-                    <p className="text-3xl font-bold text-cyan-300">
+                  <div className="flex w-fit shrink-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 sm:block sm:px-5 sm:py-4 sm:text-center">
+
+                    <p className="text-2xl font-black text-cyan-300 sm:text-3xl">
                       {selectedDay.sessions.length}
                     </p>
 
-                    <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 sm:mt-1">
                       Sessions
                     </p>
+
                   </div>
+
                 </div>
+
               </motion.div>
+
             </AnimatePresence>
 
             {/* =================================================
@@ -595,6 +760,7 @@ function Schedule() {
             ================================================== */}
 
             <AnimatePresence mode="wait">
+
               <motion.div
                 key={activeDay}
                 variants={stagger}
@@ -602,131 +768,172 @@ function Schedule() {
                 animate="visible"
                 exit={{
                   opacity: 0,
-                  y: 10,
+                  y: 8,
                 }}
-                className="mt-10"
+                className="mt-8 sm:mt-10"
               >
+
                 {selectedDay.sessions.map((item, index) => {
+
                   const Icon = item.icon;
 
                   return (
                     <motion.div
                       variants={fadeUp}
-                      key={`${item.time}-${item.title}`}
-                      className="relative flex gap-4 pb-7 sm:gap-6"
+                      key={`${activeDay}-${item.time}-${item.title}`}
+                      className="relative flex gap-3 pb-5 sm:gap-5 sm:pb-7"
                     >
-                      {/* Timeline column */}
+
+                      {/* Timeline */}
 
                       <div className="flex shrink-0 flex-col items-center">
 
                         <motion.div
-                          whileHover={{ scale: 1.08 }}
-                          className="z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white shadow-lg shadow-blue-900/15 sm:h-14 sm:w-14"
+                          whileHover={{
+                            scale: 1.06,
+                          }}
+                          className="z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-700 text-white shadow-md shadow-blue-950/10 sm:h-13 sm:w-13 sm:rounded-2xl"
                         >
-                          <Icon size={22} />
+
+                          <Icon
+                            size={19}
+                            className="sm:hidden"
+                          />
+
+                          <Icon
+                            size={22}
+                            className="hidden sm:block"
+                          />
+
                         </motion.div>
 
                         {index !==
                           selectedDay.sessions.length - 1 && (
-                          <div className="mt-2 w-px flex-1 bg-linear-to-b from-blue-300 to-slate-200" />
+
+                          <div className="mt-2 w-px flex-1 bg-linear-to-b from-blue-300 via-slate-300 to-slate-200" />
+
                         )}
+
                       </div>
 
-                      {/* Session card */}
+                      {/* Card */}
 
-                      <div className="min-w-0 flex-1 pb-2">
+                      <div className="min-w-0 flex-1">
+
                         <motion.div
                           whileHover={{
-                            y: -3,
+                            y: -2,
                           }}
-                          className="group rounded-2xl border border-slate-200 bg-white p-5 transition-shadow duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 sm:p-7"
+                          className="group rounded-2xl border border-slate-200 bg-white p-4 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/50 sm:p-6"
                         >
-                          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
 
-                            <div className="min-w-0">
+                          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start sm:gap-6">
 
-                              {/* Time */}
+                            <div className="min-w-0 flex-1">
 
-                              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                              {/* Time / Badge */}
 
-                                <div className="flex items-center gap-2 text-sm font-bold text-blue-700">
-                                  <Clock3 size={16} />
+                              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
 
-                                  {item.time}
+                                <div className="flex items-center gap-1.5 text-xs font-bold text-blue-700 sm:text-sm">
+
+                                  <Clock3
+                                    size={14}
+                                    className="shrink-0"
+                                  />
+
+                                  <span>
+                                    {item.time}
+                                  </span>
 
                                   <span className="font-normal text-slate-400">
                                     – {item.endTime}
                                   </span>
+
                                 </div>
 
-                                {/* Badge mobile */}
+                                {/* Mobile badge */}
 
                                 <span
-                                  className={`inline-flex rounded-full border px-3 py-1 text-[11px] font-bold sm:hidden ${
+                                  className={`inline-flex rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide sm:hidden ${
                                     badgeColors[item.type]
                                   }`}
                                 >
                                   {item.type}
                                 </span>
+
                               </div>
 
                               {/* Title */}
 
-                              <h3 className="mt-3 text-xl font-bold tracking-tight text-slate-900 transition-colors group-hover:text-blue-700 sm:text-2xl">
+                              <h3 className="mt-3 wrap-break-word text-base font-bold leading-6 tracking-tight text-slate-900 transition-colors group-hover:text-blue-700 sm:text-xl sm:leading-7 lg:text-2xl">
                                 {item.title}
                               </h3>
 
-                              {/* Speaker */}
+                              {/* Meta */}
 
-                              {item.speaker && (
-                                <div className="mt-4 flex items-start gap-2.5">
+                              <div className="mt-4 flex flex-col gap-2">
 
-                                  <UserRound
-                                    size={17}
+                                {item.speaker && (
+
+                                  <div className="flex items-start gap-2">
+
+                                    <UserRound
+                                      size={15}
+                                      className="mt-0.5 shrink-0 text-slate-400"
+                                    />
+
+                                    <p className="text-xs font-medium leading-5 text-slate-600 sm:text-sm">
+                                      {item.speaker}
+                                    </p>
+
+                                  </div>
+
+                                )}
+
+                                <div className="flex items-start gap-2">
+
+                                  <MapPin
+                                    size={15}
                                     className="mt-0.5 shrink-0 text-slate-400"
                                   />
 
-                                  <p className="text-sm font-medium text-slate-600">
-                                    {item.speaker}
+                                  <p className="text-xs leading-5 text-slate-500 sm:text-sm">
+                                    {item.venue}
                                   </p>
+
                                 </div>
-                              )}
 
-                              {/* Venue */}
-
-                              <div className="mt-2.5 flex items-start gap-2.5">
-
-                                <MapPin
-                                  size={16}
-                                  className="mt-0.5 shrink-0 text-slate-400"
-                                />
-
-                                <p className="text-sm text-slate-500">
-                                  {item.venue}
-                                </p>
                               </div>
+
                             </div>
 
                             {/* Desktop badge */}
 
                             <span
-                              className={`hidden shrink-0 rounded-full border px-3.5 py-1.5 text-xs font-bold sm:inline-flex ${
+                              className={`hidden shrink-0 rounded-full border px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide sm:inline-flex ${
                                 badgeColors[item.type]
                               }`}
                             >
                               {item.type}
                             </span>
+
                           </div>
+
                         </motion.div>
+
                       </div>
+
                     </motion.div>
                   );
                 })}
+
               </motion.div>
+
             </AnimatePresence>
 
             {/* =================================================
-                PROGRAM NOTICE
+                NOTICE
             ================================================== */}
 
             <motion.div
@@ -739,69 +946,88 @@ function Schedule() {
                 y: 0,
               }}
               viewport={{ once: true }}
-              className="mt-6 flex items-start gap-4 rounded-2xl border border-blue-100 bg-blue-50/70 p-5"
+              className="mt-3 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:gap-4 sm:p-5"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
-                <Info size={19} />
+
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
+
+                <Info size={18} />
+
               </div>
 
               <div>
+
                 <h4 className="text-sm font-bold text-slate-900">
-                  Program Information
+                  Provisional Scientific Program
                 </h4>
 
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Session timings, faculty and venues may be updated as
-                  the final scientific program is confirmed. Please refer
-                  to the latest published schedule before the conference.
+                <p className="mt-1 text-xs leading-6 text-slate-600 sm:text-sm">
+                  The detailed scientific agenda, session topics, faculty,
+                  timings and hall allocations are subject to confirmation by
+                  the Scientific Committee. The final program will be
+                  published once approved.
                 </p>
+
               </div>
+
             </motion.div>
+
           </div>
+
         </section>
 
         {/* =====================================================
-            DOWNLOAD PROGRAM
+            PROGRAM DOWNLOAD
         ====================================================== */}
 
-        <section className="bg-white py-24">
+        <section className="bg-white py-20 sm:py-24">
+
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 25,
               }}
               whileInView={{
                 opacity: 1,
                 y: 0,
               }}
               viewport={{ once: true }}
-              className="relative overflow-hidden rounded-4xl bg-[#071a2d] px-6 py-12 text-center text-white shadow-2xl sm:px-12 lg:py-16"
+              className="relative overflow-hidden rounded-[1.75rem] bg-[#071a2d] px-5 py-10 text-center text-white shadow-2xl sm:rounded-4xl sm:px-10 sm:py-14 lg:px-16"
             >
-              {/* Background */}
 
-              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-400/10" />
+              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-400/10 blur-2xl" />
 
-              <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/10" />
+              <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/10 blur-2xl" />
 
               <div className="relative">
 
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-cyan-300">
-                  <FileText size={27} />
+                <div className="mx-auto flex h-13 w-13 items-center justify-center rounded-2xl bg-white/10 text-cyan-300 sm:h-14 sm:w-14">
+
+                  <FileText size={25} />
+
                 </div>
 
-                <h2 className="mt-7 text-3xl font-bold tracking-tight sm:text-4xl">
+                <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-300 sm:text-xs">
+                  CardioCon Arunachal 2026
+                </p>
+
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
                   Complete Scientific Program
                 </h2>
 
-                <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-300">
-                  Download the complete CardioCon Arunachal 2026 program
-                  including scientific sessions, faculty information,
-                  timings and venue details.
+                <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                  The final downloadable program will include confirmed
+                  scientific sessions, faculty, timings and venue
+                  information.
                 </p>
 
-                <button className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <button
+                  type="button"
+                  className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl sm:w-auto"
+                >
+
                   <Download size={18} />
 
                   Download Program
@@ -810,19 +1036,30 @@ function Schedule() {
                     size={16}
                     className="transition-transform group-hover:translate-x-1"
                   />
+
                 </button>
+
+                <p className="mt-3 text-[11px] text-slate-500">
+                  Available after final program confirmation
+                </p>
+
               </div>
+
             </motion.div>
+
           </div>
+
         </section>
 
         {/* =====================================================
-            REGISTRATION CTA
+            FINAL CTA
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-blue-800 py-20 text-white">
+        <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
 
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
+
+          <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
 
           <motion.div
             initial={{
@@ -836,33 +1073,54 @@ function Schedule() {
             viewport={{ once: true }}
             className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
           >
+
             <HeartPulse
-              size={42}
+              size={40}
               className="mx-auto text-cyan-300"
             />
 
-            <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-              Ready to join CardioCon Arunachal?
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-100">
-              Register for three days of scientific learning, clinical
-              discussion and professional collaboration.
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200 sm:text-xs">
+              23–25 October 2026 · Arunachal Pradesh
             </p>
 
-            <Link
-              to="/registration"
-              className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 font-bold text-blue-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-            >
-              Register Now
+            <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Be part of CardioCon Arunachal 2026.
+            </h2>
 
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </Link>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
+              Join the cardiovascular community for three days of scientific
+              learning, academic exchange and professional collaboration.
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+
+              <Link
+                to="/registration"
+                className="group flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              >
+
+                Register Now
+
+                <ArrowRight
+                  size={17}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+
+              </Link>
+
+              <Link
+                to="/contact"
+                className="flex items-center justify-center rounded-xl border border-white/25 px-7 py-3.5 font-semibold transition hover:bg-white/10"
+              >
+                Contact Secretariat
+              </Link>
+
+            </div>
+
           </motion.div>
+
         </section>
+
       </main>
 
       <Footer />
