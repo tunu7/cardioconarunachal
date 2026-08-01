@@ -8,6 +8,7 @@ import {
   CalendarDays,
   MapPin,
 } from "lucide-react";
+import cardioconLogo from "../assets/cardioconlogo.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,35 +69,19 @@ function Navbar() {
             className="group flex min-w-0 items-center gap-3"
           >
             <motion.div
-              whileHover={{ scale: 1.04 }}
-              transition={{ duration: 0.2 }}
-              className="flex h-12 w-12 shrink-0 items-center justify-center"
-            >
-              <img
-                src="/logo.png"
-                alt="CardioCon Arunachal"
-                className="h-full w-full object-contain"
-              />
-            </motion.div>
+    whileHover={{ scale: 1.03 }}
+    transition={{ duration: 0.2 }}
+    className="flex h-20 w-20 shrink-0 items-center justify-center sm:h-22 sm:w-22"
+  >
+    <img
+      src={cardioconLogo}
+      alt="CardioCon Arunachal 2026"
+      className="h-full w-full object-contain"
+    />
+  </motion.div>
 
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <h2 className="truncate text-[17px] font-bold tracking-tight text-slate-900 sm:text-lg">
-                  CardioCon
-                  <span className="ml-1 text-blue-700">
-                    Arunachal
-                  </span>
-                </h2>
+            
 
-                <span className="hidden rounded-md bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-700 sm:inline-block">
-                  2026
-                </span>
-              </div>
-
-              <p className="mt-0.5 hidden text-[11px] font-medium tracking-wide text-slate-500 sm:block">
-                Cardiovascular Conference
-              </p>
-            </div>
           </Link>
 
           {/* =========================
@@ -275,7 +260,7 @@ function Navbar() {
                     </div>
 
                     <p className="mt-2 text-xs font-medium text-slate-600">
-                      15–17 March 2026
+                      23–25 October 2026
                     </p>
                   </div>
 
