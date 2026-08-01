@@ -102,7 +102,7 @@ function Footer() {
                       size={16}
                       className="text-cyan-300"
                     />
-                    15–17 March 2026
+                    23–25 October 2026
                   </span>
 
                   <span className="flex items-center gap-2">
@@ -261,7 +261,7 @@ function Footer() {
 
               {/* Email */}
               <a
-                href="mailto:info@cardioconarunachal.com"
+                href="mailto:cardiocon2026@gmail.com"
                 className="group flex items-start gap-3"
               >
                 <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-cyan-300 transition group-hover:bg-cyan-400/10">
@@ -274,7 +274,7 @@ function Footer() {
                   </p>
 
                   <p className="mt-1 break-all text-sm text-slate-300 transition group-hover:text-white">
-                    info@cardioconarunachal.com
+                    cardiocon2026@gmail.com
                   </p>
                 </div>
               </a>
