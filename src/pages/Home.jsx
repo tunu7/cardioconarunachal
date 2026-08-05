@@ -434,7 +434,7 @@ function Home() {
                         First time hosted in
                       </p>
 
-                      <p className="font-bold">Arunachal Pradesh</p>
+                      <p className="font-bold">Arunachal Pradesh.</p>
                     </div>
                   </div>
                 </motion.div>
