@@ -535,7 +535,7 @@ const leadership = [
                 {
                   icon: Users,
                   label: "Community",
-                  title: "Around 200 Delegates",
+                  title: "Around 300 Delegates",
                   text: "From the Northeast and across India",
                 },
               ].map(({ icon: Icon, label, title, text }) => (

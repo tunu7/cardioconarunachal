@@ -447,7 +447,7 @@ function About() {
 
                   <div>
                     <p className="text-xl font-black text-slate-900">
-                      ~200
+                      ~300
                     </p>
 
                     <p className="text-xs text-slate-500">
@@ -476,7 +476,7 @@ function About() {
             {[
               ["24th", "CardioCon Arunachal"],
               ["3", "Conference Days"],
-              ["~200", "Expected Delegates"],
+              ["~300", "Expected Delegates"],
               ["1st", "CSI NER in Arunachal"],
             ].map(([number, label], index) => (
 

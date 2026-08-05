@@ -525,7 +525,7 @@ function Schedule() {
 
                 {
                   icon: Users,
-                  value: "~200 Delegates",
+                  value: "~300 Delegates",
                   label: "Expected Participants",
                 },
 

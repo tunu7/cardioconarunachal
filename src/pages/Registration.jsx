@@ -251,7 +251,7 @@ function Registration() {
                 },
                 {
                   icon: Users,
-                  title: "~200 Delegates",
+                  title: "~300 Delegates",
                   label: "Expected Participation",
                 },
                 {
