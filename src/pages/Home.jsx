@@ -42,6 +42,25 @@ import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
 ========================================================= */
 
 import ziro from "../assets/arunachal/ziro.JPG";
+import ziro2 from "../assets/arunachal/Ziro-2.JPG";
+import ziro3 from "../assets/arunachal/Ziro-3.JPG";
+import ziro4 from "../assets/arunachal/Ziro-4.JPG";
+
+import dirang from "../assets/arunachal/Dirang.JPG";
+
+import mechukha2 from "../assets/arunachal/Mechukha-2.JPG";
+import mechukha3 from "../assets/arunachal/Mechukha-3.JPG";
+import mechukha4 from "../assets/arunachal/Mechukha-4.JPG";
+import mechukha5 from "../assets/arunachal/Mechukha-5.JPG";
+import mechukha6 from "../assets/arunachal/Mechukha-6.JPG";
+
+import selaLake from "../assets/arunachal/Sela-Lake.JPG";
+import selaLake2 from "../assets/arunachal/Sela-lake 2.JPG";
+
+import shergaon from "../assets/arunachal/Shergaon-View.JPG";
+
+import zemithangGompa from "../assets/arunachal/Zemithang-Gompa.JPG";
+import zemithangTawang from "../assets/arunachal/Zemithang-Tawang.JPG";
 
 function Home() {
   /* =========================================================
@@ -157,14 +176,102 @@ function Home() {
   ========================================================= */
 
   const arunachalSlides = [
-   
-    {
-      image: ziro,
-      title: "Ziro Valley",
-      subtitle: "A timeless landscape in the heart of Arunachal",
-    },
-  
-  ];
+  {
+    image: ziro,
+    title: "Ziro Valley",
+    subtitle:
+      "The iconic green valleys and rice fields of Arunachal Pradesh.",
+  },
+  {
+    image: ziro2,
+    title: "Ziro Valley",
+    subtitle:
+      "A tranquil Himalayan landscape surrounded by pine-covered hills.",
+  },
+  {
+    image: ziro3,
+    title: "Ziro Valley",
+    subtitle:
+      "Experience the natural beauty and timeless landscapes of Ziro.",
+  },
+  {
+    image: ziro4,
+    title: "Ziro Valley",
+    subtitle:
+      "Lush rice fields beneath the dramatic skies of Arunachal Pradesh.",
+  },
+
+  {
+    image: dirang,
+    title: "Dirang",
+    subtitle:
+      "A beautiful Himalayan valley surrounded by mountains and traditional villages.",
+  },
+
+  {
+    image: mechukha2,
+    title: "Mechukha",
+    subtitle:
+      "A remote Himalayan valley known for breathtaking mountains and open landscapes.",
+  },
+  {
+    image: mechukha3,
+    title: "Mechukha",
+    subtitle:
+      "Discover one of Arunachal Pradesh's most spectacular mountain destinations.",
+  },
+  {
+    image: mechukha4,
+    title: "Mechukha",
+    subtitle:
+      "Where dramatic Himalayan peaks meet peaceful valleys.",
+  },
+  {
+    image: mechukha5,
+    title: "Mechukha",
+    subtitle:
+      "An unforgettable landscape in the high mountains of Arunachal Pradesh.",
+  },
+  {
+    image: mechukha6,
+    title: "Mechukha",
+    subtitle:
+      "Remote, peaceful and surrounded by the Eastern Himalayas.",
+  },
+
+  {
+    image: selaLake,
+    title: "Sela Lake",
+    subtitle:
+      "A spectacular high-altitude lake surrounded by the Eastern Himalayas.",
+  },
+  {
+    image: selaLake2,
+    title: "Sela Pass",
+    subtitle:
+      "Experience the dramatic high-altitude landscapes of western Arunachal Pradesh.",
+  },
+
+  {
+    image: shergaon,
+    title: "Shergaon",
+    subtitle:
+      "A peaceful mountain village surrounded by forests, valleys and Himalayan scenery.",
+  },
+
+  {
+    image: zemithangGompa,
+    title: "Zemithang",
+    subtitle:
+      "Ancient Buddhist heritage set against the mountains of Arunachal Pradesh.",
+  },
+  {
+    image: zemithangTawang,
+    title: "Zemithang",
+    subtitle:
+      "A remote Himalayan region rich in natural beauty, culture and history.",
+  },
+];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
