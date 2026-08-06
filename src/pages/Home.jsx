@@ -41,7 +41,7 @@ import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
    ARUNACHAL CAROUSEL IMAGES
 ========================================================= */
 
-import ziro from "../assets/arunachal/ziro.jpg";
+import ziro from "../assets/arunachal/ziro.JPG";
 
 function Home() {
   /* =========================================================
