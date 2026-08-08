@@ -40,25 +40,27 @@ import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
 /* =========================================================
    ARUNACHAL CAROUSEL IMAGES
 ========================================================= */
-
+import aeyoLake from "../assets/arunachal/Aeyo-Lake.jpg";
+import pomoValley from "../assets/arunachal/Pomo-Valley.jpg";
+import mandalaTopDirang from "../assets/arunachal/Mandala-Top-Dirang.jpg";
+import goldenPagoda1 from "../assets/arunachal/Golden-Pagoda-1.jpg";
+import goldenPagoda3 from "../assets/arunachal/Golden-Pagoda-3.jpg";
+import maduraiLake from "../assets/arunachal/Madurai-Lake-Sangestar-Lake.jpg";
+import selaLake from "../assets/arunachal/Sela-Lake.jpg";
+import selaPass from "../assets/arunachal/Sela-Pass.jpg";
+import tawangMonastery from "../assets/arunachal/Tawang-Monastery.jpg";
 import ziro from "../assets/arunachal/ziro.JPG";
 import ziro2 from "../assets/arunachal/Ziro-2.JPG";
 import ziro3 from "../assets/arunachal/Ziro-3.JPG";
 import ziro4 from "../assets/arunachal/Ziro-4.JPG";
-
 import dirang from "../assets/arunachal/Dirang.JPG";
-
 import mechukha2 from "../assets/arunachal/Mechukha-2.JPG";
 import mechukha3 from "../assets/arunachal/Mechukha-3.JPG";
 import mechukha4 from "../assets/arunachal/Mechukha-4.JPG";
 import mechukha5 from "../assets/arunachal/Mechukha-5.JPG";
 import mechukha6 from "../assets/arunachal/Mechukha-6.JPG";
-
-import selaLake from "../assets/arunachal/Sela-Lake.JPG";
 import selaLake2 from "../assets/arunachal/Sela-lake 2.JPG";
-
 import shergaon from "../assets/arunachal/Shergaon-View.JPG";
-
 import zemithangGompa from "../assets/arunachal/Zemithang-Gompa.JPG";
 import zemithangTawang from "../assets/arunachal/Zemithang-Tawang.JPG";
 
@@ -270,6 +272,68 @@ function Home() {
     title: "Zemithang",
     subtitle:
       "A remote Himalayan region rich in natural beauty, culture and history.",
+  },
+  {
+    image: aeyoLake,
+    title: "Aeyo Lake",
+    subtitle:
+      "A breathtaking Himalayan lake surrounded by the pristine landscapes of Arunachal Pradesh.",
+  },
+
+  {
+    image: pomoValley,
+    title: "Pomo Valley",
+    subtitle:
+      "A spectacular mountain valley showcasing the untouched beauty of Arunachal Pradesh.",
+  },
+
+  {
+    image: mandalaTopDirang,
+    title: "Mandala Top",
+    subtitle:
+      "Experience the dramatic high-altitude landscapes and mountain views around Dirang.",
+  },
+
+  {
+    image: goldenPagoda1,
+    title: "Golden Pagoda",
+    subtitle:
+      "A magnificent Buddhist landmark reflecting the rich cultural heritage of Arunachal Pradesh.",
+  },
+
+  {
+    image: goldenPagoda3,
+    title: "Golden Pagoda",
+    subtitle:
+      "Discover one of Arunachal Pradesh's beautiful spiritual and architectural landmarks.",
+  },
+
+  {
+    image: maduraiLake,
+    title: "Sangestar Lake",
+    subtitle:
+      "Also known as Madurai Lake, this high-altitude Himalayan lake is surrounded by dramatic mountains.",
+  },
+
+  {
+    image: selaLake,
+    title: "Sela Lake",
+    subtitle:
+      "A spectacular high-altitude lake surrounded by the snow-covered mountains of Arunachal Pradesh.",
+  },
+
+  {
+    image: selaPass,
+    title: "Sela Pass",
+    subtitle:
+      "One of the most iconic high-altitude mountain passes connecting Tawang with the rest of Arunachal Pradesh.",
+  },
+
+  {
+    image: tawangMonastery,
+    title: "Tawang Monastery",
+    subtitle:
+      "One of the most important Buddhist monasteries in India, set against the majestic Eastern Himalayas.",
   },
 ];
 
@@ -1286,7 +1350,7 @@ function Home() {
               <MapPin size={17} className="text-blue-700" />
 
               <p className="text-sm text-slate-500 sm:text-base">
-                Come for the science.
+                Come for science.
                 <span className="font-semibold text-slate-800">
                   {" "}
                   Stay for the experience.
