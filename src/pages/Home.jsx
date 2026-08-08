@@ -46,7 +46,7 @@ import mandalaTopDirang from "../assets/arunachal/Mandala-Top-Dirang.jpg";
 import goldenPagoda1 from "../assets/arunachal/Golden-Pagoda-1.jpg";
 import goldenPagoda3 from "../assets/arunachal/Golden-Pagoda-3.jpg";
 import maduraiLake from "../assets/arunachal/Madurai-Lake-Sangestar-Lake.jpg";
-import selaLake from "../assets/arunachal/Sela-Lake.jpg";
+import selaLake from "../assets/arunachal/Sela-Lake.jpeg";
 import selaPass from "../assets/arunachal/Sela-Pass.jpg";
 import tawangMonastery from "../assets/arunachal/Tawang-Monastery.jpg";
 import ziro from "../assets/arunachal/ziro.JPG";
