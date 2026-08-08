@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -73,6 +73,15 @@ const delegateCategories = [
 function Registration() {
   const [category, setCategory] = useState("consultant");
 
+  // Submission states
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [registrationComplete, setRegistrationComplete] = useState(false);
+  const successSectionRef = useRef(null);
+
+  /* =========================================================
+     ANIMATIONS
+  ========================================================= */
+
   const fadeUp = {
     hidden: {
       opacity: 0,
@@ -97,11 +106,74 @@ function Registration() {
     },
   };
 
-  const handleSubmit = (e) => {
+  /* =========================================================
+     GOOGLE APPS SCRIPT
+  ========================================================= */
+
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwel_qWeirdcO4flWiWLCms0JIAQ9tGe5TAZNlkousfneJebPT-dVOnwxhu8ZkoHs2w/exec";
+
+  /* =========================================================
+     FORM SUBMISSION
+  ========================================================= */
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Connect backend / registration API here.
-    console.log("Registration submitted");
+    if (isSubmitting) return;
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const data = {
+      formType: "registration",
+
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      location: formData.get("location"),
+
+      institution: formData.get("institution"),
+      designation: formData.get("designation"),
+      specialization: formData.get("specialization"),
+      registrationNumber: formData.get("registrationNumber"),
+
+      delegateCategory: formData.get("delegateCategory"),
+
+      notes: formData.get("notes"),
+    };
+
+    try {
+      setIsSubmitting(true);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(data),
+      });
+
+      /*
+       * Show the proper success screen
+       * instead of using an alert.
+       */
+      setRegistrationComplete(true);
+
+      setTimeout(() => {
+  successSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+}, 100);
+    } catch (error) {
+      console.error("Registration submission error:", error);
+
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const selectedCategory = delegateCategories.find(
@@ -119,8 +191,10 @@ function Registration() {
         ====================================================== */}
 
         <section className="relative isolate overflow-hidden bg-[#061827] text-white">
+
           {/* Background */}
           <div className="pointer-events-none absolute inset-0">
+
             <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
 
             <div className="absolute -bottom-60 -left-40 h-125 w-125 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
@@ -155,18 +229,21 @@ function Registration() {
           </div>
 
           <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+
             <motion.div
               variants={stagger}
               initial="hidden"
               animate="visible"
               className="max-w-5xl"
             >
+
               {/* Conference badge */}
               <motion.div
                 variants={fadeUp}
                 className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
               >
                 <HeartPulse size={15} className="shrink-0" />
+
                 CSI Northeast Annual Conference 2026
               </motion.div>
 
@@ -175,6 +252,7 @@ function Registration() {
                 className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300 sm:text-sm"
               >
                 <Sparkles size={15} />
+
                 Delegate Registration
               </motion.div>
 
@@ -184,6 +262,7 @@ function Registration() {
                 className="mt-5 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 Register for
+
                 <span className="mt-1 block text-cyan-300">
                   CardioCon Arunachal.
                 </span>
@@ -217,6 +296,7 @@ function Registration() {
                   accent="orange"
                 />
               </motion.div>
+
             </motion.div>
           </div>
 
@@ -228,6 +308,7 @@ function Registration() {
             <div className="flex-1 bg-cyan-500" />
             <div className="flex-1 bg-orange-400" />
           </div>
+
         </section>
 
         {/* =====================================================
@@ -235,14 +316,20 @@ function Registration() {
         ====================================================== */}
 
         <section className="border-b border-slate-100 bg-white py-12 sm:py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
               className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
             >
+
               {[
                 {
                   icon: CalendarDays,
@@ -271,11 +358,13 @@ function Registration() {
                   key={title}
                   className="group flex items-center gap-4 rounded-2xl border border-slate-200 p-5 transition-all hover:border-blue-100 hover:shadow-lg sm:p-6"
                 >
+
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
                     <Icon size={22} />
                   </div>
 
                   <div className="min-w-0">
+
                     <h3 className="font-bold text-slate-900">
                       {title}
                     </h3>
@@ -283,11 +372,16 @@ function Registration() {
                     <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
                       {label}
                     </p>
+
                   </div>
+
                 </motion.div>
               ))}
+
             </motion.div>
+
           </div>
+
         </section>
 
         {/* =====================================================
@@ -295,6 +389,7 @@ function Registration() {
         ====================================================== */}
 
         <section className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             {/* Heading */}
@@ -305,8 +400,10 @@ function Registration() {
               viewport={{ once: true }}
               className="mb-10 max-w-3xl sm:mb-12"
             >
+
               <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
                 <span className="h-px w-7 bg-blue-700" />
+
                 Delegate Registration
               </div>
 
@@ -320,406 +417,671 @@ function Registration() {
                 <span className="font-semibold text-red-500">*</span> are
                 required.
               </p>
+
             </motion.div>
 
-            {/* FORM + SIDEBAR */}
-            <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_350px] lg:items-start lg:gap-8">
+            {/* =================================================
+                SUCCESS SCREEN
+            ================================================== */}
 
-              {/* =================================================
-                  FORM
-              ================================================== */}
+            {registrationComplete ? (
 
               <motion.div
-                initial={{ opacity: 0, x: -25 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55 }}
-                className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40 sm:rounded-3xl"
+                initial={{
+                  opacity: 0,
+                  y: 25,
+                  scale: 0.98,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                }}
+                className="mx-auto w-full max-w-3xl"
               >
-                {/* Form Header */}
-                <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
-                      <FileText size={22} />
+
+                <div className="overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-2xl shadow-slate-200/50">
+
+                  {/* SUCCESS HEADER */}
+                  <div className="relative overflow-hidden bg-[#061827] px-6 py-12 text-center text-white sm:px-10 sm:py-16">
+
+                    <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+
+                    <div className="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
+
+                    <div className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/15 ring-8 ring-emerald-500/10">
+                      <CheckCircle2
+                        size={46}
+                        strokeWidth={2}
+                        className="text-emerald-300"
+                      />
                     </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
-                        Delegate Registration Form
-                      </h3>
+                    <p className="relative mt-7 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">
+                      Registration Received
+                    </p>
 
-                      <p className="mt-1 text-xs text-slate-500 sm:text-sm">
-                        Personal and professional information
-                      </p>
+                    <h3 className="relative mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+                      Thank You for Registering!
+                    </h3>
+
+                    <p className="relative mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+                      Your registration details have been submitted successfully
+                      to the CardioCon Arunachal organising team.
+                    </p>
+
+                  </div>
+
+                  {/* SUCCESS CONTENT */}
+                  <div className="p-6 sm:p-10">
+
+                    {/* WHAT HAPPENS NEXT */}
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+
+                      <div className="flex items-start gap-4">
+
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                          <FileText size={21} />
+                        </div>
+
+                        <div className="min-w-0">
+
+                          <h4 className="font-bold text-slate-900">
+                            What happens next?
+                          </h4>
+
+                          <p className="mt-1 text-sm leading-6 text-slate-600">
+                            The organising team will review your registration
+                            and contact you regarding confirmation, payment,
+                            and any additional requirements.
+                          </p>
+
+                        </div>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
 
-                <form
-                  onSubmit={handleSubmit}
-                  className="p-5 sm:p-8 lg:p-9"
-                >
-                  {/* =============================================
-                      01 PERSONAL DETAILS
-                  ============================================== */}
+                    {/* CONFERENCE DETAILS */}
+                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
 
-                  <FormSectionHeader
-                    number="01"
-                    title="Personal Details"
-                    description="Your basic contact information"
-                  />
+                      <div className="rounded-2xl border border-slate-200 p-5">
 
-                  <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
-                    <Input
-                      label="Full Name"
-                      name="name"
-                      icon={<User size={18} />}
-                      placeholder="Enter your full name"
-                      autoComplete="name"
-                      required
-                    />
+                        <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                          Conference
+                        </p>
 
-                    <Input
-                      label="Email Address"
-                      name="email"
-                      icon={<Mail size={18} />}
-                      type="email"
-                      placeholder="name@example.com"
-                      autoComplete="email"
-                      required
-                    />
+                        <p className="mt-2 font-bold text-slate-900">
+                          23–25 October 2026
+                        </p>
 
-                    <Input
-                      label="Mobile Number"
-                      name="phone"
-                      icon={<Phone size={18} />}
-                      type="tel"
-                      placeholder="+91 XXXXX XXXXX"
-                      autoComplete="tel"
-                      required
-                    />
+                      </div>
 
-                    <Input
-                      label="City / State"
-                      name="location"
-                      icon={<MapPin size={18} />}
-                      placeholder="e.g. Guwahati, Assam"
-                      autoComplete="address-level1"
-                    />
-                  </div>
+                      <div className="rounded-2xl border border-slate-200 p-5">
 
-                  {/* =============================================
-                      02 PROFESSIONAL DETAILS
-                  ============================================== */}
+                        <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                          Venue
+                        </p>
 
-                  <FormDivider />
+                        <p className="mt-2 font-bold text-slate-900">
+                          Itanagar, Arunachal Pradesh
+                        </p>
 
-                  <FormSectionHeader
-                    number="02"
-                    title="Professional Details"
-                    description="Your institution and medical background"
-                  />
+                      </div>
 
-                  <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
-                    <Input
-                      label="Hospital / Institution"
-                      name="institution"
-                      icon={<Building2 size={18} />}
-                      placeholder="Institution name"
-                      required
-                    />
+                    </div>
 
-                    <Input
-                      label="Designation"
-                      name="designation"
-                      icon={<BriefcaseMedical size={18} />}
-                      placeholder="e.g. Consultant Cardiologist"
-                    />
+                    {/* BUTTONS */}
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
 
-                    <Input
-                      label="Specialization"
-                      name="specialization"
-                      icon={<HeartPulse size={18} />}
-                      placeholder="e.g. Cardiology"
-                    />
+                      <Link
+                        to="/"
+                        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg"
+                      >
+                        Back to Home
 
-                    <Input
-                      label="Medical Council Registration No."
-                      name="registrationNumber"
-                      icon={<BadgeCheck size={18} />}
-                      placeholder="Registration number"
-                    />
-                  </div>
+                        <ArrowRight size={17} />
+                      </Link>
 
-                  {/* =============================================
-                      03 DELEGATE CATEGORY
-                  ============================================== */}
+                      <Link
+                        to="/contact"
+                        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-bold text-slate-700 transition-all hover:border-blue-200 hover:bg-slate-50"
+                      >
+                        Contact Organising Team
 
-                  <FormDivider />
+                        <ArrowRight size={17} />
+                      </Link>
 
-                  <FormSectionHeader
-                    number="03"
-                    title="Delegate Category"
-                    description="Choose the category applicable to you"
-                  />
+                    </div>
 
-                  <div className="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
-                    {delegateCategories.map(
-                      ({ id, name, description, icon: Icon }) => {
-                        const active = category === id;
+                    {/* EMAIL */}
+                    <div className="mt-6 flex items-center justify-center gap-2 text-center text-xs leading-5 text-slate-400">
 
-                        return (
-                          <button
-                            key={id}
-                            type="button"
-                            aria-pressed={active}
-                            onClick={() => setCategory(id)}
-                            className={`relative flex min-h-24 items-start gap-3 rounded-2xl border p-4 text-left outline-none transition-all sm:gap-4 sm:p-5 ${
-                              active
-                                ? "border-blue-600 bg-blue-50/80 ring-1 ring-blue-600"
-                                : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
-                            }`}
-                          >
-                            <div
-                              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition sm:h-11 sm:w-11 ${
-                                active
-                                  ? "bg-blue-700 text-white"
-                                  : "bg-slate-100 text-slate-600"
-                              }`}
-                            >
-                              <Icon size={20} />
-                            </div>
-
-                            <div className="min-w-0 pr-5">
-                              <p
-                                className={`text-sm font-bold sm:text-base ${
-                                  active
-                                    ? "text-blue-800"
-                                    : "text-slate-800"
-                                }`}
-                              >
-                                {name}
-                              </p>
-
-                              <p className="mt-1 text-xs leading-5 text-slate-500">
-                                {description}
-                              </p>
-                            </div>
-
-                            <div
-                              className={`absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full border transition sm:right-4 sm:top-4 ${
-                                active
-                                  ? "border-blue-700 bg-blue-700"
-                                  : "border-slate-300"
-                              }`}
-                            >
-                              {active && (
-                                <CheckCircle2
-                                  size={12}
-                                  className="text-white"
-                                />
-                              )}
-                            </div>
-                          </button>
-                        );
-                      }
-                    )}
-                  </div>
-
-                  <input
-                    type="hidden"
-                    name="delegateCategory"
-                    value={category}
-                  />
-
-                  {/* =============================================
-                      04 ADDITIONAL INFORMATION
-                  ============================================== */}
-
-                  <FormDivider />
-
-                  <FormSectionHeader
-                    number="04"
-                    title="Additional Information"
-                    description="Information that may help the organising team"
-                  />
-
-                  <div className="mt-7">
-                    <label
-                      htmlFor="notes"
-                      className="mb-2 block text-sm font-semibold text-slate-700"
-                    >
-                      Additional Notes
-                    </label>
-
-                    <textarea
-                      id="notes"
-                      name="notes"
-                      rows={5}
-                      placeholder="Dietary requirements, accessibility requirements or any other relevant information..."
-                      className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
-                    />
-                  </div>
-
-                  {/* =============================================
-                      DECLARATION
-                  ============================================== */}
-
-                  <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
-                    <label className="flex cursor-pointer items-start gap-3">
-                      <input
-                        type="checkbox"
-                        name="declaration"
-                        required
-                        className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 accent-blue-700"
+                      <Mail
+                        size={14}
+                        className="shrink-0"
                       />
 
-                      <span className="text-xs leading-6 text-slate-600 sm:text-sm">
-                        I confirm that the information provided above is
-                        accurate and may be used by the organising committee
-                        for conference registration and related communication.
+                      <span>
+                        Questions? cardioconarunachal@gmail.com
                       </span>
-                    </label>
+
+                    </div>
+
                   </div>
 
-                  {/* Submit */}
-                  <button
-                    type="submit"
-                    className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-blue-900/10 transition-all hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl sm:text-base"
-                  >
-                    Continue Registration
+                </div>
 
-                    <ArrowRight
-                      size={18}
-                      className="transition-transform group-hover:translate-x-1"
-                    />
-                  </button>
-
-                  <div className="mt-4 flex items-center justify-center gap-2 text-center text-[11px] leading-5 text-slate-400 sm:text-xs">
-                    <LockKeyhole size={13} className="shrink-0" />
-                    Your registration information will be handled securely.
-                  </div>
-                </form>
               </motion.div>
 
-              {/* =================================================
-                  SIDEBAR
-              ================================================== */}
+            ) : (
 
-              <motion.aside
-                initial={{ opacity: 0, x: 25 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.55,
-                  delay: 0.08,
-                }}
-                className="space-y-4 sm:space-y-5 lg:sticky lg:top-28"
-              >
-                {/* Summary */}
-                <div className="relative overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
-                  <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-400/10 blur-2xl" />
+              /* =================================================
+                 FORM + SIDEBAR
+              ================================================== */
 
-                  <div className="relative border-b border-white/10 p-5 sm:p-6">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 sm:text-xs">
-                      Registration Summary
-                    </p>
+              <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_350px] lg:items-start lg:gap-8">
 
-                    <h3 className="mt-2 text-xl font-bold">
-                      CardioCon Arunachal
-                    </h3>
+                {/* =================================================
+                    FORM
+                ================================================== */}
 
-                    <p className="mt-1 text-xs text-slate-400">
-                      CSI Northeast Annual Conference 2026
-                    </p>
-                  </div>
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: -25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.55,
+                  }}
+                  className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40 sm:rounded-3xl"
+                >
 
-                  <div className="relative space-y-5 p-5 sm:p-6">
-                    <SummaryItem
-                      icon={CalendarDays}
-                      label="Conference Dates"
-                      value="23–25 October 2026"
-                    />
+                  {/* Form Header */}
+                  <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
 
-                    <SummaryItem
-                      icon={MapPin}
-                      label="Venue"
-                      value="Itanagar, Arunachal Pradesh"
-                    />
+                    <div className="flex items-center gap-4">
 
-                    <SummaryItem
-                      icon={User}
-                      label="Selected Category"
-                      value={selectedCategory?.name}
-                    />
-                  </div>
-                </div>
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
+                        <FileText size={22} />
+                      </div>
 
-                {/* Fee */}
-                <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                      <CreditCard size={21} />
+                      <div>
+
+                        <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
+                          Delegate Registration Form
+                        </h3>
+
+                        <p className="mt-1 text-xs text-slate-500 sm:text-sm">
+                          Personal and professional information
+                        </p>
+
+                      </div>
+
                     </div>
 
-                    <span className="rounded-full bg-amber-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                      To be announced
-                    </span>
                   </div>
 
-                  <h3 className="mt-5 font-bold text-slate-900">
-                    Registration Fee
-                  </h3>
+                  {/* FORM */}
+                  <form
+                    onSubmit={handleSubmit}
+                    className="p-5 sm:p-8 lg:p-9"
+                  >
 
-                  <p className="mt-2 text-sm leading-6 text-slate-500">
-                    Category-wise registration fees and payment details will
-                    be published once confirmed by the organising committee.
-                  </p>
-                </div>
+                    {/* =============================================
+                        01 PERSONAL DETAILS
+                    ============================================== */}
 
-                {/* Secretariat */}
-                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
-                      <Info size={18} />
+                    <FormSectionHeader
+                      number="01"
+                      title="Personal Details"
+                      description="Your basic contact information"
+                    />
+
+                    <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
+
+                      <Input
+                        label="Full Name"
+                        name="name"
+                        icon={<User size={18} />}
+                        placeholder="Enter your full name"
+                        autoComplete="name"
+                        required
+                      />
+
+                      <Input
+                        label="Email Address"
+                        name="email"
+                        icon={<Mail size={18} />}
+                        type="email"
+                        placeholder="name@example.com"
+                        autoComplete="email"
+                        required
+                      />
+
+                      <Input
+                        label="Mobile Number"
+                        name="phone"
+                        icon={<Phone size={18} />}
+                        type="tel"
+                        placeholder="+91 XXXXX XXXXX"
+                        autoComplete="tel"
+                        required
+                      />
+
+                      <Input
+                        label="City / State"
+                        name="location"
+                        icon={<MapPin size={18} />}
+                        placeholder="e.g. Guwahati, Assam"
+                        autoComplete="address-level1"
+                      />
+
                     </div>
 
-                    <h3 className="font-bold text-blue-950">
-                      Registration Assistance
-                    </h3>
+                    {/* =============================================
+                        02 PROFESSIONAL DETAILS
+                    ============================================== */}
+
+                    <FormDivider />
+
+                    <FormSectionHeader
+                      number="02"
+                      title="Professional Details"
+                      description="Your institution and medical background"
+                    />
+
+                    <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
+
+                      <Input
+                        label="Hospital / Institution"
+                        name="institution"
+                        icon={<Building2 size={18} />}
+                        placeholder="Institution name"
+                        required
+                      />
+
+                      <Input
+                        label="Designation"
+                        name="designation"
+                        icon={<BriefcaseMedical size={18} />}
+                        placeholder="e.g. Consultant Cardiologist"
+                      />
+
+                      <Input
+                        label="Specialization"
+                        name="specialization"
+                        icon={<HeartPulse size={18} />}
+                        placeholder="e.g. Cardiology"
+                      />
+
+                      <Input
+                        label="Medical Council Registration No."
+                        name="registrationNumber"
+                        icon={<BadgeCheck size={18} />}
+                        placeholder="Registration number"
+                      />
+
+                    </div>
+
+                    {/* =============================================
+                        03 DELEGATE CATEGORY
+                    ============================================== */}
+
+                    <FormDivider />
+
+                    <FormSectionHeader
+                      number="03"
+                      title="Delegate Category"
+                      description="Choose the category applicable to you"
+                    />
+
+                    <div className="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
+
+                      {delegateCategories.map(
+                        ({
+                          id,
+                          name,
+                          description,
+                          icon: Icon,
+                        }) => {
+
+                          const active = category === id;
+
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              aria-pressed={active}
+                              onClick={() => setCategory(id)}
+                              className={`relative flex min-h-24 items-start gap-3 rounded-2xl border p-4 text-left outline-none transition-all sm:gap-4 sm:p-5 ${
+                                active
+                                  ? "border-blue-600 bg-blue-50/80 ring-1 ring-blue-600"
+                                  : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
+                              }`}
+                            >
+
+                              <div
+                                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition sm:h-11 sm:w-11 ${
+                                  active
+                                    ? "bg-blue-700 text-white"
+                                    : "bg-slate-100 text-slate-600"
+                                }`}
+                              >
+                                <Icon size={20} />
+                              </div>
+
+                              <div className="min-w-0 pr-5">
+
+                                <p
+                                  className={`text-sm font-bold sm:text-base ${
+                                    active
+                                      ? "text-blue-800"
+                                      : "text-slate-800"
+                                  }`}
+                                >
+                                  {name}
+                                </p>
+
+                                <p className="mt-1 text-xs leading-5 text-slate-500">
+                                  {description}
+                                </p>
+
+                              </div>
+
+                              <div
+                                className={`absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full border transition sm:right-4 sm:top-4 ${
+                                  active
+                                    ? "border-blue-700 bg-blue-700"
+                                    : "border-slate-300"
+                                }`}
+                              >
+
+                                {active && (
+                                  <CheckCircle2
+                                    size={12}
+                                    className="text-white"
+                                  />
+                                )}
+
+                              </div>
+
+                            </button>
+                          );
+                        }
+                      )}
+
+                    </div>
+
+                    <input
+                      type="hidden"
+                      name="delegateCategory"
+                      value={category}
+                    />
+
+                    {/* =============================================
+                        04 ADDITIONAL INFORMATION
+                    ============================================== */}
+
+                    <FormDivider />
+
+                    <FormSectionHeader
+                      number="04"
+                      title="Additional Information"
+                      description="Information that may help the organising team"
+                    />
+
+                    <div className="mt-7">
+
+                      <label
+                        htmlFor="notes"
+                        className="mb-2 block text-sm font-semibold text-slate-700"
+                      >
+                        Additional Notes
+                      </label>
+
+                      <textarea
+                        id="notes"
+                        name="notes"
+                        rows={5}
+                        placeholder="Dietary requirements, accessibility requirements or any other relevant information..."
+                        className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                      />
+
+                    </div>
+
+                    {/* =============================================
+                        DECLARATION
+                    ============================================== */}
+
+                    <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+
+                      <label className="flex cursor-pointer items-start gap-3">
+
+                        <input
+                          type="checkbox"
+                          name="declaration"
+                          required
+                          className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 accent-blue-700"
+                        />
+
+                        <span className="text-xs leading-6 text-slate-600 sm:text-sm">
+                          I confirm that the information provided above is
+                          accurate and may be used by the organising committee
+                          for conference registration and related communication.
+                        </span>
+
+                      </label>
+
+                    </div>
+
+                    {/* =============================================
+                        SUBMIT
+                    ============================================== */}
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`group mt-6 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-sm font-bold text-white shadow-lg shadow-blue-900/10 transition-all sm:text-base ${
+                        isSubmitting
+                          ? "cursor-not-allowed bg-blue-400"
+                          : "bg-blue-700 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl"
+                      }`}
+                    >
+
+                      {isSubmitting
+                        ? "Submitting Registration..."
+                        : "Continue Registration"}
+
+                      {!isSubmitting && (
+                        <ArrowRight
+                          size={18}
+                          className="transition-transform group-hover:translate-x-1"
+                        />
+                      )}
+
+                    </button>
+
+                    <div className="mt-4 flex items-center justify-center gap-2 text-center text-[11px] leading-5 text-slate-400 sm:text-xs">
+
+                      <LockKeyhole
+                        size={13}
+                        className="shrink-0"
+                      />
+
+                      Your registration information will be handled securely.
+
+                    </div>
+
+                  </form>
+
+                </motion.div>
+
+                {/* =================================================
+                    SIDEBAR
+                ================================================== */}
+
+                <motion.aside
+                  initial={{
+                    opacity: 0,
+                    x: 25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.55,
+                    delay: 0.08,
+                  }}
+                  className="space-y-4 sm:space-y-5 lg:sticky lg:top-28"
+                >
+
+                  {/* Summary */}
+                  <div className="relative overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
+
+                    <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-400/10 blur-2xl" />
+
+                    <div className="relative border-b border-white/10 p-5 sm:p-6">
+
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 sm:text-xs">
+                        Registration Summary
+                      </p>
+
+                      <h3 className="mt-2 text-xl font-bold">
+                        CardioCon Arunachal
+                      </h3>
+
+                      <p className="mt-1 text-xs text-slate-400">
+                        CSI Northeast Annual Conference 2026
+                      </p>
+
+                    </div>
+
+                    <div className="relative space-y-5 p-5 sm:p-6">
+
+                      <SummaryItem
+                        icon={CalendarDays}
+                        label="Conference Dates"
+                        value="23–25 October 2026"
+                      />
+
+                      <SummaryItem
+                        icon={MapPin}
+                        label="Venue"
+                        value="Itanagar, Arunachal Pradesh"
+                      />
+
+                      <SummaryItem
+                        icon={User}
+                        label="Selected Category"
+                        value={selectedCategory?.name}
+                      />
+
+                    </div>
+
                   </div>
 
-                  <p className="mt-4 text-sm leading-6 text-blue-950/65">
-                    For registration-related queries, contact the CardioCon
-                    Arunachal organising team.
-                  </p>
+                  {/* Fee */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
 
-                  <a
-                    href="mailto:cardioconarunachal@gmail.com"
-                    className="mt-4 flex min-w-0 items-center gap-2 text-sm font-bold text-blue-700 hover:underline"
-                  >
-                    <Mail size={15} className="shrink-0" />
+                    <div className="flex items-center justify-between">
 
-                    <span className="min-w-0 break-all">
-                      cardioconarunachal@gmail.com
-                    </span>
-                  </a>
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                        <CreditCard size={21} />
+                      </div>
 
-                  <Link
-                    to="/contact"
-                    className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
-                  >
-                    Contact Secretariat
+                      <span className="rounded-full bg-amber-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+                        To be announced
+                      </span>
 
-                    <ArrowRight
-                      size={14}
-                      className="transition group-hover:translate-x-1"
-                    />
-                  </Link>
-                </div>
-              </motion.aside>
-            </div>
+                    </div>
+
+                    <h3 className="mt-5 font-bold text-slate-900">
+                      Registration Fee
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                      Category-wise registration fees and payment details will
+                      be published once confirmed by the organising committee.
+                    </p>
+
+                  </div>
+
+                  {/* Secretariat */}
+                  <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+
+                    <div className="flex items-center gap-3">
+
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
+                        <Info size={18} />
+                      </div>
+
+                      <h3 className="font-bold text-blue-950">
+                        Registration Assistance
+                      </h3>
+
+                    </div>
+
+                    <p className="mt-4 text-sm leading-6 text-blue-950/65">
+                      For registration-related queries, contact the CardioCon
+                      Arunachal organising team.
+                    </p>
+
+                    <a
+                      href="mailto:cardioconarunachal@gmail.com"
+                      className="mt-4 flex min-w-0 items-center gap-2 text-sm font-bold text-blue-700 hover:underline"
+                    >
+
+                      <Mail
+                        size={15}
+                        className="shrink-0"
+                      />
+
+                      <span className="min-w-0 break-all">
+                        cardioconarunachal@gmail.com
+                      </span>
+
+                    </a>
+
+                    <Link
+                      to="/contact"
+                      className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
+                    >
+
+                      Contact Secretariat
+
+                      <ArrowRight
+                        size={14}
+                        className="transition group-hover:translate-x-1"
+                      />
+
+                    </Link>
+
+                  </div>
+
+                </motion.aside>
+
+              </div>
+
+            )}
+
           </div>
+
         </section>
 
         {/* =====================================================
@@ -727,19 +1089,36 @@ function Registration() {
         ====================================================== */}
 
         <section className="bg-white py-20 sm:py-24">
+
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
+
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-3xl border border-blue-100 bg-blue-50/60 p-5 sm:rounded-3xl sm:p-8 lg:p-10"
-            >
+  ref={successSectionRef}
+  initial={{
+    opacity: 0,
+    y: 25,
+    scale: 0.98,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 0.5,
+    ease: "easeOut",
+  }}
+  className="mx-auto w-full max-w-3xl"
+>
+
               <div className="flex items-start gap-4">
+
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white sm:h-12 sm:w-12">
                   <Info size={22} />
                 </div>
 
                 <div>
+
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700 sm:text-xs">
                     Before You Register
                   </p>
@@ -747,10 +1126,13 @@ function Registration() {
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-blue-950 sm:text-3xl">
                     Registration Information
                   </h2>
+
                 </div>
+
               </div>
 
               <div className="mt-7 grid gap-3 sm:mt-8 md:grid-cols-2">
+
                 {[
                   "Please provide accurate personal and professional information.",
                   "Select the delegate category applicable to your professional status.",
@@ -763,6 +1145,7 @@ function Registration() {
                     key={item}
                     className="flex items-start gap-3 rounded-xl border border-white/70 bg-white/75 p-4"
                   >
+
                     <CheckCircle2
                       size={18}
                       className="mt-0.5 shrink-0 text-emerald-600"
@@ -771,11 +1154,16 @@ function Registration() {
                     <p className="text-xs leading-6 text-slate-700 sm:text-sm">
                       {item}
                     </p>
+
                   </div>
                 ))}
+
               </div>
+
             </motion.div>
+
           </div>
+
         </section>
 
         {/* =====================================================
@@ -783,16 +1171,26 @@ function Registration() {
         ====================================================== */}
 
         <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
+
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
 
           <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
 
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
             className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
           >
+
             <HeartPulse
               size={40}
               className="mx-auto text-cyan-300"
@@ -823,8 +1221,11 @@ function Registration() {
                 className="transition-transform group-hover:translate-x-1"
               />
             </Link>
+
           </motion.div>
+
         </section>
+
       </main>
 
       <Footer />
@@ -844,6 +1245,7 @@ function HeroInfo({
 }) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+
       <Icon
         size={18}
         className={`shrink-0 ${
@@ -854,6 +1256,7 @@ function HeroInfo({
       />
 
       <div>
+
         <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
           {label}
         </p>
@@ -861,7 +1264,9 @@ function HeroInfo({
         <p className="mt-0.5 text-sm font-semibold text-slate-200">
           {value}
         </p>
+
       </div>
+
     </div>
   );
 }
@@ -882,18 +1287,24 @@ function Input({
 
   return (
     <div className="min-w-0">
+
       <label
         htmlFor={inputId}
         className="mb-2 block text-sm font-semibold text-slate-700"
       >
+
         {label}
 
         {required && (
-          <span className="ml-1 text-red-500">*</span>
+          <span className="ml-1 text-red-500">
+            *
+          </span>
         )}
+
       </label>
 
       <div className="relative">
+
         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
           {icon}
         </span>
@@ -905,7 +1316,9 @@ function Input({
           {...props}
           className="w-full min-w-0 rounded-xl border border-slate-300 bg-white py-3.5 pl-11 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100 sm:pl-12"
         />
+
       </div>
+
     </div>
   );
 }
@@ -921,11 +1334,13 @@ function FormSectionHeader({
 }) {
   return (
     <div className="flex items-start gap-3 sm:gap-4">
+
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xs font-bold text-blue-700">
         {number}
       </span>
 
       <div>
+
         <h3 className="font-bold text-slate-900">
           {title}
         </h3>
@@ -933,7 +1348,9 @@ function FormSectionHeader({
         <p className="mt-0.5 text-xs leading-5 text-slate-500">
           {description}
         </p>
+
       </div>
+
     </div>
   );
 }
@@ -943,7 +1360,9 @@ function FormSectionHeader({
 ========================================================= */
 
 function FormDivider() {
-  return <div className="my-8 h-px bg-slate-100 sm:my-10" />;
+  return (
+    <div className="my-8 h-px bg-slate-100 sm:my-10" />
+  );
 }
 
 /* =========================================================
@@ -957,11 +1376,13 @@ function SummaryItem({
 }) {
   return (
     <div className="flex items-start gap-3">
+
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-cyan-300">
         <Icon size={17} />
       </div>
 
       <div className="min-w-0">
+
         <p className="text-xs text-slate-500">
           {label}
         </p>
@@ -969,7 +1390,9 @@ function SummaryItem({
         <p className="mt-1 wrap-break-word text-sm font-semibold leading-5 text-slate-200">
           {value}
         </p>
+
       </div>
+
     </div>
   );
 }

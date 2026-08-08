@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -6,6 +8,7 @@ import {
   Mail,
   MapPin,
   Send,
+  CheckCircle2,
   HeartPulse,
   MessageSquare,
   User,
@@ -21,6 +24,19 @@ import {
 } from "lucide-react";
 
 function Contact() {
+  /* =========================================================
+     STATE
+  ========================================================= */
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+
+  const successSectionRef = useRef(null);
+
+  /* =========================================================
+     ANIMATIONS
+  ========================================================= */
+
   const fadeUp = {
     hidden: {
       opacity: 0,
@@ -30,7 +46,6 @@ function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-
       transition: {
         duration: 0.55,
         ease: "easeOut",
@@ -48,11 +63,72 @@ function Contact() {
     },
   };
 
-  const handleSubmit = (e) => {
+  /* =========================================================
+     GOOGLE APPS SCRIPT
+  ========================================================= */
+
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwel_qWeirdcO4flWiWLCms0JIAQ9tGe5TAZNlkousfneJebPT-dVOnwxhu8ZkoHs2w/exec";
+
+  /* =========================================================
+     FORM SUBMISSION
+  ========================================================= */
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Connect this to your backend / Formspree / EmailJS later.
-    console.log("Contact form submitted");
+    if (isSubmitting) return;
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const data = {
+      formType: "contact",
+
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      institution: formData.get("institution"),
+
+      enquiryType: formData.get("enquiryType"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      setIsSubmitting(true);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(data),
+      });
+
+      /*
+       * Switch from the form to the success screen.
+       */
+      setMessageSent(true);
+
+      /*
+       * Wait for React to render the success section,
+       * then scroll specifically to that section.
+       */
+      setTimeout(() => {
+        successSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 150);
+    } catch (error) {
+      console.error("Contact submission error:", error);
+
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,8 +142,6 @@ function Contact() {
         ====================================================== */}
 
         <section className="relative isolate overflow-hidden bg-[#061827] text-white">
-
-          {/* Background */}
 
           <div className="pointer-events-none absolute inset-0">
 
@@ -101,7 +175,7 @@ function Contact() {
 
               <motion.div
                 variants={fadeUp}
-                className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
+                className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
               >
                 <HeartPulse size={15} className="shrink-0" />
 
@@ -126,6 +200,7 @@ function Contact() {
                 className="mt-5 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 Get in Touch with
+
                 <span className="mt-1 block text-cyan-300">
                   CardioCon Arunachal.
                 </span>
@@ -172,13 +247,11 @@ function Contact() {
           {/* Accent */}
 
           <div className="flex h-1.5">
-
             <div className="flex-1 bg-orange-400" />
             <div className="flex-1 bg-cyan-500" />
             <div className="flex-1 bg-white" />
             <div className="flex-1 bg-cyan-500" />
             <div className="flex-1 bg-orange-400" />
-
           </div>
 
         </section>
@@ -199,7 +272,7 @@ function Contact() {
               className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
             >
 
-              {/* Email */}
+              {/* EMAIL */}
 
               <motion.a
                 variants={fadeUp}
@@ -235,7 +308,7 @@ function Contact() {
 
               </motion.a>
 
-              {/* Secretariat */}
+              {/* SECRETARIAT */}
 
               <motion.div
                 variants={fadeUp}
@@ -262,7 +335,7 @@ function Contact() {
 
               </motion.div>
 
-              {/* Venue */}
+              {/* VENUE */}
 
               <motion.div
                 variants={fadeUp}
@@ -321,10 +394,13 @@ function Contact() {
               </div>
 
               <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+
                 How can we
+
                 <span className="text-blue-700">
                   {" "}assist you?
                 </span>
+
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
@@ -334,338 +410,528 @@ function Contact() {
 
             </motion.div>
 
-            <div className="mt-10 grid gap-7 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
+            {/* =================================================
+                FORM / SUCCESS AREA
+            ================================================== */}
 
-              {/* =================================================
-                  FORM
-              ================================================== */}
+            <div className="mt-10 lg:mt-12">
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55 }}
-                className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40"
-              >
+              {messageSent ? (
 
-                {/* Header */}
+                /* =================================================
+                   SUCCESS SCREEN
+                ================================================== */
 
-                <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
+                <motion.div
+                  ref={successSectionRef}
+                  initial={{
+                    opacity: 0,
+                    y: 25,
+                    scale: 0.98,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                  }}
+                  className="mx-auto w-full max-w-3xl"
+                >
 
-                  <div className="flex items-start gap-4 sm:items-center">
+                  <div className="overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-2xl shadow-slate-200/50">
 
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
-                      <MessageSquare size={22} />
-                    </div>
+                    {/* SUCCESS HEADER */}
 
-                    <div>
+                    <div className="relative overflow-hidden bg-[#061827] px-6 py-12 text-center text-white sm:px-10 sm:py-16">
 
-                      <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
-                        Send an Enquiry
+                      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+
+                      <div className="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
+
+                      <div className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/15 ring-8 ring-emerald-500/10">
+
+                        <CheckCircle2
+                          size={46}
+                          strokeWidth={2}
+                          className="text-emerald-300"
+                        />
+
+                      </div>
+
+                      <p className="relative mt-7 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">
+                        Enquiry Received
+                      </p>
+
+                      <h3 className="relative mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+                        Thank You for Contacting Us!
                       </h3>
 
-                      <p className="mt-1 text-sm leading-6 text-slate-500">
-                        Complete the form with your conference-related query.
+                      <p className="relative mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+                        Your enquiry has been submitted successfully to the
+                        CardioCon Arunachal organising team.
                       </p>
 
                     </div>
 
-                  </div>
+                    {/* SUCCESS CONTENT */}
 
-                </div>
+                    <div className="p-6 sm:p-10">
 
-                {/* Form */}
+                      {/* WHAT HAPPENS NEXT */}
 
-                <form
-                  onSubmit={handleSubmit}
-                  className="p-5 sm:p-8 lg:p-9"
-                >
+                      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
 
-                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+                        <div className="flex items-start gap-4">
 
-                    <Input
-                      label="Full Name"
-                      name="name"
-                      icon={<User size={18} />}
-                      placeholder="Enter your full name"
-                      required
-                    />
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
 
-                    <Input
-                      label="Email Address"
-                      name="email"
-                      icon={<Mail size={18} />}
-                      type="email"
-                      placeholder="name@example.com"
-                      required
-                    />
+                            <MessageSquare size={21} />
 
-                    <Input
-                      label="Mobile Number"
-                      name="phone"
-                      placeholder="+91 XXXXX XXXXX"
-                    />
+                          </div>
 
-                    <Input
-                      label="Hospital / Institution"
-                      name="institution"
-                      icon={<Building2 size={18} />}
-                      placeholder="Institution name"
-                    />
+                          <div className="min-w-0">
 
-                  </div>
+                            <h4 className="font-bold text-slate-900">
+                              What happens next?
+                            </h4>
 
-                  {/* Enquiry Type */}
+                            <p className="mt-1 text-sm leading-6 text-slate-600">
+                              The organising team will review your enquiry
+                              and get back to you using the contact details
+                              you provided.
+                            </p>
 
-                  <div className="mt-6">
+                          </div>
 
-                    <label
-                      htmlFor="enquiryType"
-                      className="mb-2 block text-sm font-semibold text-slate-700"
-                    >
-                      Enquiry Type
-                      <span className="ml-1 text-red-500">*</span>
-                    </label>
+                        </div>
 
-                    <select
-                      id="enquiryType"
-                      name="enquiryType"
-                      required
-                      defaultValue=""
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-700 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
-                    >
+                      </div>
 
-                      <option value="" disabled>
-                        Select enquiry type
-                      </option>
+                      {/* CONTACT INFORMATION */}
 
-                      <option value="general">
-                        General Enquiry
-                      </option>
+                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
 
-                      <option value="registration">
-                        Registration
-                      </option>
+                        <div className="rounded-2xl border border-slate-200 p-5">
 
-                      <option value="scientific">
-                        Scientific Program
-                      </option>
+                          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                            Email
+                          </p>
 
-                      <option value="faculty">
-                        Faculty / Speakers
-                      </option>
+                          <p className="mt-2 break-all font-bold text-slate-900">
+                            cardioconarunachal@gmail.com
+                          </p>
 
-                      <option value="venue">
-                        Venue & Travel
-                      </option>
+                        </div>
 
-                      <option value="abstract">
-                        Abstract / Scientific Submission
-                      </option>
+                        <div className="rounded-2xl border border-slate-200 p-5">
 
-                      <option value="other">
-                        Other
-                      </option>
+                          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                            Conference
+                          </p>
 
-                    </select>
+                          <p className="mt-2 font-bold text-slate-900">
+                            CardioCon Arunachal 2026
+                          </p>
+
+                        </div>
+
+                      </div>
+
+                      {/* BUTTONS */}
+
+                      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+
+                        <a
+                          href="mailto:cardioconarunachal@gmail.com"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg"
+                        >
+                          Email Secretariat
+
+                          <Mail size={17} />
+                        </a>
+
+                        <a
+                          href="/"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-bold text-slate-700 transition-all hover:border-blue-200 hover:bg-slate-50"
+                        >
+                          Back to Home
+
+                          <ArrowRight size={17} />
+                        </a>
+
+                      </div>
+
+                    </div>
 
                   </div>
 
-                  {/* Subject */}
+                </motion.div>
 
-                  <div className="mt-6">
+              ) : (
 
-                    <Input
-                      label="Subject"
-                      name="subject"
-                      icon={<HelpCircle size={18} />}
-                      placeholder="What is your enquiry about?"
-                      required
-                    />
+                /* =================================================
+                   FORM + SIDEBAR
+                ================================================== */
 
-                  </div>
+                <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
 
-                  {/* Message */}
+                  {/* =================================================
+                     FORM
+                  ================================================== */}
 
-                  <div className="mt-6">
-
-                    <label
-                      htmlFor="message"
-                      className="mb-2 block text-sm font-semibold text-slate-700"
-                    >
-                      Message
-                      <span className="ml-1 text-red-500">*</span>
-                    </label>
-
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={6}
-                      placeholder="Please describe your enquiry..."
-                      className="w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
-                    />
-
-                  </div>
-
-                  {/* Submit */}
-
-                  <button
-                    type="submit"
-                    className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-blue-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl sm:w-auto sm:px-8"
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      x: -25,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55 }}
+                    className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40"
                   >
-                    Send Enquiry
 
-                    <Send
-                      size={17}
-                      className="transition-transform group-hover:translate-x-1"
-                    />
+                    {/* Header */}
 
-                  </button>
+                    <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
 
-                </form>
+                      <div className="flex items-start gap-4 sm:items-center">
 
-              </motion.div>
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
 
-              {/* =================================================
-                  SIDEBAR
-              ================================================== */}
+                          <MessageSquare size={22} />
 
-              <motion.aside
-                initial={{
-                  opacity: 0,
-                  x: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.55,
-                  delay: 0.08,
-                }}
-                className="min-w-0 space-y-5 lg:sticky lg:top-28"
-              >
+                        </div>
 
-                {/* Secretariat */}
+                        <div>
 
-                <div className="overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
+                          <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
+                            Send an Enquiry
+                          </h3>
 
-                  <div className="border-b border-white/10 p-5 sm:p-6">
+                          <p className="mt-1 text-sm leading-6 text-slate-500">
+                            Complete the form with your conference-related
+                            query.
+                          </p>
 
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
-                      Official Contact
-                    </p>
+                        </div>
 
-                    <h3 className="mt-2 text-xl font-bold">
-                      Conference Secretariat
-                    </h3>
+                      </div>
 
-                    <p className="mt-3 text-sm leading-6 text-slate-400">
-                      CardioCon Arunachal 2026
-                      <br />
-                      CSI Northeast Annual Conference
-                    </p>
+                    </div>
 
-                  </div>
+                    {/* Form */}
 
-                  <div className="space-y-6 p-5 sm:p-6">
+                    <form
+                      onSubmit={handleSubmit}
+                      className="p-5 sm:p-8 lg:p-9"
+                    >
 
-                    <ContactItem
-                      icon={Stethoscope}
-                      label="Department"
-                      value="Department of Cardiology"
-                    />
+                      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
 
-                    <ContactItem
-                      icon={Landmark}
-                      label="Institution"
-                      value="Tomo Riba Institute of Health and Medical Sciences (TRIHMS)"
-                    />
+                        <Input
+                          label="Full Name"
+                          name="name"
+                          icon={<User size={18} />}
+                          placeholder="Enter your full name"
+                          required
+                        />
 
-                    <ContactItem
-                      icon={MapPin}
-                      label="Address"
-                      value="Naharlagun, Arunachal Pradesh – 791110"
-                    />
+                        <Input
+                          label="Email Address"
+                          name="email"
+                          icon={<Mail size={18} />}
+                          type="email"
+                          placeholder="name@example.com"
+                          required
+                        />
 
-                    <ContactItem
-                      icon={Mail}
-                      label="Email"
-                      value="cardioconarunachal@gmail.com"
-                      href="mailto:cardioconarunachal@gmail.com"
-                    />
+                        <Input
+                          label="Mobile Number"
+                          name="phone"
+                          placeholder="+91 XXXXX XXXXX"
+                        />
 
-                  </div>
+                        <Input
+                          label="Hospital / Institution"
+                          name="institution"
+                          icon={<Building2 size={18} />}
+                          placeholder="Institution name"
+                        />
 
-                </div>
+                      </div>
 
-                {/* Conference */}
+                      {/* Enquiry Type */}
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+                      <div className="mt-6">
 
-                  <CalendarDays
-                    size={22}
-                    className="text-blue-700"
-                  />
+                        <label
+                          htmlFor="enquiryType"
+                          className="mb-2 block text-sm font-semibold text-slate-700"
+                        >
+                          Enquiry Type
 
-                  <h3 className="mt-4 font-bold text-slate-900">
-                    Conference Dates
-                  </h3>
+                          <span className="ml-1 text-red-500">
+                            *
+                          </span>
+                        </label>
 
-                  <p className="mt-2 text-lg font-bold text-blue-700">
-                    23–25 October 2026
-                  </p>
+                        <select
+                          id="enquiryType"
+                          name="enquiryType"
+                          required
+                          defaultValue=""
+                          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-700 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                        >
 
-                  <p className="mt-2 text-sm leading-6 text-slate-500">
-                    CSI Northeast Annual Conference 2026 · CardioCon
-                    Arunachal
-                  </p>
+                          <option value="" disabled>
+                            Select enquiry type
+                          </option>
 
-                </div>
+                          <option value="general">
+                            General Enquiry
+                          </option>
 
-                {/* Email */}
+                          <option value="registration">
+                            Registration
+                          </option>
 
-                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+                          <option value="scientific">
+                            Scientific Program
+                          </option>
 
-                  <HeartPulse
-                    size={23}
-                    className="text-blue-700"
-                  />
+                          <option value="faculty">
+                            Faculty / Speakers
+                          </option>
 
-                  <h3 className="mt-4 font-bold text-blue-950">
-                    Need conference assistance?
-                  </h3>
+                          <option value="venue">
+                            Venue & Travel
+                          </option>
 
-                  <p className="mt-2 text-sm leading-6 text-blue-900/70">
-                    Contact the organising team for registration,
-                    participation, scientific program or venue-related
-                    enquiries.
-                  </p>
+                          <option value="abstract">
+                            Abstract / Scientific Submission
+                          </option>
 
-                  <a
-                    href="mailto:cardioconarunachal@gmail.com"
-                    className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
+                          <option value="other">
+                            Other
+                          </option>
+
+                        </select>
+
+                      </div>
+
+                      {/* Subject */}
+
+                      <div className="mt-6">
+
+                        <Input
+                          label="Subject"
+                          name="subject"
+                          icon={<HelpCircle size={18} />}
+                          placeholder="What is your enquiry about?"
+                          required
+                        />
+
+                      </div>
+
+                      {/* Message */}
+
+                      <div className="mt-6">
+
+                        <label
+                          htmlFor="message"
+                          className="mb-2 block text-sm font-semibold text-slate-700"
+                        >
+                          Message
+
+                          <span className="ml-1 text-red-500">
+                            *
+                          </span>
+                        </label>
+
+                        <textarea
+                          id="message"
+                          name="message"
+                          required
+                          rows={6}
+                          placeholder="Please describe your enquiry..."
+                          className="w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                        />
+
+                      </div>
+
+                      {/* Submit */}
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={`group mt-7 flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-bold text-white shadow-lg shadow-blue-900/10 transition-all duration-300 sm:w-auto sm:px-8 ${
+                          isSubmitting
+                            ? "cursor-not-allowed bg-blue-400"
+                            : "bg-blue-700 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl"
+                        }`}
+                      >
+
+                        {isSubmitting
+                          ? "Sending Enquiry..."
+                          : "Send Enquiry"}
+
+                        {!isSubmitting && (
+                          <Send
+                            size={17}
+                            className="transition-transform group-hover:translate-x-1"
+                          />
+                        )}
+
+                      </button>
+
+                    </form>
+
+                  </motion.div>
+
+                  {/* =================================================
+                     SIDEBAR
+                  ================================================== */}
+
+                  <motion.aside
+                    initial={{
+                      opacity: 0,
+                      x: 25,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.55,
+                      delay: 0.08,
+                    }}
+                    className="min-w-0 space-y-5 lg:sticky lg:top-28"
                   >
-                    Email Secretariat
 
-                    <ArrowRight
-                      size={14}
-                      className="transition-transform group-hover:translate-x-1"
-                    />
+                    {/* Secretariat */}
 
-                  </a>
+                    <div className="overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
+
+                      <div className="border-b border-white/10 p-5 sm:p-6">
+
+                        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
+                          Official Contact
+                        </p>
+
+                        <h3 className="mt-2 text-xl font-bold">
+                          Conference Secretariat
+                        </h3>
+
+                        <p className="mt-3 text-sm leading-6 text-slate-400">
+                          CardioCon Arunachal 2026
+                          <br />
+                          CSI Northeast Annual Conference
+                        </p>
+
+                      </div>
+
+                      <div className="space-y-6 p-5 sm:p-6">
+
+                        <ContactItem
+                          icon={Stethoscope}
+                          label="Department"
+                          value="Department of Cardiology"
+                        />
+
+                        <ContactItem
+                          icon={Landmark}
+                          label="Institution"
+                          value="Tomo Riba Institute of Health and Medical Sciences (TRIHMS)"
+                        />
+
+                        <ContactItem
+                          icon={MapPin}
+                          label="Address"
+                          value="Naharlagun, Arunachal Pradesh – 791110"
+                        />
+
+                        <ContactItem
+                          icon={Mail}
+                          label="Email"
+                          value="cardioconarunachal@gmail.com"
+                          href="mailto:cardioconarunachal@gmail.com"
+                        />
+
+                      </div>
+
+                    </div>
+
+                    {/* Conference */}
+
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+
+                      <CalendarDays
+                        size={22}
+                        className="text-blue-700"
+                      />
+
+                      <h3 className="mt-4 font-bold text-slate-900">
+                        Conference Dates
+                      </h3>
+
+                      <p className="mt-2 text-lg font-bold text-blue-700">
+                        23–25 October 2026
+                      </p>
+
+                      <p className="mt-2 text-sm leading-6 text-slate-500">
+                        CSI Northeast Annual Conference 2026 · CardioCon
+                        Arunachal
+                      </p>
+
+                    </div>
+
+                    {/* Assistance */}
+
+                    <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+
+                      <HeartPulse
+                        size={23}
+                        className="text-blue-700"
+                      />
+
+                      <h3 className="mt-4 font-bold text-blue-950">
+                        Need conference assistance?
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-6 text-blue-900/70">
+                        Contact the organising team for registration,
+                        participation, scientific program or venue-related
+                        enquiries.
+                      </p>
+
+                      <a
+                        href="mailto:cardioconarunachal@gmail.com"
+                        className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
+                      >
+
+                        Email Secretariat
+
+                        <ArrowRight
+                          size={14}
+                          className="transition-transform group-hover:translate-x-1"
+                        />
+
+                      </a>
+
+                    </div>
+
+                  </motion.aside>
 
                 </div>
 
-              </motion.aside>
+              )}
 
             </div>
 
@@ -702,10 +968,13 @@ function Contact() {
                 </span>
 
                 <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+
                   Donyi Polo
+
                   <span className="text-blue-700">
                     {" "}International Hotel.
                   </span>
+
                 </h2>
 
                 <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
@@ -760,8 +1029,6 @@ function Contact() {
                 className="relative min-h-90 overflow-hidden rounded-3xl bg-[#071a2d] sm:min-h-105"
               >
 
-                {/* Background */}
-
                 <div
                   className="absolute inset-0 opacity-[0.05]"
                   style={{
@@ -776,8 +1043,6 @@ function Contact() {
                 <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
                 <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
-
-                {/* Content */}
 
                 <div className="relative flex min-h-90 items-center justify-center p-6 text-center sm:min-h-105 sm:p-8">
 
@@ -794,7 +1059,9 @@ function Contact() {
                       }}
                       className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-400 text-[#071a2d] shadow-xl sm:h-18 sm:w-18"
                     >
+
                       <MapPin size={30} />
+
                     </motion.div>
 
                     <p className="mt-7 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
@@ -815,6 +1082,7 @@ function Contact() {
                       rel="noopener noreferrer"
                       className="group mt-7 inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-slate-900"
                     >
+
                       <Navigation size={16} />
 
                       Open in Maps
@@ -884,6 +1152,7 @@ function Contact() {
               href="mailto:cardioconarunachal@gmail.com"
               className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-blue-800 transition-all hover:-translate-y-0.5 hover:shadow-xl sm:w-auto sm:px-8 sm:py-4"
             >
+
               Email the Organising Team
 
               <ArrowRight
@@ -963,6 +1232,7 @@ function Input({
         htmlFor={inputId}
         className="mb-2 block text-sm font-semibold text-slate-700"
       >
+
         {label}
 
         {required && (
@@ -970,6 +1240,7 @@ function Input({
             *
           </span>
         )}
+
       </label>
 
       <div className="relative">
@@ -1008,7 +1279,6 @@ function ContactItem({
 }) {
   const content = (
     <>
-
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-cyan-300">
         <Icon size={17} />
       </div>
@@ -1024,7 +1294,6 @@ function ContactItem({
         </p>
 
       </div>
-
     </>
   );
 
