@@ -71,8 +71,7 @@ function Navbar() {
             <motion.div
     whileHover={{ scale: 1.03 }}
     transition={{ duration: 0.2 }}
-    className="flex h-20 w-20 shrink-0 items-center justify-center sm:h-22 sm:w-22"
-  >
+className="flex h-40 w-40 shrink-0 items-center justify-center sm:h-44 sm:w-44 lg:h-48 lg:w-48"  >
     <img
       src={cardioconLogo}
       alt="CardioCon Arunachal 2026"
