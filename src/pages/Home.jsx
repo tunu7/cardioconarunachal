@@ -36,6 +36,7 @@ import romarDabu from "../assets/romar-davy.jpeg";
 import amitMalviya from "../assets/amit-malviya.jpeg";
 import animeshmishra from "../assets/animesh-mishra.jpeg";
 import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
+import djdutta from "../assets/dj-dutta.jpeg";
 
 /* =========================================================
    ARUNACHAL CAROUSEL IMAGES
@@ -136,6 +137,7 @@ function Home() {
     {
       name: "Dr. D.J. Dutta",
       role: "President Elect",
+      image: djdutta,
     },
     {
       name: "Dr. Animesh Mishra",
