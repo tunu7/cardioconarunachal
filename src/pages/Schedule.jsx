@@ -11,8 +11,6 @@ import {
   MapPin,
   Download,
   UserRound,
-  Coffee,
-  Presentation,
   Users,
   HeartPulse,
   ArrowRight,
@@ -28,10 +26,8 @@ import {
 } from "lucide-react";
 
 /* =========================================================
-   PROVISIONAL SCHEDULE DATA
-
-   Replace these sessions once the final scientific program
-   is approved by the organising/scientific committee.
+   CARDIOCON ARUNACHAL 2026
+   PROVISIONAL SCIENTIFIC PROGRAM
 ========================================================= */
 
 const scheduleData = {
@@ -40,232 +36,672 @@ const scheduleData = {
     shortDate: "23 Oct",
     date: "23 October 2026",
     weekday: "Friday",
-    theme: "Opening & Scientific Exchange",
+    theme: "Prevention, Lipids & Clinical Foundations",
     description:
-      "Registration, inauguration and the opening scientific sessions of CardioCon Arunachal 2026.",
+      "The opening day focuses on ECG interpretation, adult congenital heart disease, clinical examination, cardiovascular prevention and contemporary lipid management.",
 
     sessions: [
       {
-        time: "08:30 AM",
-        endTime: "09:30 AM",
-        title: "Delegate Registration & Welcome",
+        time: "Time TBA",
+        endTime: "",
+        title: 'Workshop — "Cracking the Cardiac Code: Connect the Dots"',
         speaker: "",
-        venue: "Registration Desk",
-        type: "Registration",
-        icon: Coffee,
+        venue: "Venue TBA",
+        type: "Workshop",
+        icon: Microscope,
       },
       {
-        time: "09:30 AM",
-        endTime: "10:15 AM",
-        title: "Inaugural Ceremony",
-        speaker: "Organising Committee",
-        venue: "Main Conference Hall",
-        type: "Ceremony",
-        icon: Users,
+        time: "Time TBA",
+        endTime: "",
+        title: "Fundamental Errors in ECG Interpretation",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Workshop",
+        icon: HeartPulse,
       },
       {
-        time: "10:15 AM",
-        endTime: "11:00 AM",
-        title: "Opening Scientific Session",
-        speaker: "Invited Faculty",
-        venue: "Main Conference Hall",
+        time: "Time TBA",
+        endTime: "",
+        title: "Approach to CHD (Adult)",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Workshop",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "The Lost Art of Clinical Examination",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Workshop",
+        icon: Stethoscope,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: 'Session 1 — "An Ounce of Prevention, Pound of Benefits"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Lipoprotein A — The Hidden Foe",
+        speaker: "",
+        venue: "Venue TBA",
         type: "Scientific",
-        icon: Presentation,
+        icon: HeartPulse,
       },
       {
-        time: "11:00 AM",
-        endTime: "11:30 AM",
-        title: "Tea & Networking Break",
+        time: "Time TBA",
+        endTime: "",
+        title: "Exercise for CV Disease Prevention: Tomorrow Begins Today",
         speaker: "",
-        venue: "Conference Lounge",
-        type: "Break",
-        icon: Coffee,
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
       },
       {
-        time: "11:30 AM",
-        endTime: "01:00 PM",
-        title: "Scientific Session",
-        speaker: "Scientific Faculty",
-        venue: "Main Conference Hall",
+        time: "Time TBA",
+        endTime: "",
+        title: "Coronary Artery Calcium Scoring — Who Really Needs It?",
+        speaker: "",
+        venue: "Venue TBA",
         type: "Scientific",
         icon: Microscope,
       },
       {
-        time: "01:00 PM",
-        endTime: "02:00 PM",
-        title: "Lunch Break",
+        time: "Time TBA",
+        endTime: "",
+        title:
+          "The Romance Between Micronutrients, Lifestyle and Heart: Is It Really Romantic?",
         speaker: "",
-        venue: "Dining Area",
-        type: "Break",
-        icon: Utensils,
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: 'Session 2 — "Past the Prologue: Cholesterol Saga Continues"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
       },
       {
-        time: "02:00 PM",
-        endTime: "03:30 PM",
-        title: "Clinical Case Discussions",
-        speaker: "Expert Faculty Panel",
-        venue: "Main Conference Hall",
-        type: "Clinical",
+        time: "Time TBA",
+        endTime: "",
+        title: "India & Dyslipidemia",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Brave New World — Newer Therapies of Lipid Management",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: Microscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Statin Intolerance — A Practical Approach to Management",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
         icon: Stethoscope,
       },
+
       {
-        time: "03:45 PM",
-        endTime: "05:00 PM",
-        title: "Expert Panel Discussion",
-        speaker: "Invited Faculty",
-        venue: "Main Conference Hall",
-        type: "Discussion",
+        time: "Time TBA",
+        endTime: "",
+        title: "Inauguration",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Ceremony",
         icon: Users,
       },
     ],
   },
+
+  /* =========================================================
+     DAY 2
+  ========================================================= */
 
   day2: {
     day: "Day 02",
     shortDate: "24 Oct",
     date: "24 October 2026",
     weekday: "Saturday",
-    theme: "Clinical Practice & Innovation",
+    theme: "Heart Failure, Intervention, Hypertension & Innovation",
     description:
-      "A full day of cardiovascular science, clinical discussions, contemporary evidence and expert interaction.",
+      "The second day brings together contemporary heart failure management, invited lectures, interventional cardiology, cath-lab challenges, hypertension, congenital heart disease and modern cardiovascular medicine.",
 
     sessions: [
       {
-        time: "09:00 AM",
-        endTime: "10:00 AM",
-        title: "Plenary Scientific Session",
-        speaker: "Invited Faculty",
-        venue: "Main Conference Hall",
-        type: "Scientific",
-        icon: Presentation,
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 1 — "Once More Unto the Breach: Heart Failure Success Story"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
       },
       {
-        time: "10:00 AM",
-        endTime: "11:00 AM",
-        title: "Contemporary Cardiology Session",
-        speaker: "Scientific Faculty",
-        venue: "Main Conference Hall",
+        time: "Time TBA",
+        endTime: "",
+        title: "SGLT2 Inhibitors — The Heart Failure Panacea",
+        speaker: "",
+        venue: "Venue TBA",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "11:00 AM",
-        endTime: "11:30 AM",
-        title: "Tea & Networking Break",
+        time: "Time TBA",
+        endTime: "",
+        title: "The Fifth Pillar of Heart Failure Management — GLP-1 Agonists",
         speaker: "",
-        venue: "Conference Lounge",
-        type: "Break",
-        icon: Coffee,
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
       },
       {
-        time: "11:30 AM",
-        endTime: "01:00 PM",
-        title: "Clinical Case Forum",
-        speaker: "Expert Faculty Panel",
-        venue: "Main Conference Hall",
-        type: "Clinical",
+        time: "Time TBA",
+        endTime: "",
+        title: "Iron is the New Inotrope",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Climate Change and Cardiovascular Disease",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: Microscope,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: 'Session 2 — "Meet the Masters: Invited Lectures"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: Mic2,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "AI in Cardiovascular Disease",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Keynote",
+        icon: Sparkles,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Digitalis Revitalis",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Keynote",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Heart Failure & Indian Data — Lessons Learnt So Far",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Keynote",
+        icon: Microscope,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: 'Session 3 — "The Readiness is All: CSI NE Orations"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Oration",
+        icon: Mic2,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "CSI Presidential Oration",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Oration",
+        icon: Mic2,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "M. C. Bhuyan Oration",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Oration",
+        icon: Mic2,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 4 — "All the World Is a Stage: Play the Interventional Cardiology Game"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
         icon: Stethoscope,
       },
       {
-        time: "01:00 PM",
-        endTime: "02:00 PM",
-        title: "Lunch Break",
+        time: "Time TBA",
+        endTime: "",
+        title: "DEB in PCI — The Kid Has Matured Now",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Interventional",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Calcium Modification in PCI: Breaking the Hardlines",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Interventional",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          "Complete Revascularisation in Primary PCI — Much Ado About Balance",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Interventional",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Bifurcation PCI — Decision at the Divide",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Interventional",
+        icon: HeartPulse,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Lunch",
         speaker: "",
         venue: "Dining Area",
         type: "Break",
         icon: Utensils,
       },
+
       {
-        time: "02:00 PM",
-        endTime: "03:30 PM",
-        title: "Advanced Cardiovascular Session",
-        speaker: "Invited Faculty",
-        venue: "Main Conference Hall",
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 5 — "Weathering the Tempest: From Chaos to Control in the CATH-Lab"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: Stethoscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Management of Coronary Bifurcation",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: Stethoscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Snaring the Lost Devices",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: Stethoscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "No Way Out — Slow Flow in PCI",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Hypotension in the CATH-Lab — A Practical Guide to Management",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: Stethoscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "The Storm Within — Coronary Dissection: The Rescue",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: HeartPulse,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 6 — "Measure for Measure: The Long Game of Hypertension"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Contemporary Issues in Hypertension",
+        speaker: "",
+        venue: "Venue TBA",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "03:45 PM",
-        endTime: "05:00 PM",
-        title: "Interactive Academic Session",
-        speaker: "Faculty Panel",
-        venue: "Main Conference Hall",
-        type: "Discussion",
-        icon: UserRound,
+        time: "Time TBA",
+        endTime: "",
+        title: "The Resistant Few — Tackling Difficult Hypertension",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: Stethoscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Beyond the Clinic — HBPM & ABPM",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: Microscope,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Debate 1",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Debate",
+        icon: Users,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Debate 2",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Debate",
+        icon: Users,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 8 — "Born to Beat: Congenital Heart Disease — Lifetime Care, Lifetime Challenge"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          "Right Choice — Device & Balloon Size Selection in ASD/VSD/PDA & Valvular Lesions",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "The Hypertensive Lungs — The Wheel Comes Full Circle",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Clinical",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Medical Myectomy in HCM — The New Era",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 9 — "Evening Potpourri: A Medley of Modern Cardiology"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: Sparkles,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Anti-Platelet Strategies in 2026",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Medical Circulatory Support in 2026",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "The AI Cardiologist, or the Cardiologist with AI?",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Keynote",
+        icon: Sparkles,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "The New Age of Intravascular Imaging",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: Microscope,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Posters & Abstracts Presentation",
+        speaker: "",
+        venue: "Scientific Hall",
+        type: "Abstracts",
+        icon: FileText,
       },
     ],
   },
+
+  /* =========================================================
+     DAY 3
+  ========================================================= */
 
   day3: {
     day: "Day 03",
     shortDate: "25 Oct",
     date: "25 October 2026",
     weekday: "Sunday",
-    theme: "Research, Collaboration & Future",
+    theme: "Cardio-Metabolic Medicine, Arrhythmia & Future Perspectives",
     description:
-      "Research, emerging perspectives, academic collaboration and the conclusion of CardioCon Arunachal 2026.",
+      "The final day explores cardio-metabolic medicine, GLP-1 therapies, obesity, cardio-renal syndrome, contemporary arrhythmia management, sudden cardiac death and the concluding academic programme.",
 
     sessions: [
       {
-        time: "09:00 AM",
-        endTime: "10:00 AM",
-        title: "Research & Young Investigator Session",
-        speaker: "Selected Presenters",
-        venue: "Main Conference Hall",
-        type: "Research",
+        time: "Time TBA",
+        endTime: "",
+        title:
+          'Session 1 — "Cardio-Metabolic Medicine: The New Frontier"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Diabetes & Cardiovascular Disease — The Twisted Twins",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "GLP Revolution — What We Should Know",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
         icon: Microscope,
       },
       {
-        time: "10:00 AM",
-        endTime: "11:00 AM",
-        title: "Future Perspectives in Cardiovascular Medicine",
-        speaker: "Invited Faculty",
-        venue: "Main Conference Hall",
-        type: "Keynote",
-        icon: Mic2,
-      },
-      {
-        time: "11:00 AM",
-        endTime: "11:30 AM",
-        title: "Tea & Networking Break",
+        time: "Time TBA",
+        endTime: "",
+        title: "Obesity in Heart Disease — The Elephant in the Room",
         speaker: "",
-        venue: "Conference Lounge",
-        type: "Break",
-        icon: Coffee,
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
       },
       {
-        time: "11:30 AM",
-        endTime: "01:00 PM",
-        title: "Research & Abstract Presentations",
-        speaker: "Researchers & Delegates",
-        venue: "Scientific Hall",
-        type: "Research",
-        icon: FileText,
-      },
-      {
-        time: "01:00 PM",
-        endTime: "02:00 PM",
-        title: "Lunch Break",
+        time: "Time TBA",
+        endTime: "",
+        title: "Cardio-Renal Syndrome — The Heart-Kidney Tango",
         speaker: "",
-        venue: "Dining Area",
-        type: "Break",
-        icon: Utensils,
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: 'Session 2 — "Arrhythmia Management: Calming the Storm"',
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: HeartPulse,
       },
       {
-        time: "02:00 PM",
-        endTime: "03:15 PM",
-        title: "Multidisciplinary Scientific Discussion",
-        speaker: "Faculty Panel",
-        venue: "Main Conference Hall",
-        type: "Discussion",
-        icon: Users,
+        time: "Time TBA",
+        endTime: "",
+        title: "CSP",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
       },
       {
-        time: "03:15 PM",
-        endTime: "04:00 PM",
-        title: "Closing Ceremony",
-        speaker: "Organising Committee",
-        venue: "Main Conference Hall",
+        time: "Time TBA",
+        endTime: "",
+        title: "VT Storm — Rhythm on the Edge",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Atrial Fibrillation — Real-World Decision Pathways",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "Time TBA",
+        endTime: "",
+        title:
+          "Risk Stratification of Sudden Cardiac Death — Race Against the Rhythm",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Session 3 — Topics to be Finalised",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Session",
+        icon: Info,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "QUIZ",
+        speaker: "",
+        venue: "Venue TBA",
+        type: "Quiz",
+        icon: BookOpen,
+      },
+
+      {
+        time: "Time TBA",
+        endTime: "",
+        title: "Valedictory Function",
+        speaker: "",
+        venue: "Venue TBA",
         type: "Ceremony",
         icon: Users,
       },
@@ -274,18 +710,54 @@ const scheduleData = {
 };
 
 /* =========================================================
-   BADGES
+   BADGE COLORS
 ========================================================= */
 
 const badgeColors = {
-  Registration: "bg-blue-50 text-blue-700 border-blue-100",
-  Ceremony: "bg-violet-50 text-violet-700 border-violet-100",
-  Keynote: "bg-emerald-50 text-emerald-700 border-emerald-100",
-  Scientific: "bg-cyan-50 text-cyan-700 border-cyan-100",
-  Clinical: "bg-rose-50 text-rose-700 border-rose-100",
-  Discussion: "bg-indigo-50 text-indigo-700 border-indigo-100",
-  Research: "bg-purple-50 text-purple-700 border-purple-100",
-  Break: "bg-slate-100 text-slate-600 border-slate-200",
+  Registration:
+    "bg-blue-50 text-blue-700 border-blue-100",
+
+  Ceremony:
+    "bg-violet-50 text-violet-700 border-violet-100",
+
+  Keynote:
+    "bg-emerald-50 text-emerald-700 border-emerald-100",
+
+  Scientific:
+    "bg-cyan-50 text-cyan-700 border-cyan-100",
+
+  Clinical:
+    "bg-rose-50 text-rose-700 border-rose-100",
+
+  Discussion:
+    "bg-indigo-50 text-indigo-700 border-indigo-100",
+
+  Research:
+    "bg-purple-50 text-purple-700 border-purple-100",
+
+  Workshop:
+    "bg-orange-50 text-orange-700 border-orange-100",
+
+  Session:
+    "bg-blue-50 text-blue-700 border-blue-100",
+
+  Interventional:
+    "bg-red-50 text-red-700 border-red-100",
+
+  Oration:
+    "bg-amber-50 text-amber-700 border-amber-100",
+
+  Debate:
+    "bg-pink-50 text-pink-700 border-pink-100",
+
+  Abstracts:
+    "bg-purple-50 text-purple-700 border-purple-100",
+
+  Quiz:
+    "bg-green-50 text-green-700 border-green-100",
+
+  Break:
+    "bg-slate-100 text-slate-600 border-slate-200",
 };
 
 /* =========================================================
@@ -296,6 +768,10 @@ function Schedule() {
   const [activeDay, setActiveDay] = useState("day1");
 
   const selectedDay = scheduleData[activeDay];
+
+  /* =========================================================
+     ANIMATION VARIANTS
+  ========================================================= */
 
   const fadeUp = {
     hidden: {
@@ -340,9 +816,9 @@ function Schedule() {
 
           <div className="pointer-events-none absolute inset-0">
 
-            <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
+            <div className="absolute -right-40 -top-40 h-124 w-124 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
 
-            <div className="absolute -bottom-60 -left-40 h-125 w-125 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
+            <div className="absolute -bottom-60 -left-40 h-124 w-124 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
 
             <div className="absolute right-[10%] top-[15%] h-40 w-40 rounded-full bg-orange-400/10 blur-2xl sm:h-56 sm:w-56" />
 
@@ -353,7 +829,6 @@ function Schedule() {
               style={{
                 backgroundImage:
                   "radial-gradient(circle, white 1px, transparent 1px)",
-
                 backgroundSize: "28px 28px",
               }}
             />
@@ -417,6 +892,7 @@ function Schedule() {
                 className="mt-5 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 Three Days of
+
                 <span className="mt-1 block text-cyan-300">
                   Scientific Exchange.
                 </span>
@@ -428,10 +904,10 @@ function Schedule() {
                 variants={fadeUp}
                 className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg"
               >
-                Explore the scientific program of the 24th CardioCon
-                Arunachal — bringing together cardiovascular experts,
-                clinicians, researchers and young professionals for academic
-                discussion and collaborative learning.
+                Explore the scientific program of CardioCon
+                Arunachal 2026 — bringing together cardiovascular
+                experts, clinicians, researchers and young professionals
+                for academic discussion and collaborative learning.
               </motion.p>
 
               {/* Details */}
@@ -610,8 +1086,9 @@ function Schedule() {
               </h2>
 
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                Select a conference day to view the provisional scientific
-                sessions and academic activities.
+                Select a conference day to explore the provisional
+                scientific sessions, workshops, lectures and academic
+                activities.
               </p>
 
             </motion.div>
@@ -744,7 +1221,7 @@ function Schedule() {
                     </p>
 
                     <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 sm:mt-1">
-                      Sessions
+                      Topics
                     </p>
 
                   </div>
@@ -846,9 +1323,11 @@ function Schedule() {
                                     {item.time}
                                   </span>
 
-                                  <span className="font-normal text-slate-400">
-                                    – {item.endTime}
-                                  </span>
+                                  {item.endTime && (
+                                    <span className="font-normal text-slate-400">
+                                      – {item.endTime}
+                                    </span>
+                                  )}
 
                                 </div>
 
@@ -856,7 +1335,8 @@ function Schedule() {
 
                                 <span
                                   className={`inline-flex rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide sm:hidden ${
-                                    badgeColors[item.type]
+                                    badgeColors[item.type] ||
+                                    "bg-slate-100 text-slate-600 border-slate-200"
                                   }`}
                                 >
                                   {item.type}
@@ -912,7 +1392,8 @@ function Schedule() {
 
                             <span
                               className={`hidden shrink-0 rounded-full border px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide sm:inline-flex ${
-                                badgeColors[item.type]
+                                badgeColors[item.type] ||
+                                "bg-slate-100 text-slate-600 border-slate-200"
                               }`}
                             >
                               {item.type}
@@ -962,9 +1443,10 @@ function Schedule() {
                 </h4>
 
                 <p className="mt-1 text-xs leading-6 text-slate-600 sm:text-sm">
-                  The detailed scientific agenda, session topics, faculty,
-                  timings and hall allocations are subject to confirmation by
-                  the Scientific Committee. The final program will be
+                  The scientific topics listed above represent the current
+                  provisional programme. Faculty names, session timings,
+                  sequence and hall allocations are subject to confirmation
+                  by the Scientific Committee. The final programme will be
                   published once approved.
                 </p>
 
@@ -1088,8 +1570,9 @@ function Schedule() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
-              Join the cardiovascular community for three days of scientific
-              learning, academic exchange and professional collaboration.
+              Join the cardiovascular community for three days of
+              scientific learning, academic exchange and professional
+              collaboration.
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">

@@ -140,7 +140,7 @@ function Home() {
     },
     {
       name: "Dr. D.J. Dutta",
-      role: "President Elect",
+      role: "President CSI Northeast",
       image: djdutta,
     },
     {
