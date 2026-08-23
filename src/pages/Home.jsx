@@ -43,19 +43,17 @@ import djdutta from "../assets/dj-dutta.jpeg";
 ========================================================= */
 import aeyoLake from "../assets/arunachal/Aeyo-Lake.jpg";
 import pomoValley from "../assets/arunachal/Pomo-Valley.jpg";
-import mandalaTopDirang from "../assets/arunachal/Mandala-Top-Dirang.jpg";
 import goldenPagoda1 from "../assets/arunachal/Golden-Pagoda-1.jpg";
 import goldenPagoda3 from "../assets/arunachal/Golden-Pagoda-3.jpg";
 import maduraiLake from "../assets/arunachal/Madurai-Lake-Sangestar-Lake.jpg";
 import selaLake from "../assets/arunachal/Sela-Lake.jpeg";
 import selaPass from "../assets/arunachal/Sela-Pass.jpg";
 import tawangMonastery from "../assets/arunachal/Tawang-Monastery.jpg";
+import mandalaTopDirang from "../assets/arunachal/Mandala-Top-Dirang.jpg";
 import ziro from "../assets/arunachal/ziro.JPG";
 import ziro4 from "../assets/arunachal/Ziro-4.JPG";
-import dirang from "../assets/arunachal/Dirang.JPG";
 import mechukha2 from "../assets/arunachal/Mechukha-2.JPG";
 import mechukha4 from "../assets/arunachal/Mechukha-4.JPG";
-import mechukha6 from "../assets/arunachal/Mechukha-6.JPG";
 import shergaon from "../assets/arunachal/Shergaon-View.JPG";
 import zemithangGompa from "../assets/arunachal/Zemithang-Gompa.JPG";
 import zemithangTawang from "../assets/arunachal/Zemithang-Tawang.JPG";
@@ -179,21 +177,15 @@ function Home() {
     image: ziro,
     title: "Ziro Valley",
     subtitle:
-      "The iconic green valleys and rice fields of Arunachal Pradesh.",
+      "Ziro’s famous heritage system of rice farming and fish growing that made it to UNESCO World Heritage Site.",
   },
   {
     image: ziro4,
     title: "Ziro Valley",
     subtitle:
-      "Lush rice fields beneath the dramatic skies of Arunachal Pradesh.",
+      "The iconic lush green rice fields of Ziro rustling beneath the dramatic skies.",
   },
 
-  {
-    image: dirang,
-    title: "Dirang",
-    subtitle:
-      "A beautiful Himalayan valley surrounded by mountains and traditional villages.",
-  },
 
   {
     image: mechukha2,
@@ -205,19 +197,13 @@ function Home() {
     image: mechukha4,
     title: "Mechukha",
     subtitle:
-      "Where dramatic Himalayan peaks meet peaceful valleys.",
-  },
-  {
-    image: mechukha6,
-    title: "Mechukha",
-    subtitle:
-      "Remote, peaceful and surrounded by the Eastern Himalayas.",
+      "A fast emerging adventure tourism destination in the global map.",
   },
 
 
   {
     image: shergaon,
-    title: "Shergaon",
+    title: "Jigaon",
     subtitle:
       "A peaceful mountain village surrounded by forests, valleys and Himalayan scenery.",
   },
@@ -226,54 +212,54 @@ function Home() {
     image: zemithangGompa,
     title: "Zemithang",
     subtitle:
-      "Ancient Buddhist heritage set against the mountains of Arunachal Pradesh.",
+      "Gorsam Chorten: A massive, 93-foot tall Buddhist stupa in Zemithang modelled after Nepal’s Boudhanath Stupa.",
   },
   {
     image: zemithangTawang,
     title: "Zemithang",
     subtitle:
-      "A remote Himalayan region rich in natural beauty, culture and history.",
+      "A remote, untouched Himalayan region in Tawang, rich in natural beauty, culture and history.",
   },
   {
     image: aeyoLake,
     title: "Aeyo Lake",
     subtitle:
-      "A breathtaking Himalayan lake surrounded by the pristine landscapes of Arunachal Pradesh.",
+      "A pristine high altitude glacial lake situated at roughly 11000 feet in Dibang Valley district",
   },
 
   {
     image: pomoValley,
     title: "Pomo Valley",
     subtitle:
-      "A spectacular mountain valley showcasing the untouched beauty of Arunachal Pradesh.",
+      "An emerging offbeat Himalayan trekking destination featuring dense rainforests, river crossings and high-altitude alpine meadows in Anini district.",
   },
 
-  {
+   {
     image: mandalaTopDirang,
     title: "Mandala Top",
     subtitle:
-      "Experience the dramatic high-altitude landscapes and mountain views around Dirang.",
+      "Experience the dramatic high-altitude landscapes, nomadic settlements and grazing grounds tied to the Brokpa people, the semi-nomadic yak herders who inhabit the cold mountain regions of West Kameng district.",
   },
 
   {
     image: goldenPagoda1,
     title: "Golden Pagoda",
     subtitle:
-      "A magnificent Buddhist landmark reflecting the rich cultural heritage of Arunachal Pradesh.",
+      "A magnificent Buddhist landmark in Namsai, reflecting the rich cultural heritage of Arunachal Pradesh.",
   },
 
   {
     image: goldenPagoda3,
     title: "Golden Pagoda",
     subtitle:
-      "Discover one of Arunachal Pradesh's beautiful spiritual and architectural landmarks.",
+      "Discover one of Arunachal Pradesh's most beautiful spiritual and architectural landmarks.",
   },
 
   {
     image: maduraiLake,
     title: "Sangestar Lake",
     subtitle:
-      "Also known as Madurai Lake, this high-altitude Himalayan lake is surrounded by dramatic mountains.",
+      "A high-altitude glacial lake, nicknamed “Madhuri Lake’ after the Bollywood actress Madhuri Dixit.",
   },
 
   {
@@ -294,7 +280,7 @@ function Home() {
     image: tawangMonastery,
     title: "Tawang Monastery",
     subtitle:
-      "One of the most important Buddhist monasteries in India, set against the majestic Eastern Himalayas.",
+      "India’s biggest monastery and second globally, it was famously the birthplace of the 6th Dalai Lama.",
   },
 ];
 
@@ -1245,7 +1231,7 @@ function Home() {
                     className="max-w-2xl"
                   >
                     <p className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-300">
-                      Explore the Northeast
+                      Explore Arunachal Pradesh
                     </p>
 
                     <h3 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
