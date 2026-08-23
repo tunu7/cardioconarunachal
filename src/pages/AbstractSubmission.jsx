@@ -20,6 +20,8 @@ import {
   Upload,
   User,
 } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function AbstractSubmission() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -324,6 +326,8 @@ function AbstractSubmission() {
 
   if (submissionComplete) {
     return (
+    
+
       <main className="min-h-screen bg-slate-50 pt-20">
         <section className="flex min-h-[calc(100vh-80px)] items-center justify-center px-4 py-16">
           <div className="w-full max-w-3xl overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-2xl shadow-slate-200/50">
@@ -433,6 +437,9 @@ function AbstractSubmission() {
   // =========================================================
 
   return (
+    <>
+    
+        <Navbar />
     <main className="overflow-hidden bg-white pt-20">
 
       {/* =====================================================
@@ -981,6 +988,8 @@ function AbstractSubmission() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }
 
@@ -1154,6 +1163,7 @@ function SummaryItem({
       </div>
     </div>
   );
+
 }
 
 export default AbstractSubmission;
