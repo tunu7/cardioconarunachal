@@ -57,6 +57,12 @@ import mechukha4 from "../assets/arunachal/Mechukha-4.JPG";
 import shergaon from "../assets/arunachal/Shergaon-View.JPG";
 import zemithangGompa from "../assets/arunachal/Zemithang-Gompa.JPG";
 import zemithangTawang from "../assets/arunachal/Zemithang-Tawang.JPG";
+import siangRiver from "../assets/arunachal/siang-river.jpg";
+import yomgo from "../assets/arunachal/Yomgo.jpeg";
+import Lakes from "../assets/arunachal/7-Lakes.png";
+import sunriseDong from "../assets/arunachal/Sunrise-Dong.jpg";
+import cosmosZiro from "../assets/arunachal/Cosmos-Ziro.jpg";
+
 
 function Home() {
   /* =========================================================
@@ -282,6 +288,41 @@ function Home() {
     subtitle:
       "India’s biggest monastery and second globally, it was famously the birthplace of the 6th Dalai Lama.",
   },
+
+  {
+    image: siangRiver,
+    title: "Siang River",
+    subtitle:
+     "Known for its fast blue-green currents, Siang is emerging as a popular destination for white-water rafting and angling.",
+  },
+
+  {
+    image: yomgo,
+    title: "Yomgo Valley",
+    subtitle:
+      "The crystal clear Yomgo flows gracefully past the town of Aalo to merge into the Siang River."
+  },
+
+  {
+    image: Lakes,
+    title: "Seven Lakes",
+    subtitle:
+    "An extreme, off-grid 7-day high-altitude expedition reaching a peak elevation of 14,000 feet (4,000 meters), and covering 40 km trail of virgin rainforests, steep alpine ridges, and glacial lakes like Kahmu-yu and Emuh-ya."
+  },
+
+  {
+    image: sunriseDong,
+    title: "Sunrise at Dong Valley",
+    subtitle:
+       "Pine covered valley in Anjaw, that witnesses the first sunrise of India."
+  },
+
+  {
+    image: cosmosZiro,
+    title: "Cosmos in Ziro",
+    subtitle:
+       "Cosmos at Ziro."
+  }
 ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
