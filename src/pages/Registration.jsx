@@ -76,6 +76,7 @@ function Registration() {
   // Submission states
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [registrationComplete, setRegistrationComplete] = useState(false);
+
   const successSectionRef = useRef(null);
 
   /* =========================================================
@@ -128,18 +129,28 @@ function Registration() {
     const data = {
       formType: "registration",
 
+      // Personal
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
       location: formData.get("location"),
 
+      // Professional
       institution: formData.get("institution"),
       designation: formData.get("designation"),
       specialization: formData.get("specialization"),
       registrationNumber: formData.get("registrationNumber"),
 
+      // Category
       delegateCategory: formData.get("delegateCategory"),
 
+      // Travel & Dietary
+      mealPreference: formData.get("mealPreference"),
+      foodAllergy: formData.get("foodAllergy"),
+      arrivalDate: formData.get("arrivalDate"),
+      departureDate: formData.get("departureDate"),
+
+      // Additional
       notes: formData.get("notes"),
     };
 
@@ -155,18 +166,14 @@ function Registration() {
         body: JSON.stringify(data),
       });
 
-      /*
-       * Show the proper success screen
-       * instead of using an alert.
-       */
       setRegistrationComplete(true);
 
       setTimeout(() => {
-  successSectionRef.current?.scrollIntoView({
-    behavior: "smooth",
-    block: "center",
-  });
-}, 100);
+        successSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 100);
     } catch (error) {
       console.error("Registration submission error:", error);
 
@@ -185,16 +192,13 @@ function Registration() {
       <Navbar />
 
       <main className="overflow-hidden bg-white pt-20">
-
         {/* =====================================================
             HERO
         ====================================================== */}
 
         <section className="relative isolate overflow-hidden bg-[#061827] text-white">
-
           {/* Background */}
           <div className="pointer-events-none absolute inset-0">
-
             <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
 
             <div className="absolute -bottom-60 -left-40 h-125 w-125 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
@@ -229,14 +233,12 @@ function Registration() {
           </div>
 
           <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-
             <motion.div
               variants={stagger}
               initial="hidden"
               animate="visible"
               className="max-w-5xl"
             >
-
               {/* Conference badge */}
               <motion.div
                 variants={fadeUp}
@@ -296,7 +298,6 @@ function Registration() {
                   accent="orange"
                 />
               </motion.div>
-
             </motion.div>
           </div>
 
@@ -308,7 +309,6 @@ function Registration() {
             <div className="flex-1 bg-cyan-500" />
             <div className="flex-1 bg-orange-400" />
           </div>
-
         </section>
 
         {/* =====================================================
@@ -316,9 +316,7 @@ function Registration() {
         ====================================================== */}
 
         <section className="border-b border-slate-100 bg-white py-12 sm:py-16">
-
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -329,7 +327,6 @@ function Registration() {
               }}
               className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
             >
-
               {[
                 {
                   icon: CalendarDays,
@@ -358,30 +355,217 @@ function Registration() {
                   key={title}
                   className="group flex items-center gap-4 rounded-2xl border border-slate-200 p-5 transition-all hover:border-blue-100 hover:shadow-lg sm:p-6"
                 >
-
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
                     <Icon size={22} />
                   </div>
 
                   <div className="min-w-0">
-
-                    <h3 className="font-bold text-slate-900">
-                      {title}
-                    </h3>
+                    <h3 className="font-bold text-slate-900">{title}</h3>
 
                     <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
                       {label}
                     </p>
-
                   </div>
-
                 </motion.div>
               ))}
-
             </motion.div>
-
           </div>
+        </section>
 
+        {/* =====================================================
+            REGISTRATION FEES
+        ====================================================== */}
+
+        <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
+                Registration Information
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                Registration Categories & Fees
+              </h2>
+
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                Registration details and applicable fees for CardioCon
+                Arunachal 2026.
+              </p>
+            </div>
+
+            {/* Registration deadline */}
+            <div className="mb-8 rounded-2xl border border-red-100 bg-red-50 p-5 text-center sm:p-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-red-600">
+                Last Date of Registration
+              </p>
+
+              <p className="mt-2 text-2xl font-black text-red-800 sm:text-3xl">
+                10th October 2026
+              </p>
+            </div>
+
+            {/* Fee Table */}
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-190 border-collapse text-sm">
+                  <thead>
+                    <tr className="bg-[#061827] text-white">
+                      <th className="px-5 py-4 text-left font-bold">
+                        Category
+                      </th>
+
+                      <th className="px-5 py-4 text-center font-bold">
+                        Early Bird
+                        <span className="mt-1 block text-xs font-normal text-slate-300">
+                          Till 31st Aug 2026
+                        </span>
+                      </th>
+
+                      <th className="px-5 py-4 text-center font-bold">
+                        1st Sept – 10th Oct 2026
+                      </th>
+
+                      <th className="px-5 py-4 text-center font-bold">
+                        Spot Registration
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr className="border-b border-slate-100 bg-blue-50/40">
+                      <td className="px-5 py-5 font-bold text-slate-900">
+                        Accompany Person
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹5,000
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹10,000
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹15,000
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="px-5 py-5 font-bold text-slate-900">
+                        Industry
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹5,000
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹10,000
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹15,000
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Free registration */}
+            <div className="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
+              <div className="flex items-start gap-3">
+                <CheckCircle2
+                  size={21}
+                  className="mt-0.5 shrink-0 text-emerald-600"
+                />
+
+                <div>
+                  <p className="font-bold text-emerald-900">
+                    Free Registration for Faculty & Delegates
+                  </p>
+
+                  <p className="mt-1 text-sm leading-6 text-emerald-800/80">
+                    Registration is free for Faculty & Delegates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Payment instructions */}
+            <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+              <div className="flex items-start gap-3">
+                <Landmark
+                  size={21}
+                  className="mt-0.5 shrink-0 text-blue-700"
+                />
+
+                <div>
+                  <p className="font-bold text-blue-950">
+                    Payment & Registration Confirmation
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-blue-950/70">
+                    To confirm your registration, kindly mail us the{" "}
+                    <span className="font-bold">REGISTRATION RECEIPT</span>{" "}
+                    along with the{" "}
+                    <span className="font-bold">BANK Details</span> to:
+                  </p>
+
+                  <a
+                    href="mailto:cardioconarunachal@gmail.com"
+                    className="mt-3 inline-flex items-center gap-2 font-bold text-blue-700 hover:underline"
+                  >
+                    <Mail size={16} />
+                    cardioconarunachal@gmail.com
+                  </a>
+
+                  <p className="mt-3 text-xs italic text-blue-900/60">
+                    Bank details will be updated once provided by the
+                    organising committee.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Abstract submission */}
+            <div className="mt-6 rounded-3xl border border-indigo-100 bg-indigo-50 p-6 sm:p-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white">
+                    <FileText size={23} />
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-600">
+                      Academic Submission
+                    </p>
+
+                    <h3 className="mt-1 text-xl font-bold text-indigo-950">
+                      Abstract Submission
+                    </h3>
+
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-950/65">
+                      Submit your conference abstract through the dedicated
+                      abstract submission form. PDF format is required.
+                    </p>
+                  </div>
+                </div>
+
+                <Link
+                  to="/abstract-submission"
+                  className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-indigo-700 hover:shadow-lg"
+                >
+                  Submit Abstract
+
+                  <ArrowRight
+                    size={17}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* =====================================================
@@ -389,9 +573,7 @@ function Registration() {
         ====================================================== */}
 
         <section className="bg-slate-50 py-20 sm:py-24 lg:py-28">
-
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
             {/* Heading */}
             <motion.div
               variants={fadeUp}
@@ -400,7 +582,6 @@ function Registration() {
               viewport={{ once: true }}
               className="mb-10 max-w-3xl sm:mb-12"
             >
-
               <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-blue-700 sm:text-sm">
                 <span className="h-px w-7 bg-blue-700" />
 
@@ -412,12 +593,11 @@ function Registration() {
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                Please provide accurate personal and professional information.
-                Fields marked with{" "}
+                Please provide accurate personal, professional, dietary and
+                travel information. Fields marked with{" "}
                 <span className="font-semibold text-red-500">*</span> are
                 required.
               </p>
-
             </motion.div>
 
             {/* =================================================
@@ -425,7 +605,6 @@ function Registration() {
             ================================================== */}
 
             {registrationComplete ? (
-
               <motion.div
                 initial={{
                   opacity: 0,
@@ -443,12 +622,9 @@ function Registration() {
                 }}
                 className="mx-auto w-full max-w-3xl"
               >
-
                 <div className="overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-2xl shadow-slate-200/50">
-
                   {/* SUCCESS HEADER */}
                   <div className="relative overflow-hidden bg-[#061827] px-6 py-12 text-center text-white sm:px-10 sm:py-16">
-
                     <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
                     <div className="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
@@ -473,23 +649,18 @@ function Registration() {
                       Your registration details have been submitted successfully
                       to the CardioCon Arunachal organising team.
                     </p>
-
                   </div>
 
                   {/* SUCCESS CONTENT */}
                   <div className="p-6 sm:p-10">
-
                     {/* WHAT HAPPENS NEXT */}
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
-
                       <div className="flex items-start gap-4">
-
                         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
                           <FileText size={21} />
                         </div>
 
                         <div className="min-w-0">
-
                           <h4 className="font-bold text-slate-900">
                             What happens next?
                           </h4>
@@ -499,18 +670,13 @@ function Registration() {
                             and contact you regarding confirmation, payment,
                             and any additional requirements.
                           </p>
-
                         </div>
-
                       </div>
-
                     </div>
 
                     {/* CONFERENCE DETAILS */}
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
-
                       <div className="rounded-2xl border border-slate-200 p-5">
-
                         <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
                           Conference
                         </p>
@@ -518,11 +684,9 @@ function Registration() {
                         <p className="mt-2 font-bold text-slate-900">
                           23–25 October 2026
                         </p>
-
                       </div>
 
                       <div className="rounded-2xl border border-slate-200 p-5">
-
                         <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
                           Venue
                         </p>
@@ -530,14 +694,11 @@ function Registration() {
                         <p className="mt-2 font-bold text-slate-900">
                           Itanagar, Arunachal Pradesh
                         </p>
-
                       </div>
-
                     </div>
 
                     {/* BUTTONS */}
                     <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-
                       <Link
                         to="/"
                         className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg"
@@ -555,37 +716,23 @@ function Registration() {
 
                         <ArrowRight size={17} />
                       </Link>
-
                     </div>
 
                     {/* EMAIL */}
                     <div className="mt-6 flex items-center justify-center gap-2 text-center text-xs leading-5 text-slate-400">
+                      <Mail size={14} className="shrink-0" />
 
-                      <Mail
-                        size={14}
-                        className="shrink-0"
-                      />
-
-                      <span>
-                        Questions? cardioconarunachal@gmail.com
-                      </span>
-
+                      <span>Questions? cardioconarunachal@gmail.com</span>
                     </div>
-
                   </div>
-
                 </div>
-
               </motion.div>
-
             ) : (
-
               /* =================================================
                  FORM + SIDEBAR
               ================================================== */
 
               <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_350px] lg:items-start lg:gap-8">
-
                 {/* =================================================
                     FORM
                 ================================================== */}
@@ -607,30 +754,24 @@ function Registration() {
                   }}
                   className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/40 sm:rounded-3xl"
                 >
-
                   {/* Form Header */}
                   <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-7">
-
                     <div className="flex items-center gap-4">
-
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 sm:h-12 sm:w-12">
                         <FileText size={22} />
                       </div>
 
                       <div>
-
                         <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
                           Delegate Registration Form
                         </h3>
 
                         <p className="mt-1 text-xs text-slate-500 sm:text-sm">
-                          Personal and professional information
+                          Personal, professional, dietary and travel
+                          information
                         </p>
-
                       </div>
-
                     </div>
-
                   </div>
 
                   {/* FORM */}
@@ -638,7 +779,6 @@ function Registration() {
                     onSubmit={handleSubmit}
                     className="p-5 sm:p-8 lg:p-9"
                   >
-
                     {/* =============================================
                         01 PERSONAL DETAILS
                     ============================================== */}
@@ -650,7 +790,6 @@ function Registration() {
                     />
 
                     <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
-
                       <Input
                         label="Full Name"
                         name="name"
@@ -687,7 +826,6 @@ function Registration() {
                         placeholder="e.g. Guwahati, Assam"
                         autoComplete="address-level1"
                       />
-
                     </div>
 
                     {/* =============================================
@@ -703,7 +841,6 @@ function Registration() {
                     />
 
                     <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
-
                       <Input
                         label="Hospital / Institution"
                         name="institution"
@@ -732,7 +869,6 @@ function Registration() {
                         icon={<BadgeCheck size={18} />}
                         placeholder="Registration number"
                       />
-
                     </div>
 
                     {/* =============================================
@@ -748,7 +884,6 @@ function Registration() {
                     />
 
                     <div className="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
-
                       {delegateCategories.map(
                         ({
                           id,
@@ -756,7 +891,6 @@ function Registration() {
                           description,
                           icon: Icon,
                         }) => {
-
                           const active = category === id;
 
                           return (
@@ -771,7 +905,6 @@ function Registration() {
                                   : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
                               }`}
                             >
-
                               <div
                                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition sm:h-11 sm:w-11 ${
                                   active
@@ -783,7 +916,6 @@ function Registration() {
                               </div>
 
                               <div className="min-w-0 pr-5">
-
                                 <p
                                   className={`text-sm font-bold sm:text-base ${
                                     active
@@ -797,7 +929,6 @@ function Registration() {
                                 <p className="mt-1 text-xs leading-5 text-slate-500">
                                   {description}
                                 </p>
-
                               </div>
 
                               <div
@@ -807,21 +938,17 @@ function Registration() {
                                     : "border-slate-300"
                                 }`}
                               >
-
                                 {active && (
                                   <CheckCircle2
                                     size={12}
                                     className="text-white"
                                   />
                                 )}
-
                               </div>
-
                             </button>
                           );
                         }
                       )}
-
                     </div>
 
                     <input
@@ -831,19 +958,92 @@ function Registration() {
                     />
 
                     {/* =============================================
-                        04 ADDITIONAL INFORMATION
+                        04 TRAVEL & DIETARY INFORMATION
                     ============================================== */}
 
                     <FormDivider />
 
                     <FormSectionHeader
                       number="04"
+                      title="Travel & Dietary Information"
+                      description="Help us plan your meals and arrival arrangements"
+                    />
+
+                    <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
+                      {/* Meal Preference */}
+                      <div>
+                        <label
+                          htmlFor="mealPreference"
+                          className="mb-2 block text-sm font-semibold text-slate-700"
+                        >
+                          Meal Preference
+                          <span className="ml-1 text-red-500">*</span>
+                        </label>
+
+                        <select
+                          id="mealPreference"
+                          name="mealPreference"
+                          required
+                          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                        >
+                          <option value="">Select preference</option>
+                          <option value="Vegetarian">
+                            Vegetarian
+                          </option>
+                          <option value="Non-Vegetarian">
+                            Non-Vegetarian
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* Food Allergy */}
+                      <Input
+                        label="Food Allergy"
+                        name="foodAllergy"
+                        icon={<Info size={18} />}
+                        placeholder="If yes, please specify"
+                      />
+
+                      {/* Arrival Date */}
+                      <Input
+                        label="Date of Arrival"
+                        name="arrivalDate"
+                        icon={<CalendarDays size={18} />}
+                        type="date"
+                        required
+                      />
+
+                      {/* Departure Date */}
+                      <Input
+                        label="Date of Departure"
+                        name="departureDate"
+                        icon={<CalendarDays size={18} />}
+                        type="date"
+                        required
+                      />
+                    </div>
+
+                    <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4">
+                      <p className="text-xs leading-6 text-amber-800 sm:text-sm">
+                        <span className="font-bold">Food Allergy:</span>{" "}
+                        If you have any food allergies, please specify them
+                        clearly so appropriate arrangements can be made.
+                      </p>
+                    </div>
+
+                    {/* =============================================
+                        05 ADDITIONAL INFORMATION
+                    ============================================== */}
+
+                    <FormDivider />
+
+                    <FormSectionHeader
+                      number="05"
                       title="Additional Information"
                       description="Information that may help the organising team"
                     />
 
                     <div className="mt-7">
-
                       <label
                         htmlFor="notes"
                         className="mb-2 block text-sm font-semibold text-slate-700"
@@ -858,7 +1058,6 @@ function Registration() {
                         placeholder="Dietary requirements, accessibility requirements or any other relevant information..."
                         className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                       />
-
                     </div>
 
                     {/* =============================================
@@ -866,9 +1065,7 @@ function Registration() {
                     ============================================== */}
 
                     <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
-
                       <label className="flex cursor-pointer items-start gap-3">
-
                         <input
                           type="checkbox"
                           name="declaration"
@@ -881,9 +1078,7 @@ function Registration() {
                           accurate and may be used by the organising committee
                           for conference registration and related communication.
                         </span>
-
                       </label>
-
                     </div>
 
                     {/* =============================================
@@ -899,7 +1094,6 @@ function Registration() {
                           : "bg-blue-700 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl"
                       }`}
                     >
-
                       {isSubmitting
                         ? "Submitting Registration..."
                         : "Continue Registration"}
@@ -910,22 +1104,17 @@ function Registration() {
                           className="transition-transform group-hover:translate-x-1"
                         />
                       )}
-
                     </button>
 
                     <div className="mt-4 flex items-center justify-center gap-2 text-center text-[11px] leading-5 text-slate-400 sm:text-xs">
-
                       <LockKeyhole
                         size={13}
                         className="shrink-0"
                       />
 
                       Your registration information will be handled securely.
-
                     </div>
-
                   </form>
-
                 </motion.div>
 
                 {/* =================================================
@@ -950,14 +1139,11 @@ function Registration() {
                   }}
                   className="space-y-4 sm:space-y-5 lg:sticky lg:top-28"
                 >
-
                   {/* Summary */}
                   <div className="relative overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
-
                     <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-400/10 blur-2xl" />
 
                     <div className="relative border-b border-white/10 p-5 sm:p-6">
-
                       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 sm:text-xs">
                         Registration Summary
                       </p>
@@ -969,11 +1155,9 @@ function Registration() {
                       <p className="mt-1 text-xs text-slate-400">
                         CSI Northeast Annual Conference 2026
                       </p>
-
                     </div>
 
                     <div className="relative space-y-5 p-5 sm:p-6">
-
                       <SummaryItem
                         icon={CalendarDays}
                         label="Conference Dates"
@@ -991,24 +1175,19 @@ function Registration() {
                         label="Selected Category"
                         value={selectedCategory?.name}
                       />
-
                     </div>
-
                   </div>
 
                   {/* Fee */}
                   <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
-
                     <div className="flex items-center justify-between">
-
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
                         <CreditCard size={21} />
                       </div>
 
-                      <span className="rounded-full bg-amber-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                        To be announced
+                      <span className="rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                        Updated
                       </span>
-
                     </div>
 
                     <h3 className="mt-5 font-bold text-slate-900">
@@ -1016,17 +1195,72 @@ function Registration() {
                     </h3>
 
                     <p className="mt-2 text-sm leading-6 text-slate-500">
-                      Category-wise registration fees and payment details will
-                      be published once confirmed by the organising committee.
+                      Faculty & Delegates: Free
                     </p>
 
+                    <div className="mt-4 space-y-3 text-sm">
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="text-slate-500">
+                          Accompany Person
+                        </span>
+
+                        <span className="text-right font-bold text-slate-800">
+                          ₹5,000 / ₹10,000 / ₹15,000
+                        </span>
+                      </div>
+
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="text-slate-500">
+                          Industry
+                        </span>
+
+                        <span className="text-right font-bold text-slate-800">
+                          ₹5,000 / ₹10,000 / ₹15,000
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 border-t border-slate-100 pt-4">
+                      <p className="text-xs font-bold uppercase tracking-wider text-red-600">
+                        Registration closes
+                      </p>
+
+                      <p className="mt-1 font-bold text-slate-900">
+                        10th October 2026
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Abstract */}
+                  <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-5 sm:p-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-600 text-white">
+                      <FileText size={21} />
+                    </div>
+
+                    <h3 className="mt-5 font-bold text-indigo-950">
+                      Abstract Submission
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-indigo-950/65">
+                      Submit your abstract separately in PDF format.
+                    </p>
+
+                    <Link
+                      to="/abstract-submission"
+                      className="group mt-5 inline-flex items-center gap-2 text-sm font-bold text-indigo-700"
+                    >
+                      Submit Abstract
+
+                      <ArrowRight
+                        size={15}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
+                    </Link>
                   </div>
 
                   {/* Secretariat */}
                   <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
-
                     <div className="flex items-center gap-3">
-
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
                         <Info size={18} />
                       </div>
@@ -1034,7 +1268,6 @@ function Registration() {
                       <h3 className="font-bold text-blue-950">
                         Registration Assistance
                       </h3>
-
                     </div>
 
                     <p className="mt-4 text-sm leading-6 text-blue-950/65">
@@ -1046,42 +1279,29 @@ function Registration() {
                       href="mailto:cardioconarunachal@gmail.com"
                       className="mt-4 flex min-w-0 items-center gap-2 text-sm font-bold text-blue-700 hover:underline"
                     >
-
-                      <Mail
-                        size={15}
-                        className="shrink-0"
-                      />
+                      <Mail size={15} className="shrink-0" />
 
                       <span className="min-w-0 break-all">
                         cardioconarunachal@gmail.com
                       </span>
-
                     </a>
 
                     <Link
                       to="/contact"
                       className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700"
                     >
-
                       Contact Secretariat
 
                       <ArrowRight
                         size={14}
                         className="transition group-hover:translate-x-1"
                       />
-
                     </Link>
-
                   </div>
-
                 </motion.aside>
-
               </div>
-
             )}
-
           </div>
-
         </section>
 
         {/* =====================================================
@@ -1089,36 +1309,31 @@ function Registration() {
         ====================================================== */}
 
         <section className="bg-white py-20 sm:py-24">
-
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
-
             <motion.div
-  ref={successSectionRef}
-  initial={{
-    opacity: 0,
-    y: 25,
-    scale: 0.98,
-  }}
-  animate={{
-    opacity: 1,
-    y: 0,
-    scale: 1,
-  }}
-  transition={{
-    duration: 0.5,
-    ease: "easeOut",
-  }}
-  className="mx-auto w-full max-w-3xl"
->
-
+              ref={successSectionRef}
+              initial={{
+                opacity: 0,
+                y: 25,
+                scale: 0.98,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="mx-auto w-full max-w-3xl"
+            >
               <div className="flex items-start gap-4">
-
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white sm:h-12 sm:w-12">
                   <Info size={22} />
                 </div>
 
                 <div>
-
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700 sm:text-xs">
                     Before You Register
                   </p>
@@ -1126,26 +1341,24 @@ function Registration() {
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-blue-950 sm:text-3xl">
                     Registration Information
                   </h2>
-
                 </div>
-
               </div>
 
               <div className="mt-7 grid gap-3 sm:mt-8 md:grid-cols-2">
-
                 {[
                   "Please provide accurate personal and professional information.",
                   "Select the delegate category applicable to your professional status.",
                   "Professional or student identification may be requested for applicable categories.",
-                  "Registration fees and payment instructions will be announced separately.",
-                  "Final confirmation will be issued according to the registration process announced by the organising committee.",
-                  "Additional conference and academic information will be updated as it is finalised.",
+                  "Faculty & Delegates can register free of charge.",
+                  "Last date of registration is 10th October 2026.",
+                  "Please provide your arrival and departure dates for conference arrangements.",
+                  "Food preference and allergy information will help the organising team plan meals.",
+                  "Payment instructions and bank details will be followed as provided by the organising committee.",
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-3 rounded-xl border border-white/70 bg-white/75 p-4"
+                    className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 p-4"
                   >
-
                     <CheckCircle2
                       size={18}
                       className="mt-0.5 shrink-0 text-emerald-600"
@@ -1154,16 +1367,11 @@ function Registration() {
                     <p className="text-xs leading-6 text-slate-700 sm:text-sm">
                       {item}
                     </p>
-
                   </div>
                 ))}
-
               </div>
-
             </motion.div>
-
           </div>
-
         </section>
 
         {/* =====================================================
@@ -1171,7 +1379,6 @@ function Registration() {
         ====================================================== */}
 
         <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
-
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
 
           <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-orange-300/10 blur-3xl" />
@@ -1190,7 +1397,6 @@ function Registration() {
             }}
             className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
           >
-
             <HeartPulse
               size={40}
               className="mx-auto text-cyan-300"
@@ -1221,11 +1427,8 @@ function Registration() {
                 className="transition-transform group-hover:translate-x-1"
               />
             </Link>
-
           </motion.div>
-
         </section>
-
       </main>
 
       <Footer />
@@ -1245,7 +1448,6 @@ function HeroInfo({
 }) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
-
       <Icon
         size={18}
         className={`shrink-0 ${
@@ -1256,7 +1458,6 @@ function HeroInfo({
       />
 
       <div>
-
         <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
           {label}
         </p>
@@ -1264,9 +1465,7 @@ function HeroInfo({
         <p className="mt-0.5 text-sm font-semibold text-slate-200">
           {value}
         </p>
-
       </div>
-
     </div>
   );
 }
@@ -1287,12 +1486,10 @@ function Input({
 
   return (
     <div className="min-w-0">
-
       <label
         htmlFor={inputId}
         className="mb-2 block text-sm font-semibold text-slate-700"
       >
-
         {label}
 
         {required && (
@@ -1300,11 +1497,9 @@ function Input({
             *
           </span>
         )}
-
       </label>
 
       <div className="relative">
-
         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
           {icon}
         </span>
@@ -1316,9 +1511,7 @@ function Input({
           {...props}
           className="w-full min-w-0 rounded-xl border border-slate-300 bg-white py-3.5 pl-11 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100 sm:pl-12"
         />
-
       </div>
-
     </div>
   );
 }
@@ -1334,13 +1527,11 @@ function FormSectionHeader({
 }) {
   return (
     <div className="flex items-start gap-3 sm:gap-4">
-
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xs font-bold text-blue-700">
         {number}
       </span>
 
       <div>
-
         <h3 className="font-bold text-slate-900">
           {title}
         </h3>
@@ -1348,9 +1539,7 @@ function FormSectionHeader({
         <p className="mt-0.5 text-xs leading-5 text-slate-500">
           {description}
         </p>
-
       </div>
-
     </div>
   );
 }
@@ -1376,13 +1565,11 @@ function SummaryItem({
 }) {
   return (
     <div className="flex items-start gap-3">
-
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-cyan-300">
         <Icon size={17} />
       </div>
 
       <div className="min-w-0">
-
         <p className="text-xs text-slate-500">
           {label}
         </p>
@@ -1390,9 +1577,7 @@ function SummaryItem({
         <p className="mt-1 wrap-break-word text-sm font-semibold leading-5 text-slate-200">
           {value}
         </p>
-
       </div>
-
     </div>
   );
 }
