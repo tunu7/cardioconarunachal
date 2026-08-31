@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import paymentQr from "../assets/payment-qr.png";
 
 import {
   User,
@@ -74,6 +75,36 @@ const delegateCategories = [
 function Registration() {
   const [category, setCategory] = useState("consultant");
 
+  const [paymentCategory, setPaymentCategory] = useState("free");
+  const [paymentAmount, setPaymentAmount] = useState("0");
+
+  const getPaymentAmount = (type) => {
+    if (type === "free") return 0;
+
+    const today = new Date();
+    const earlyBirdEnd = new Date("2026-08-31T23:59:59");
+    const regularEnd = new Date("2026-10-10T23:59:59");
+
+    if (type === "accompany") {
+      if (today <= earlyBirdEnd) return 5000;
+      if (today <= regularEnd) return 10000;
+      return 15000;
+    }
+
+    if (type === "industry") {
+      if (today <= earlyBirdEnd) return 10000;
+      if (today <= regularEnd) return 15000;
+      return 20000;
+    }
+
+    return 0;
+  };
+
+  const handlePaymentCategoryChange = (value) => {
+    setPaymentCategory(value);
+    setPaymentAmount(String(getPaymentAmount(value)));
+  };
+
   // Submission states
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [registrationComplete, setRegistrationComplete] = useState(false);
@@ -113,7 +144,7 @@ function Registration() {
   ========================================================= */
 
   const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbzHt8M7Rf6nQfYvPxjJcIdVLMhEC7cC5VK_PYAl5GV-SQHXrg-22irr3KsZ1Skztw5q/exec";
+    "https://script.google.com/macros/s/AKfycbyyAW3-0WtN76PvqDYuZTboSWIn45Dk83FunHfg2zZ5hv02GTIzzmxuupjrCRVRUGPA/exec";
 
   /* =========================================================
      FORM SUBMISSION
@@ -151,9 +182,36 @@ function Registration() {
       arrivalDate: formData.get("arrivalDate"),
       departureDate: formData.get("departureDate"),
 
+      // Payment
+      paymentCategory: formData.get("paymentCategory"),
+      paymentAmount: formData.get("paymentAmount"),
+      transactionId: formData.get("transactionId"),
+
       // Additional
       notes: formData.get("notes"),
     };
+
+    const paymentFile = formData.get("paymentScreenshot");
+
+    if (paymentFile && paymentFile instanceof File && paymentFile.size > 0) {
+      if (paymentFile.size > 5 * 1024 * 1024) {
+        alert("Payment screenshot must be 5 MB or smaller.");
+        return;
+      }
+
+      const base64Data = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result).split(",")[1] || "");
+        reader.onerror = reject;
+        reader.readAsDataURL(paymentFile);
+      });
+
+      data.paymentScreenshot = {
+        name: paymentFile.name,
+        mimeType: paymentFile.type || "application/octet-stream",
+        data: base64Data,
+      };
+    }
 
     try {
       setIsSubmitting(true);
@@ -494,37 +552,36 @@ function Registration() {
             </div>
 
             {/* Payment instructions */}
-            <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
-              <div className="flex items-start gap-3">
-                <Landmark
-                  size={21}
-                  className="mt-0.5 shrink-0 text-blue-700"
-                />
-
+            <div className="mt-5 rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-8">
+              <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div>
-                  <p className="font-bold text-blue-950">
-                    Payment & Registration Confirmation
-                  </p>
+                  <div className="flex items-start gap-3">
+                    <Landmark size={21} className="mt-0.5 shrink-0 text-blue-700" />
+                    <div>
+                      <p className="font-bold text-blue-950">Payment & Registration Confirmation</p>
+                      <p className="mt-2 text-sm leading-6 text-blue-950/70">
+                        If your selected category requires payment, please pay using the QR code or the bank details below and upload the payment proof in the registration form.
+                      </p>
+                    </div>
+                  </div>
 
-                  <p className="mt-2 text-sm leading-6 text-blue-950/70">
-                    To confirm your registration, kindly mail us the{" "}
-                    <span className="font-bold">REGISTRATION RECEIPT</span>{" "}
-                    along with the{" "}
-                    <span className="font-bold">BANK Details</span> to:
-                  </p>
+                  <div className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
+                    <div className="rounded-xl bg-white p-4"><span className="font-bold text-slate-500">Account Name</span><p className="mt-1 font-bold text-slate-900">CSI NORTHEAST CHAPTER</p></div>
+                    <div className="rounded-xl bg-white p-4"><span className="font-bold text-slate-500">Bank Name</span><p className="mt-1 font-bold text-slate-900">Federal Bank</p></div>
+                    <div className="rounded-xl bg-white p-4"><span className="font-bold text-slate-500">Account Number</span><p className="mt-1 font-bold text-slate-900">25040200004924</p></div>
+                    <div className="rounded-xl bg-white p-4"><span className="font-bold text-slate-500">IFSC Code</span><p className="mt-1 font-bold text-slate-900">FDRL0002504</p></div>
+                    <div className="rounded-xl bg-white p-4 sm:col-span-2"><span className="font-bold text-slate-500">Branch Name</span><p className="mt-1 font-bold text-slate-900">Naharlagun</p></div>
+                  </div>
+                </div>
 
-                  <a
-                    href="mailto:cardioconarunachal@gmail.com"
-                    className="mt-3 inline-flex items-center gap-2 font-bold text-blue-700 hover:underline"
-                  >
-                    <Mail size={16} />
-                    cardioconarunachal@gmail.com
-                  </a>
-
-                  <p className="mt-3 text-xs italic text-blue-900/60">
-                    Bank details will be updated once provided by the
-                    organising committee.
-                  </p>
+                <div className="mx-auto rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
+                  <p className="mb-3 text-xs font-bold uppercase tracking-wider text-blue-700">Scan to Pay</p>
+                  <img
+                    src={paymentQr}
+                    alt="CardioCon Arunachal 2026 payment QR code"
+                    className="mx-auto h-auto w-full max-w-56 object-contain"
+                  />
+                  <p className="mt-3 text-[11px] text-slate-500">CSI NORTH EAST CHAPTER</p>
                 </div>
               </div>
             </div>
@@ -1112,6 +1169,78 @@ function Registration() {
                       />
                     </div>
 
+                    {/* =============================================
+                        05 PAYMENT INFORMATION
+                    ============================================== */}
+
+                    <FormDivider />
+
+                    <FormSectionHeader
+                      number="05"
+                      title="Payment Information"
+                      description="Complete this section if your registration category requires payment"
+                    />
+
+                    <div className="mt-7 grid gap-5 sm:grid-cols-2 sm:gap-6">
+                      <div>
+                        <label htmlFor="paymentCategory" className="mb-2 block text-sm font-semibold text-slate-700">Payment Category</label>
+                        <select
+                          id="paymentCategory"
+                          name="paymentCategory"
+                          value={paymentCategory}
+                          onChange={(e) => handlePaymentCategoryChange(e.target.value)}
+                          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                        >
+                          <option value="free">Faculty & Delegate — Free</option>
+                          <option value="accompany">Accompany Person</option>
+                          <option value="industry">Industry</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="paymentAmount" className="mb-2 block text-sm font-semibold text-slate-700">Applicable Amount</label>
+                        <input
+                          id="paymentAmountDisplay"
+                          value={`₹${Number(paymentAmount).toLocaleString("en-IN")}`}
+                          readOnly
+                          className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-sm font-bold text-slate-800 outline-none"
+                        />
+                        <input type="hidden" name="paymentAmount" value={paymentAmount} />
+                      </div>
+
+                      <Input
+                        label="Transaction / UTR Number"
+                        name="transactionId"
+                        icon={<CreditCard size={18} />}
+                        placeholder="Enter transaction reference"
+                        required={paymentCategory !== "free"}
+                      />
+
+                      <div>
+                        <label htmlFor="paymentScreenshot" className="mb-2 block text-sm font-semibold text-slate-700">
+                          Payment Screenshot{paymentCategory !== "free" && <span className="ml-1 text-red-500">*</span>}
+                        </label>
+                        <input
+                          id="paymentScreenshot"
+                          name="paymentScreenshot"
+                          type="file"
+                          accept="image/png,image/jpeg,image/webp,application/pdf"
+                          required={paymentCategory !== "free"}
+                          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-700 file:mr-4 file:rounded-lg file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:font-semibold file:text-blue-700"
+                        />
+                        <p className="mt-2 text-xs leading-5 text-slate-500">PNG, JPG, WEBP or PDF • Maximum 5 MB</p>
+                      </div>
+                    </div>
+
+                    <div className="mt-5 rounded-xl border border-amber-100 bg-amber-50 p-4">
+                      <p className="text-xs leading-6 text-amber-800 sm:text-sm">
+                        After payment, please enter the transaction/UTR number and upload the payment proof. Payment will be verified by the organising team.
+                      </p>
+                    </div>
+
+                    {/* =============================================
+                        06 ADDITIONAL INFORMATION
+                    ============================================== */}
                     {/* =============================================
                         DECLARATION
                     ============================================== */}

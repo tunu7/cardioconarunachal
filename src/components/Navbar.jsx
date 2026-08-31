@@ -9,6 +9,7 @@ import {
   MapPin,
 } from "lucide-react";
 import cardioconLogo from "../assets/cardioconlogo.png";
+import csiLogo from "../assets/csi-logo.svg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,16 +70,15 @@ function Navbar() {
             onClick={() => setIsOpen(false)}
             className="group flex min-w-0 items-center gap-3"
           >
-            <motion.div
-    whileHover={{ scale: 1.03 }}
-    transition={{ duration: 0.2 }}
-className="flex h-40 w-40 shrink-0 items-center justify-center sm:h-44 sm:w-44 lg:h-48 lg:w-48"  >
-    <img
-      src={cardioconLogo}
-      alt="CardioCon Arunachal 2026"
-      className="h-full w-full object-contain"
-    />
+            <div className="flex items-center gap-2 sm:gap-3">
+  <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }} className="flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14">
+    <img src={csiLogo} alt="Cardiology Society of India — North East Chapter" className="h-full w-full object-contain" />
   </motion.div>
+  <div className="h-10 w-px bg-slate-200 sm:h-12" />
+  <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }} className="flex h-14 w-28 shrink-0 items-center justify-center sm:h-16 sm:w-36">
+    <img src={cardioconLogo} alt="CardioCon Arunachal 2026" className="h-full w-full object-contain" />
+  </motion.div>
+</div>
 
             
 

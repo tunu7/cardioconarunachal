@@ -36,674 +36,828 @@ const scheduleData = {
     shortDate: "23 Oct",
     date: "23 October 2026",
     weekday: "Friday",
-    theme: "Prevention, Lipids & Clinical Foundations",
+    theme: "Clinical Foundations, Prevention & Lipid Management",
     description:
-      "The opening day focuses on ECG interpretation, adult congenital heart disease, clinical examination, cardiovascular prevention and contemporary lipid management.",
-
+      "Scientific sessions and the workshop on clinical examination, adult CHD, ECG interpretation, cardiovascular prevention and contemporary lipid management.",
     sessions: [
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
         title: 'Workshop — "Cracking the Cardiac Code: Connect the Dots"',
         speaker: "",
-        venue: "Venue TBA",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Workshop",
         icon: Microscope,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Fundamental Errors in ECG Interpretation",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Workshop",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "Approach to CHD (Adult)",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Workshop",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
+        time: "2:30 PM",
+        endTime: "3:05 PM",
         title: "The Lost Art of Clinical Examination",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. H. C. Kalita",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Workshop",
         icon: Stethoscope,
       },
-
       {
-        time: "Time TBA",
+        time: "3:05 PM",
+        endTime: "3:20 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "3:20 PM",
+        endTime: "3:55 PM",
+        title: "Approach to CHD (Adult)",
+        speaker: "Dr. Saurabhi Das",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Workshop",
+        icon: HeartPulse,
+      },
+      {
+        time: "3:55 PM",
+        endTime: "4:10 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "4:10 PM",
+        endTime: "4:45 PM",
+        title: "Fundamental Errors in ECG Interpretation",
+        speaker: "Dr. Soumen Devi Dutta",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Workshop",
+        icon: HeartPulse,
+      },
+      {
+        time: "4:45 PM",
+        endTime: "5:00 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
         endTime: "",
         title: 'Session 1 — "An Ounce of Prevention, Pound of Benefits"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Dipak Sarma, Dr Talar Motu, Dr Chow Chetha Langkhun, Dr Taso Beyong, Dr Hibu Habung",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
-        icon: HeartPulse,
+        icon: Users,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "5:00 PM",
+        endTime: "5:10 PM",
         title: "Lipoprotein A — The Hidden Foe",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Prabin Shrivastava",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Exercise for CV Disease Prevention: Tomorrow Begins Today",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "5:10 PM",
+        endTime: "5:20 PM",
+        title:
+          "Exercise for CV Disease Prevention: Tomorrow Begins Today",
+        speaker: "Dr. Arun Kumar",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Coronary Artery Calcium Scoring — Who Really Needs It?",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "5:20 PM",
+        endTime: "5:30 PM",
+        title:
+          "Coronary Artery Calcium Scoring — Who Really Needs It?",
+        speaker: "Dr. Swapan Saha",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Microscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "5:30 PM",
+        endTime: "5:40 PM",
         title:
           "The Romance Between Micronutrients, Lifestyle and Heart: Is It Really Romantic?",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Taso Beyong",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
+        time: "5:40 PM",
+        endTime: "5:45 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
         endTime: "",
         title: 'Session 2 — "Past the Prologue: Cholesterol Saga Continues"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Neil Bardoloi, Dr H C Kalita, Dr Hage Ambing, Dr Homen Narah, Dr Tao Kaki",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
-        icon: HeartPulse,
+        icon: Users,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "5:45 PM",
+        endTime: "6:00 PM",
         title: "India & Dyslipidemia",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Raman Puri",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Brave New World — Newer Therapies of Lipid Management",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "6:00 PM",
+        endTime: "6:15 PM",
+        title:
+          "Brave New World — Newer Therapies of Lipid Management",
+        speaker: "Dr. Vimal Mehta",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Microscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Statin Intolerance — A Practical Approach to Management",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "6:15 PM",
+        endTime: "6:30 PM",
+        title:
+          "Statin Intolerance — A Practical Approach to Management",
+        speaker: "Dr. Chandra Kumar Das",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Stethoscope,
+        icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "6:30 PM",
+        endTime: "6:35 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "6:35 PM",
+        endTime: "7:35 PM",
         title: "Inauguration",
         speaker: "",
-        venue: "Venue TBA",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Ceremony",
-        icon: Users,
+        icon: Building2,
       },
     ],
   },
-
-  /* =========================================================
-     DAY 2
-  ========================================================= */
 
   day2: {
     day: "Day 02",
     shortDate: "24 Oct",
     date: "24 October 2026",
     weekday: "Saturday",
-    theme: "Heart Failure, Intervention, Hypertension & Innovation",
+    theme:
+      "Heart Failure, Intervention, Hypertension & Contemporary Cardiology",
     description:
-      "The second day brings together contemporary heart failure management, invited lectures, interventional cardiology, cath-lab challenges, hypertension, congenital heart disease and modern cardiovascular medicine.",
-
+      "A full scientific day covering heart failure, invited lectures, CSI-NE orations, interventional cardiology, CATH-lab challenges, hypertension, debates, congenital heart disease and modern cardiology.",
     sessions: [
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
         title:
           'Session 1 — "Once More Unto the Breach: Heart Failure Success Story"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr P C Sarma, Dr Anjan Kumar Bhattacharya, Dr J C Barkataki, Dr Tirthankar Roy, Dr Chinmoy Mazumdar",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "SGLT2 Inhibitors — The Heart Failure Panacea",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "8:30 AM",
+        endTime: "8:45 AM",
+        title: "Heart Failure: Newer Avenues and AI Integration",
+        speaker: "Dr. M. K. Das",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "The Fifth Pillar of Heart Failure Management — GLP-1 Agonists",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "8:45 AM",
+        endTime: "9:00 AM",
+        title:
+          "The Fifth Pillar of Heart Failure Management — GLP-1 Agonists",
+        speaker: "Dr. Harikrishnan S",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "9:00 AM",
+        endTime: "9:15 AM",
         title: "Iron is the New Inotrope",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Arup Das Biswas",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Climate Change and Cardiovascular Disease",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "9:15 AM",
+        endTime: "9:30 AM",
+        title: "SGLT2 Inhibitors — The Heart Failure Panacea",
+        speaker: "Dr. Bornali Dutta",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Microscope,
+        icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
+        time: "9:30 AM",
+        endTime: "9:35 AM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
         endTime: "",
         title: 'Session 2 — "Meet the Masters: Invited Lectures"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Sandeep Bansal, Dr Justin Paul, Dr Neil Bardoloi, Dr Soumen Devi Dutta",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
         icon: Mic2,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "9:35 AM",
+        endTime: "9:50 AM",
         title: "AI in Cardiovascular Disease",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Dorairaj Prabhakaran",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Keynote",
-        icon: Sparkles,
+        icon: Microscope,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "9:50 AM",
+        endTime: "10:05 AM",
         title: "Digitalis Revitalis",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. G. Karthikeyan",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Keynote",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Heart Failure & Indian Data — Lessons Learnt So Far",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "10:05 AM",
+        endTime: "10:20 AM",
+        title: "Climate Change and Cardiovascular Disease",
+        speaker: "Dr. Poornima Prabhakaran",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Keynote",
         icon: Microscope,
       },
-
       {
-        time: "Time TBA",
+        time: "10:20 AM",
+        endTime: "10:30 AM",
+        title: "Audience Interaction",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
         endTime: "",
         title: 'Session 3 — "The Readiness is All: CSI NE Orations"',
         speaker: "",
-        venue: "Venue TBA",
-        type: "Oration",
-        icon: Mic2,
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Session",
+        icon: BookOpen,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "10:30 AM",
+        endTime: "10:50 AM",
         title: "CSI Presidential Oration",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. D. J. Dutta",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Oration",
         icon: Mic2,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "10:50 AM",
+        endTime: "11:15 AM",
         title: "M. C. Bhuyan Oration",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. H. K. Bali",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Oration",
         icon: Mic2,
       },
-
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
         title:
           'Session 4 — "All the World Is a Stage: Play the Interventional Cardiology Game"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Rakesh Yadav, Dr Nitish Naik, Dr Manish Kapoor, Dr Chandan Modak, Dr Raj Kumar Bhattacharjee",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
-        icon: Stethoscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "11:15 AM",
+        endTime: "11:30 AM",
         title: "DEB in PCI — The Kid Has Matured Now",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Anindya SundarTrivedi",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Interventional",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Calcium Modification in PCI: Breaking the Hardlines",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "11:30 AM",
+        endTime: "11:45 AM",
+        title:
+          "Calcium Modification in PCI: Breaking the Hardlines",
+        speaker: "Dr. Rituparna Baruah",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Interventional",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "11:45 AM",
+        endTime: "12:00 PM",
         title:
           "Complete Revascularisation in Primary PCI — Much Ado About Balance",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. P. J. Bhattacharyya",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Interventional",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "12:00 PM",
+        endTime: "12:15 PM",
         title: "Bifurcation PCI — Decision at the Divide",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Dilip Kumar",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Interventional",
         icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "12:15 PM",
+        endTime: "12:20 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "12:20 PM",
+        endTime: "1:05 PM",
         title: "Lunch",
         speaker: "",
-        venue: "Dining Area",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Break",
         icon: Utensils,
       },
-
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
         title:
           'Session 5 — "Weathering the Tempest: From Chaos to Control in the CATH-Lab"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Animesh Mishra, Dr Rakesh Yadav, Dr Rakesh Arora, Dr Rituparna Baruah, Dr Mriganga Chaliha, Dr DP Rai",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
-        icon: Stethoscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "1:05 PM",
+        endTime: "1:15 PM",
         title: "Management of Coronary Bifurcation",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Rondeep Sivam",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Clinical",
-        icon: Stethoscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "1:15 PM",
+        endTime: "1:25 PM",
         title: "Snaring the Lost Devices",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Biplab Paul",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Clinical",
-        icon: Stethoscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "1:25 PM",
+        endTime: "1:35 PM",
         title: "No Way Out — Slow Flow in PCI",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. K. C. Narzary",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Clinical",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Hypotension in the CATH-Lab — A Practical Guide to Management",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Clinical",
-        icon: Stethoscope,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "The Storm Within — Coronary Dissection: The Rescue",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "1:35 PM",
+        endTime: "1:45 PM",
+        title:
+          "Hypotension in the CATH-Lab — A Practical Guide to Management",
+        speaker: "Dr. Monowar Hussain",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Clinical",
         icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
+        time: "1:45 PM",
+        endTime: "1:55 PM",
+        title:
+          "The Storm Within — Coronary Dissection: The Rescue",
+        speaker: "Dr. Dhanjit Nath",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Clinical",
+        icon: HeartPulse,
+      },
+      {
+        time: "1:55 PM",
+        endTime: "2:00 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
         endTime: "",
         title:
           'Session 6 — "Measure for Measure: The Long Game of Hypertension"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Dipak Sharma, Dr Bornali Dutta, Dr Homen Narah, Dr Ratan Ram, Dr Pritom Borthakur",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "2:00 PM",
+        endTime: "2:15 PM",
         title: "Contemporary Issues in Hypertension",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Prabhakaran",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "2:15 PM",
+        endTime: "2:30 PM",
         title: "The Resistant Few — Tackling Difficult Hypertension",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Manish Kapoor",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Stethoscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "2:30 PM",
+        endTime: "2:45 PM",
         title: "Beyond the Clinic — HBPM & ABPM",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Rajiv Bhardwaj",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Microscope,
+        icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Debate 1",
+        time: "2:45 PM",
+        endTime: "2:50 PM",
+        title: "Discussion",
         speaker: "",
-        venue: "Venue TBA",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
+        endTime: "",
+        title: "Session 7 — Debates",
+        speaker:
+          "Judges: Dr D Prabahkaran, Dr Harikrishnan, Dr M K Das, Dr Vimal Mehta, Dr Arup Das Biswas, Dr Neil Bardoloi, Dr Raman Puri",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Session",
+        icon: Users,
+      },
+      {
+        time: "2:50 PM",
+        endTime: "3:30 PM",
+        title:
+          "Debate 1: CTO — Leave It Alone or Fix It When It's Broken?",
+        speaker: "Dr. Rakesh Yadav vs Dr. Ramakrishnan",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Debate",
         icon: Users,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Debate 2",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "3:30 PM",
+        endTime: "4:10 PM",
+        title:
+          "Debate 2: Betablocker in MI — Lifelong Love or Time to Move On?",
+        speaker: "Dr. Justin Paul vs Dr. Sandeep Bansal",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Debate",
         icon: Users,
       },
-
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
         title:
           'Session 8 — "Born to Beat: Congenital Heart Disease — Lifetime Care, Lifetime Challenge"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Saurabhi Das, Dr Manuj Saikia, Dr Dilip Kumar, Dr Tabang Nyitan",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "4:10 PM",
+        endTime: "4:25 PM",
         title:
           "Right Choice — Device & Balloon Size Selection in ASD/VSD/PDA & Valvular Lesions",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Clinical",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "The Hypertensive Lungs — The Wheel Comes Full Circle",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Clinical",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "Medical Myectomy in HCM — The New Era",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Saurabh Gupta",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
+        time: "4:25 PM",
+        endTime: "4:40 PM",
+        title: "Role of Robotics in Cardiac Surgery",
+        speaker: "Dr. Ritwick Barman",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "4:40 PM",
+        endTime: "4:55 PM",
+        title:
+          "The Hypertensive Lungs — The Wheel Comes Full Circle",
+        speaker: "Dr. Satyavir Yadav",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "4:55 PM",
+        endTime: "5:10 PM",
+        title: "Medical Myectomy in HCM — The New Era",
+        speaker: "Dr. M. S. Chaliha",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "5:10 PM",
+        endTime: "5:15 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
         endTime: "",
         title:
           'Session 9 — "Evening Potpourri: A Medley of Modern Cardiology"',
-        speaker: "",
-        venue: "Venue TBA",
+        speaker:
+          "Chairpersons: Dr Prabhakaran, Dr D J Dutta, Dr Vanita Arora, Dr M K Das, Dr Monowar Hussain",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
-        icon: Sparkles,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "5:15 PM",
+        endTime: "5:30 PM",
         title: "Anti-Platelet Strategies in 2026",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Animesh Mishra",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "5:30 PM",
+        endTime: "5:45 PM",
         title: "Medical Circulatory Support in 2026",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Ranjit Nath",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "The AI Cardiologist, or the Cardiologist with AI?",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Keynote",
-        icon: Sparkles,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "The New Age of Intravascular Imaging",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "5:45 PM",
+        endTime: "6:00 PM",
+        title: "Inherited Arrhythmias: What Is New?",
+        speaker: "Dr. Nitish Naik",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
-        icon: Microscope,
+        icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "6:00 PM",
+        endTime: "6:15 PM",
+        title: "The New Age of Intravascular Imaging",
+        speaker: "Dr. Sharad Chandra",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "6:15 PM",
+        endTime: "6:20 PM",
+        title: "Discussion",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "6:20 PM",
+        endTime: "6:50 PM",
         title: "Posters & Abstracts Presentation",
         speaker: "",
-        venue: "Scientific Hall",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Abstracts",
         icon: FileText,
       },
     ],
   },
 
-  /* =========================================================
-     DAY 3
-  ========================================================= */
-
   day3: {
     day: "Day 03",
     shortDate: "25 Oct",
     date: "25 October 2026",
     weekday: "Sunday",
-    theme: "Cardio-Metabolic Medicine, Arrhythmia & Future Perspectives",
+    theme: "Arrhythmia, Cardio-Metabolic Medicine & Quiz",
     description:
-      "The final day explores cardio-metabolic medicine, GLP-1 therapies, obesity, cardio-renal syndrome, contemporary arrhythmia management, sudden cardiac death and the concluding academic programme.",
-
+      "The final scientific morning begins at 8:30 AM and concludes with the Quiz and Valedictory Function.",
     sessions: [
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
-        title:
-          'Session 1 — "Cardio-Metabolic Medicine: The New Frontier"',
-        speaker: "",
-        venue: "Venue TBA",
+        title: 'Session 1 — "Arrhythmia Management: Calming the Storm"',
+        speaker:
+          "Chairpersons: Dr Rituparna Baruah, Dr Swapan Saha, Dr Monowar Hussain, Dr CP Thakur, Dr Abhijit Bharali",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Diabetes & Cardiovascular Disease — The Twisted Twins",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Scientific",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "GLP Revolution — What We Should Know",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Scientific",
-        icon: Microscope,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "Obesity in Heart Disease — The Elephant in the Room",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Scientific",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: "Cardio-Renal Syndrome — The Heart-Kidney Tango",
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Scientific",
-        icon: HeartPulse,
-      },
-
-      {
-        time: "Time TBA",
-        endTime: "",
-        title: 'Session 2 — "Arrhythmia Management: Calming the Storm"',
-        speaker: "",
-        venue: "Venue TBA",
-        type: "Session",
-        icon: HeartPulse,
-      },
-      {
-        time: "Time TBA",
-        endTime: "",
+        time: "8:30 AM",
+        endTime: "8:45 AM",
         title: "CSP",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Vanita Arora",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "8:45 AM",
+        endTime: "8:55 AM",
+        title: "Post-MI Ectopics: An Enemy in Disguise",
+        speaker: "Dr. Synrang Warjri",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "8:55 AM",
+        endTime: "9:05 AM",
         title: "VT Storm — Rhythm on the Edge",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Utpal Sharma",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Atrial Fibrillation — Real-World Decision Pathways",
-        speaker: "",
-        venue: "Venue TBA",
+        time: "9:05 AM",
+        endTime: "9:15 AM",
+        title:
+          "Atrial Fibrillation — Real-World Decision Pathways",
+        speaker: "Dr. Chandan Modak",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "9:15 AM",
+        endTime: "9:25 AM",
         title:
           "Risk Stratification of Sudden Cardiac Death — Race Against the Rhythm",
-        speaker: "",
-        venue: "Venue TBA",
+        speaker: "Dr. Romar Dabu",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
         icon: HeartPulse,
       },
-
       {
-        time: "Time TBA",
-        endTime: "",
-        title: "Session 3 — Topics to be Finalised",
+        time: "9:25 AM",
+        endTime: "9:30 AM",
+        title: "Discussion",
         speaker: "",
-        venue: "Venue TBA",
-        type: "Session",
-        icon: Info,
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
       },
-
       {
-        time: "Time TBA",
+        time: "",
         endTime: "",
-        title: "QUIZ",
+        title:
+          'Session 2 — "Cardio-Metabolic Medicine: The New Frontier"',
+        speaker:
+          "Chairpersons: Dr Gautam Das, Dr Arun Kumar, Dr Utpal Sharma, Dr Taso Beyong, Dr Libe Nyorak",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Session",
+        icon: HeartPulse,
+      },
+      {
+        time: "9:30 AM",
+        endTime: "9:40 AM",
+        title:
+          "Diabetes & Cardiovascular Disease — The Twisted Twins",
+        speaker: "Dr. Gaurav Kavi",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "9:40 AM",
+        endTime: "9:50 AM",
+        title: "GLP Revolution — What We Should Know",
+        speaker: "Dr. Saurav Das",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "9:50 AM",
+        endTime: "10:00 AM",
+        title:
+          "Cardio-Renal Syndrome — The Heart-Kidney Tango",
+        speaker: "Dr. Oyik Tamut",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "10:00 AM",
+        endTime: "10:10 AM",
+        title:
+          "Obesity in Heart Disease — The Elephant in the Room",
+        speaker: "Dr. Karto Ete",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Scientific",
+        icon: HeartPulse,
+      },
+      {
+        time: "10:10 AM",
+        endTime: "10:15 AM",
+        title: "Discussion",
         speaker: "",
-        venue: "Venue TBA",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Discussion",
+        icon: Users,
+      },
+      {
+        time: "",
+        endTime: "",
+        title: "Session 3",
+        speaker: "",
+        venue: "Hotel Donyi Polo, Itanagar",
+        type: "Session",
+        icon: BookOpen,
+      },
+      {
+        time: "10:15 AM",
+        endTime: "11:15 AM",
+        title: "Quiz",
+        speaker: "Quiz Master — Dr. S. Ramakrishnan",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Quiz",
         icon: BookOpen,
       },
-
       {
-        time: "Time TBA",
-        endTime: "",
+        time: "11:15 AM",
+        endTime: "11:30 AM",
         title: "Valedictory Function",
         speaker: "",
-        venue: "Venue TBA",
+        venue: "Hotel Donyi Polo, Itanagar",
         type: "Ceremony",
-        icon: Users,
+        icon: Building2,
       },
     ],
   },
@@ -714,50 +868,21 @@ const scheduleData = {
 ========================================================= */
 
 const badgeColors = {
-  Registration:
-    "bg-blue-50 text-blue-700 border-blue-100",
-
-  Ceremony:
-    "bg-violet-50 text-violet-700 border-violet-100",
-
-  Keynote:
-    "bg-emerald-50 text-emerald-700 border-emerald-100",
-
-  Scientific:
-    "bg-cyan-50 text-cyan-700 border-cyan-100",
-
-  Clinical:
-    "bg-rose-50 text-rose-700 border-rose-100",
-
-  Discussion:
-    "bg-indigo-50 text-indigo-700 border-indigo-100",
-
-  Research:
-    "bg-purple-50 text-purple-700 border-purple-100",
-
-  Workshop:
-    "bg-orange-50 text-orange-700 border-orange-100",
-
-  Session:
-    "bg-blue-50 text-blue-700 border-blue-100",
-
-  Interventional:
-    "bg-red-50 text-red-700 border-red-100",
-
-  Oration:
-    "bg-amber-50 text-amber-700 border-amber-100",
-
-  Debate:
-    "bg-pink-50 text-pink-700 border-pink-100",
-
-  Abstracts:
-    "bg-purple-50 text-purple-700 border-purple-100",
-
-  Quiz:
-    "bg-green-50 text-green-700 border-green-100",
-
-  Break:
-    "bg-slate-100 text-slate-600 border-slate-200",
+  Registration: "bg-blue-50 text-blue-700 border-blue-100",
+  Ceremony: "bg-violet-50 text-violet-700 border-violet-100",
+  Keynote: "bg-emerald-50 text-emerald-700 border-emerald-100",
+  Scientific: "bg-cyan-50 text-cyan-700 border-cyan-100",
+  Clinical: "bg-rose-50 text-rose-700 border-rose-100",
+  Discussion: "bg-indigo-50 text-indigo-700 border-indigo-100",
+  Research: "bg-purple-50 text-purple-700 border-purple-100",
+  Workshop: "bg-orange-50 text-orange-700 border-orange-100",
+  Session: "bg-blue-50 text-blue-700 border-blue-100",
+  Interventional: "bg-red-50 text-red-700 border-red-100",
+  Oration: "bg-amber-50 text-amber-700 border-amber-100",
+  Debate: "bg-pink-50 text-pink-700 border-pink-100",
+  Abstracts: "bg-purple-50 text-purple-700 border-purple-100",
+  Quiz: "bg-green-50 text-green-700 border-green-100",
+  Break: "bg-slate-100 text-slate-600 border-slate-200",
 };
 
 /* =========================================================
@@ -778,11 +903,9 @@ function Schedule() {
       opacity: 0,
       y: 24,
     },
-
     visible: {
       opacity: 1,
       y: 0,
-
       transition: {
         duration: 0.55,
         ease: "easeOut",
@@ -792,7 +915,6 @@ function Schedule() {
 
   const stagger = {
     hidden: {},
-
     visible: {
       transition: {
         staggerChildren: 0.07,
@@ -812,8 +934,6 @@ function Schedule() {
 
         <section className="relative isolate overflow-hidden bg-[#061827] text-white">
 
-          {/* Background decorations */}
-
           <div className="pointer-events-none absolute inset-0">
 
             <div className="absolute -right-40 -top-40 h-124 w-124 rounded-full bg-cyan-400/10 blur-3xl sm:h-150 sm:w-150" />
@@ -821,8 +941,6 @@ function Schedule() {
             <div className="absolute -bottom-60 -left-40 h-124 w-124 rounded-full bg-blue-600/10 blur-3xl sm:h-150 sm:w-150" />
 
             <div className="absolute right-[10%] top-[15%] h-40 w-40 rounded-full bg-orange-400/10 blur-2xl sm:h-56 sm:w-56" />
-
-            {/* Dot texture */}
 
             <div
               className="absolute inset-0 opacity-[0.025]"
@@ -832,8 +950,6 @@ function Schedule() {
                 backgroundSize: "28px 28px",
               }}
             />
-
-            {/* ECG */}
 
             <svg
               className="absolute bottom-0 left-0 w-full opacity-[0.045]"
@@ -860,32 +976,21 @@ function Schedule() {
               className="max-w-5xl"
             >
 
-              {/* Conference badge */}
-
               <motion.div
                 variants={fadeUp}
                 className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
               >
-                <CalendarDays
-                  size={15}
-                  className="shrink-0"
-                />
-
+                <CalendarDays size={15} className="shrink-0" />
                 CSI Northeast Annual Conference 2026
               </motion.div>
-
-              {/* Program */}
 
               <motion.div
                 variants={fadeUp}
                 className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300 sm:text-sm"
               >
                 <Sparkles size={15} />
-
                 Scientific Program
               </motion.div>
-
-              {/* Heading */}
 
               <motion.h1
                 variants={fadeUp}
@@ -898,19 +1003,15 @@ function Schedule() {
                 </span>
               </motion.h1>
 
-              {/* Description */}
-
               <motion.p
                 variants={fadeUp}
                 className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg"
               >
-                Explore the scientific program of CardioCon
-                Arunachal 2026 — bringing together cardiovascular
-                experts, clinicians, researchers and young professionals
-                for academic discussion and collaborative learning.
+                Explore the scientific program of CardioCon Arunachal 2026 —
+                bringing together cardiovascular experts, clinicians,
+                researchers and young professionals for academic discussion
+                and collaborative learning.
               </motion.p>
-
-              {/* Details */}
 
               <motion.div
                 variants={fadeUp}
@@ -961,8 +1062,6 @@ function Schedule() {
 
           </div>
 
-          {/* Arunachal-inspired accent */}
-
           <div className="flex h-1.5">
             <div className="flex-1 bg-orange-400" />
             <div className="flex-1 bg-cyan-500" />
@@ -998,19 +1097,16 @@ function Schedule() {
                   value: "3 Days",
                   label: "23–25 October 2026",
                 },
-
                 {
                   icon: Users,
                   value: "~300 Delegates",
                   label: "Expected Participants",
                 },
-
                 {
                   icon: BookOpen,
                   value: "Scientific",
                   label: "Academic Programme",
                 },
-
                 {
                   icon: Building2,
                   value: "CSI Northeast",
@@ -1061,8 +1157,6 @@ function Schedule() {
 
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-            {/* Heading */}
-
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -1086,16 +1180,13 @@ function Schedule() {
               </h2>
 
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                Select a conference day to explore the provisional
-                scientific sessions, workshops, lectures and academic
-                activities.
+                Select a conference day to explore the provisional scientific
+                sessions, workshops, lectures and academic activities.
               </p>
 
             </motion.div>
 
-            {/* =================================================
-                DAY SELECTOR
-            ================================================== */}
+            {/* DAY SELECTOR */}
 
             <div className="mt-10 sm:mt-12">
 
@@ -1155,9 +1246,7 @@ function Schedule() {
 
             </div>
 
-            {/* =================================================
-                ACTIVE DAY HEADER
-            ================================================== */}
+            {/* ACTIVE DAY HEADER */}
 
             <AnimatePresence mode="wait">
 
@@ -1198,8 +1287,8 @@ function Schedule() {
 
                       </span>
 
-                      <span className="rounded-full border border-orange-300/20 bg-orange-300/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-orange-300">
-                        Provisional
+                      <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                        Confirmed
                       </span>
 
                     </div>
@@ -1217,7 +1306,11 @@ function Schedule() {
                   <div className="flex w-fit shrink-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 sm:block sm:px-5 sm:py-4 sm:text-center">
 
                     <p className="text-2xl font-black text-cyan-300 sm:text-3xl">
-                      {selectedDay.sessions.length}
+                      {
+                        selectedDay.sessions.filter(
+                          (item) => item.time
+                        ).length
+                      }
                     </p>
 
                     <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 sm:mt-1">
@@ -1232,9 +1325,7 @@ function Schedule() {
 
             </AnimatePresence>
 
-            {/* =================================================
-                TIMELINE
-            ================================================== */}
+            {/* TIMELINE */}
 
             <AnimatePresence mode="wait">
 
@@ -1252,7 +1343,12 @@ function Schedule() {
 
                 {selectedDay.sessions.map((item, index) => {
 
-                  const Icon = item.icon;
+                  /*
+                   * IMPORTANT FIX:
+                   * Some schedule items may not have an icon.
+                   * Always provide a valid Lucide component.
+                   */
+                  const Icon = item.icon || BookOpen;
 
                   return (
                     <motion.div
@@ -1286,9 +1382,7 @@ function Schedule() {
 
                         {index !==
                           selectedDay.sessions.length - 1 && (
-
                           <div className="mt-2 w-px flex-1 bg-linear-to-b from-blue-300 via-slate-300 to-slate-200" />
-
                         )}
 
                       </div>
@@ -1320,7 +1414,7 @@ function Schedule() {
                                   />
 
                                   <span>
-                                    {item.time}
+                                    {item.time || "Program"}
                                   </span>
 
                                   {item.endTime && (
@@ -1330,8 +1424,6 @@ function Schedule() {
                                   )}
 
                                 </div>
-
-                                {/* Mobile badge */}
 
                                 <span
                                   className={`inline-flex rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide sm:hidden ${
@@ -1355,7 +1447,6 @@ function Schedule() {
                               <div className="mt-4 flex flex-col gap-2">
 
                                 {item.speaker && (
-
                                   <div className="flex items-start gap-2">
 
                                     <UserRound
@@ -1368,7 +1459,6 @@ function Schedule() {
                                     </p>
 
                                   </div>
-
                                 )}
 
                                 <div className="flex items-start gap-2">
@@ -1413,9 +1503,7 @@ function Schedule() {
 
             </AnimatePresence>
 
-            {/* =================================================
-                NOTICE
-            ================================================== */}
+            {/* NOTICE */}
 
             <motion.div
               initial={{
@@ -1439,15 +1527,12 @@ function Schedule() {
               <div>
 
                 <h4 className="text-sm font-bold text-slate-900">
-                  Provisional Scientific Program
+                  Scientific Agenda — CardioCon Arunachal 2026
                 </h4>
 
                 <p className="mt-1 text-xs leading-6 text-slate-600 sm:text-sm">
-                  The scientific topics listed above represent the current
-                  provisional programme. Faculty names, session timings,
-                  sequence and hall allocations are subject to confirmation
-                  by the Scientific Committee. The final programme will be
-                  published once approved.
+                  Timed scientific agenda for 23–25 October 2026. Venue:
+                  Hotel Donyi Polo, Itanagar, Arunachal Pradesh.
                 </p>
 
               </div>
@@ -1501,8 +1586,7 @@ function Schedule() {
 
                 <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
                   The final downloadable program will include confirmed
-                  scientific sessions, faculty, timings and venue
-                  information.
+                  scientific sessions, faculty, timings and venue information.
                 </p>
 
                 <button
@@ -1570,9 +1654,8 @@ function Schedule() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
-              Join the cardiovascular community for three days of
-              scientific learning, academic exchange and professional
-              collaboration.
+              Join the cardiovascular community for three days of scientific
+              learning, academic exchange and professional collaboration.
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">

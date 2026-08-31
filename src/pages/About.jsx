@@ -132,27 +132,37 @@ function About() {
     },
   ];
 
-  const leadership = [
+  const committeeGroups = [
     {
-      name: "Dr. Rinchin Megeji",
-      role: "Organising Chairman",
+      title: "Conference Leadership",
+      members: [
+        ["Dr. Naba Kumar Bezbaruah", "Patron in Chief"],
+        ["Dr. Animesh Mishra", "Patron"],
+        ["Dr. Rinchin Dorjee Megeji", "Organising Chairperson"],
+        ["Dr. Tony Ete", "General Secretary / Treasurer"],
+        ["Dr. Romar Dabu", "Convenor"],
+        ["Dr. Amit Malviya", "Scientific Chairperson"],
+      ],
     },
     {
-      name: "Dr. Tony Ete",
-      role: "Organising Secretary cum Treasurer",
+      title: "CSI-NE Chapter — Executive Committee",
+      members: [
+        ["Dr. D.J. Dutta", "President"], ["Dr. P.J. Bhattarcharyya", "President Elect"], ["Dr. Chinmoy Mazumdar", "Vice-President"],
+        ["Dr. Rituparna Baruah", "Hon Secretary"], ["Dr. Manowar Hussain", "Jt. Secretary"], ["Dr. Alok Jyoti Malakar", "Jt. Secretary"],
+        ["Dr. Mridul Mahanta", "Treasurer"], ["Prof (Dr.) Barnali Dutta", "Executive Committee"], ["Prof (Dr.) M.S. Chaliha", "Executive Committee"],
+        ["Dr. Aditya Bhaskar", "Executive Committee"], ["Dr. Mayank Agarwal", "Executive Committee"], ["Dr. Diptirekha Baruah", "Executive Committee"],
+      ],
     },
-    {
-      name: "Dr. Romar Dabu",
-      role: "Convenor",
-    },
-    {
-      name: "Dr. Amit Malviya",
-      role: "Scientific Chairman",
-    },
-    {
-      name: "Dr. D.J. Dutta",
-      role: "President Elect",
-    },
+    { title: "Advisors", members: [["Dr. H.C. Kalita", "Advisor"], ["Dr. Dipak Sarma", "Advisor"], ["Dr. Neil Bardoloi", "Advisor"], ["Dr. N. K. Bhattacharjee", "Advisor"], ["Dr. Banajit Chowdhury", "Advisor"]] },
+    { title: "Scientific Core Committee", members: [["Dr. Farhin Iqbal", "Member"], ["Dr. Chandra Das", "Member"], ["Dr. Rondeep Sivam", "Member"], ["Dr. Synrang Warjri", "Member"]] },
+    { title: "Souvenir Committee", members: [["Dr. Minjum Pakam", "Member"], ["Dr. Aido Moyong", "Member"], ["Dr. Duyu Nobin", "Member"], ["Dr. Rinchin Khandu", "Member"], ["Ms. Michi Nunya", "Member"], ["Ms. Taba Khamya", "Member"]] },
+    { title: "Audiovisual Committee", members: [["Dr. Swapan Saha", "Member"], ["Dr. Dhanjit Nath", "Member"], ["Dr. Utpal Sharma", "Member"], ["Ms. Michi Nunya", "Member"]] },
+    { title: "Travel Committee", members: [["Mr. Liter Ete", "Member"], ["Mr. Lukpe Sora", "Member"], ["Ms. Jumpi Kamduk", "Member"], ["Mr. Geba Ete", "Member"], ["Mr. Sonam Tashi", "Member"]] },
+    { title: "Hospitality Committee", members: [["Dr. Damde Sindu", "Member"], ["Dr. Neelam Konia", "Member"], ["Dr. Rimman Basar", "Member"], ["Ms. Kenrik Karbak", "Member"], ["Mr. Mitu Dadi", "Member"]] },
+    { title: "Cultural Committee", members: [["Dr. Doorick Ete", "Member"], ["Dr. Lokam Sinam", "Member"], ["Dr. Lishi Yam", "Member"], ["Dr. Tumni Gadi", "Member"], ["Ms. Kenrik Karbak", "Member"]] },
+    { title: "Spokesperson", members: [["Dr. Tabang Nyitan", "Spokesperson"]] },
+    { title: "Organising Committee", members: [["Dr. Taso Beyong", "Member"], ["Dr. Duyu Nobin", "Member"], ["Dr. Tashok Sorang", "Member"], ["Dr. Karto Ete", "Member"], ["Dr. Tagru Raju", "Member"]] },
+    { title: "Security Committee", members: [["Dr. Libe Nyorak", "Member"], ["Dr. Sorang Tashok", "Member"], ["Mr. Vivek", "Member"]] },
   ];
 
   return (
@@ -1114,42 +1124,37 @@ function About() {
 
             </motion.div>
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"
-            >
-
-              {leadership.map((member) => (
-
-                <motion.div
-                  variants={fadeUp}
-                  whileHover={{
-                    y: -5,
-                  }}
-                  key={member.name}
-                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:border-blue-100 hover:shadow-xl sm:p-6"
-                >
-
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
-                    <UserRound size={21} />
-                  </div>
-
-                  <h3 className="mt-5 font-bold leading-6 text-slate-900">
-                    {member.name}
+            <div className="mt-12 space-y-10">
+              {committeeGroups.map((group) => (
+                <div key={group.title}>
+                  <h3 className="mb-5 text-xl font-bold text-slate-900 sm:text-2xl">
+                    {group.title}
                   </h3>
-
-                  <p className="mt-2 text-sm font-semibold leading-5 text-blue-700">
-                    {member.role}
-                  </p>
-
-                </motion.div>
-
+                  <motion.div
+                    variants={stagger}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                  >
+                    {group.members.map(([name, role]) => (
+                      <motion.div
+                        variants={fadeUp}
+                        whileHover={{ y: -4 }}
+                        key={`${group.title}-${name}-${role}`}
+                        className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:border-blue-100 hover:shadow-xl"
+                      >
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
+                          <UserRound size={19} />
+                        </div>
+                        <h4 className="mt-4 font-bold leading-6 text-slate-900">{name}</h4>
+                        <p className="mt-2 text-sm font-semibold leading-5 text-blue-700">{role}</p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
               ))}
-
-            </motion.div>
+            </div>
 
           </div>
 

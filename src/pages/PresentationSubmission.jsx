@@ -17,7 +17,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzHt8M7Rf6nQfYvPxjJcIdVLMhEC7cC5VK_PYAl5GV-SQHXrg-22irr3KsZ1Skztw5q/exec";
+  "https://script.google.com/macros/s/AKfycbyyAW3-0WtN76PvqDYuZTboSWIn45Dk83FunHfg2zZ5hv02GTIzzmxuupjrCRVRUGPA/exec";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
