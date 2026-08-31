@@ -17,20 +17,24 @@ import {
 
 function Footer() {
   const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Conference", path: "/about" },
-    { name: "Speakers", path: "/speakers" },
-    { name: "Scientific Program", path: "/schedule" },
-    { name: "Registration", path: "/registration" },
-    { name: "Contact", path: "/contact" },
-  ];
+  { name: "Home", path: "/" },
+  { name: "About Conference", path: "/about" },
+  { name: "Speakers", path: "/speakers" },
+  { name: "Scientific Program", path: "/schedule" },
+  { name: "Registration", path: "/registration" },
+  { name: "Presentation Guidelines", path: "/presentation-guidelines" },
+  { name: "Presentation Submission", path: "/presentation-submission" },
+  { name: "Contact", path: "/contact" },
+];
 
   const conferenceLinks = [
-    { name: "Scientific Sessions", path: "/schedule" },
-    { name: "Faculty & Speakers", path: "/speakers" },
-    { name: "Registration Details", path: "/registration" },
-    { name: "Venue Information", path: "/contact" },
-  ];
+  { name: "Scientific Sessions", path: "/schedule" },
+  { name: "Faculty & Speakers", path: "/speakers" },
+  { name: "Registration Details", path: "/registration" },
+  { name: "Presentation Guidelines", path: "/presentation-guidelines" },
+  { name: "Presentation Submission", path: "/presentation-submission" },
+  { name: "Venue Information", path: "/contact" },
+];
 
   const socialLinks = [
     {

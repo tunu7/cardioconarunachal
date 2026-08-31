@@ -34,7 +34,7 @@ function AbstractSubmission() {
   // =========================================================
 
   const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbw_nUPdgenyFlE26Uie6dzIs50mwS0ogp3PvVMHAp2O-3i7OuLL1ERfyw9KgXSjRD-r/exec";
+    "https://script.google.com/macros/s/AKfycbzHt8M7Rf6nQfYvPxjJcIdVLMhEC7cC5VK_PYAl5GV-SQHXrg-22irr3KsZ1Skztw5q/exec";
 
   // =========================================================
   // CONFIGURATION
@@ -419,6 +419,12 @@ function AbstractSubmission() {
                 >
                   Delegate Registration
                 </Link>
+                <Link
+  to="/presentation-guidelines"
+  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-cyan-200 bg-cyan-50 px-5 py-3.5 text-sm font-bold text-cyan-700 transition-all hover:border-cyan-300 hover:bg-cyan-100"
+>
+  Presentation Guidelines
+</Link>
               </div>
 
               <div className="mt-6 flex items-center justify-center gap-2 text-center text-xs text-slate-400">

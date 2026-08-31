@@ -15,13 +15,14 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Speakers", path: "/speakers" },
-    { name: "Schedule", path: "/schedule" },
-    { name: "Registration", path: "/registration" },
-    { name: "Contact", path: "/contact" },
-  ];
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Speakers", path: "/speakers" },
+  { name: "Schedule", path: "/schedule" },
+  { name: "Registration", path: "/registration" },
+  { name: "Presentations", path: "/presentation-guidelines" },
+  { name: "Contact", path: "/contact" },
+];
 
   useEffect(() => {
     const handleScroll = () => {

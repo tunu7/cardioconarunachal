@@ -5,10 +5,11 @@ import About from "./pages/About";
 import Speakers from "./pages/Speakers";
 import Schedule from "./pages/Schedule";
 import Registration from "./pages/Registration";
+import AbstractSubmission from "./pages/AbstractSubmission";
+import PresentationGuidelines from "./pages/PresentationGuidelines";
+import PresentationSubmission from "./pages/PresentationSubmission";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
-import AbstractSubmission from "./pages/AbstractSubmission";
-
 
 function App() {
   return (
@@ -20,8 +21,20 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/schedule" element={<Schedule />} />
+
         <Route path="/registration" element={<Registration />} />
-        <Route path="/abstract-submission"element={<AbstractSubmission />} />
+        <Route path="/abstract-submission" element={<AbstractSubmission />} />
+
+        <Route
+          path="/presentation-guidelines"
+          element={<PresentationGuidelines />}
+        />
+
+        <Route
+          path="/presentation-submission"
+          element={<PresentationSubmission />}
+        />
+
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </>

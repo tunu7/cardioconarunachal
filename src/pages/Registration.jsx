@@ -18,6 +18,7 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
+  MonitorPlay,
   HeartPulse,
   Info,
   FileText,
@@ -112,7 +113,7 @@ function Registration() {
   ========================================================= */
 
   const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwel_qWeirdcO4flWiWLCms0JIAQ9tGe5TAZNlkousfneJebPT-dVOnwxhu8ZkoHs2w/exec";
+    "https://script.google.com/macros/s/AKfycbzHt8M7Rf6nQfYvPxjJcIdVLMhEC7cC5VK_PYAl5GV-SQHXrg-22irr3KsZ1Skztw5q/exec";
 
   /* =========================================================
      FORM SUBMISSION
@@ -563,6 +564,57 @@ function Registration() {
                     className="transition-transform group-hover:translate-x-1"
                   />
                 </Link>
+                {/* Presentation submission */}
+<div className="mt-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-6 sm:p-8">
+  <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex items-start gap-4">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-600 text-white">
+        <MonitorPlay size={23} />
+      </div>
+
+      <div>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-600">
+          Scientific Presentation
+        </p>
+
+        <h3 className="mt-1 text-xl font-bold text-cyan-950">
+          Presentation Submission
+        </h3>
+
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-cyan-950/65">
+          If your abstract has been accepted for presentation,
+          upload your PowerPoint presentation according to the
+          conference guidelines.
+        </p>
+
+        <p className="mt-2 text-xs font-bold text-cyan-700">
+          PPT/PPTX • Portrait • Maximum 10 MB • 5 minutes
+        </p>
+      </div>
+    </div>
+
+    <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+      <Link
+        to="/presentation-guidelines"
+        className="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-200 bg-white px-5 py-3.5 text-sm font-bold text-cyan-700 transition hover:bg-cyan-100"
+      >
+        Guidelines
+      </Link>
+
+      <Link
+        to="/presentation-submission"
+        className="group inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-cyan-700 hover:shadow-lg"
+      >
+        Submit Presentation
+
+        <ArrowRight
+          size={17}
+          className="transition-transform group-hover:translate-x-1"
+        />
+      </Link>
+    </div>
+  </div>
+</div>
               </div>
             </div>
           </div>
