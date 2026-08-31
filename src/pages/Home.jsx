@@ -32,6 +32,7 @@ import amitMalviya from "../assets/amit-malviya.jpeg";
 import animeshmishra from "../assets/animesh-mishra.jpeg";
 import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
 import djdutta from "../assets/dj-dutta.jpeg";
+import hckalita from "../assets/hc-kalita.jpeg";
 
 import aeyoLake from "../assets/arunachal/Aeyo-Lake.jpg";
 import pomoValley from "../assets/arunachal/Pomo-Valley.jpg";
@@ -106,12 +107,12 @@ function Home() {
   const leadership = [
     {
       name: "Dr. Rinchin Megeji",
-      role: "Organising Chairman",
+      role: "Organising Chairperson",
       image: rinchinMegeji,
     },
     {
       name: "Dr. Tony Ete",
-      role: "Organising Secretary",
+      role: "General Secretary",
       image: tonyEte,
     },
     {
@@ -121,7 +122,7 @@ function Home() {
     },
     {
       name: "Dr. Amit Malviya",
-      role: "Scientific Chairman",
+      role: "Scientific Chairperson",
       image: amitMalviya,
     },
     {
@@ -130,14 +131,19 @@ function Home() {
       image: djdutta,
     },
     {
+      name: "Dr. Rituparna Baruah",
+      role: "General Secretary CSI Northeast",
+      image: rituparnabaruah,
+    },
+    {
       name: "Dr. Animesh Mishra",
-      role: "Scientific Chairman",
+      role: "Patron",
       image: animeshmishra,
     },
     {
-      name: "Dr. Rituparna Baruah",
-      role: "Secretary CSI",
-      image: rituparnabaruah,
+      name: "Dr. HC Kalita",
+      role: "Executive Member CSI Northeast",
+      image: hckalita,
     },
   ];
 
@@ -331,6 +337,44 @@ function Home() {
     );
   };
 
+  const [timeLeft, setTimeLeft] = useState({
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+});
+
+useEffect(() => {
+  const eventDate = new Date("2026-10-23T00:00:00+05:30").getTime();
+
+  const updateCountdown = () => {
+    const difference = eventDate - Date.now();
+
+    if (difference <= 0) {
+      setTimeLeft({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
+      return;
+    }
+
+    setTimeLeft({
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    });
+  };
+
+  updateCountdown();
+
+  const timer = setInterval(updateCountdown, 1000);
+
+  return () => clearInterval(timer);
+}, []);
+
   return (
     <>
       <Navbar />
@@ -421,21 +465,41 @@ function Home() {
                   variants={fadeUp}
                   className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2"
                 >
-                  <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
-                      <CalendarDays size={19} />
-                    </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+  <div className="flex items-center gap-2">
+    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
+      <CalendarDays size={18} />
+    </div>
 
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
-                        Conference Dates
-                      </p>
+    <div>
+      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+        CardioCon Begins In
+      </p>
+    </div>
+  </div>
 
-                      <p className="mt-1 text-sm font-bold text-white sm:text-base">
-                        23–25 October 2026
-                      </p>
-                    </div>
-                  </div>
+  <div className="mt-4 grid grid-cols-4 gap-2">
+    {[
+      [timeLeft.days, "Days"],
+      [timeLeft.hours, "Hrs"],
+      [timeLeft.minutes, "Min"],
+      [timeLeft.seconds, "Sec"],
+    ].map(([value, label]) => (
+      <div
+        key={label}
+        className="rounded-xl border border-white/10 bg-black/10 px-2 py-2.5 text-center"
+      >
+        <p className="text-lg font-black leading-none text-white sm:text-xl">
+          {String(value).padStart(2, "0")}
+        </p>
+
+        <p className="mt-1 text-[8px] font-bold uppercase tracking-wider text-slate-500">
+          {label}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
 
                   <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-400/10 text-orange-300">
@@ -1050,7 +1114,7 @@ function Home() {
               </motion.div>
 
               <Link
-                to="/about"
+                 to="/about#organising-committee"
                 className="group flex w-fit items-center gap-2 font-bold text-blue-700"
               >
                 View Full Committee

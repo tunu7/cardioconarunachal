@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -31,6 +32,18 @@ import {
 } from "lucide-react";
 
 function About() {
+  useEffect(() => {
+    if (window.location.hash === "#organising-committee") {
+      setTimeout(() => {
+        document
+          .getElementById("organising-committee")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+      }, 100);
+    }
+  }, []);
   /* =========================================================
      ANIMATIONS
   ========================================================= */
@@ -1097,7 +1110,8 @@ function About() {
             LEADERSHIP
         ====================================================== */}
 
-        <section className="py-20 sm:py-24 lg:py-32">
+        <section  id="organising-committee"
+        className="py-20 sm:py-24 lg:py-32">
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 

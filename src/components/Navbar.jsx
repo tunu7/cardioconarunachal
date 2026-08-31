@@ -9,7 +9,7 @@ import {
   MapPin,
 } from "lucide-react";
 import cardioconLogo from "../assets/cardioconlogo.png";
-import csiLogo from "../assets/csi-logo.svg";
+import csiLogo from "../assets/csi-logo.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
