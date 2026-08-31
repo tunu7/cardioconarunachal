@@ -1396,7 +1396,7 @@ function Registration() {
                         </span>
 
                         <span className="text-right font-bold text-slate-800">
-                          ₹5,000 / ₹10,000 / ₹15,000
+                          ₹10,000 / ₹15,000 / ₹20,000
                         </span>
                       </div>
                     </div>
