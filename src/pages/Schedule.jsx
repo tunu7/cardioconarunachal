@@ -164,7 +164,8 @@ const scheduleData = {
       {
         time: "",
         endTime: "",
-        title: 'Session 2 — "Past the Prologue: Cholesterol Saga Continues"',
+        title:
+          'Session 2 — "Past the Prologue: Cholesterol Saga Continues"',
         speaker:
           "Chairpersons: Dr Neil Bardoloi, Dr H C Kalita, Dr Hage Ambing, Dr Homen Narah, Dr Tao Kaki",
         venue: "Hotel Donyi Polo, Itanagar",
@@ -216,7 +217,6 @@ const scheduleData = {
         speaker: "",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Ceremony",
-        icon: Building2,
       },
     ],
   },
@@ -273,7 +273,8 @@ const scheduleData = {
       {
         time: "9:15 AM",
         endTime: "9:30 AM",
-        title: "SGLT2 Inhibitors — The Heart Failure Panacea",
+        title:
+          "SGLT2 Inhibitors — The Heart Failure Panacea",
         speaker: "Dr. Bornali Dutta",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
@@ -337,11 +338,11 @@ const scheduleData = {
       {
         time: "",
         endTime: "",
-        title: 'Session 3 — "The Readiness is All: CSI NE Orations"',
+        title:
+          'Session 3 — "The Readiness is All: CSI NE Orations"',
         speaker: "",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Session",
-        icon: BookOpen,
       },
       {
         time: "10:30 AM",
@@ -350,7 +351,6 @@ const scheduleData = {
         speaker: "Dr. D. J. Dutta",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Oration",
-        icon: Mic2,
       },
       {
         time: "10:50 AM",
@@ -359,7 +359,6 @@ const scheduleData = {
         speaker: "Dr. H. K. Bali",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Oration",
-        icon: Mic2,
       },
       {
         time: "",
@@ -518,7 +517,8 @@ const scheduleData = {
       {
         time: "2:15 PM",
         endTime: "2:30 PM",
-        title: "The Resistant Few — Tackling Difficult Hypertension",
+        title:
+          "The Resistant Few — Tackling Difficult Hypertension",
         speaker: "Dr. Manish Kapoor",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Scientific",
@@ -710,7 +710,8 @@ const scheduleData = {
       {
         time: "",
         endTime: "",
-        title: 'Session 1 — "Arrhythmia Management: Calming the Storm"',
+        title:
+          'Session 1 — "Arrhythmia Management: Calming the Storm"',
         speaker:
           "Chairpersons: Dr Rituparna Baruah, Dr Swapan Saha, Dr Monowar Hussain, Dr CP Thakur, Dr Abhijit Bharali",
         venue: "Hotel Donyi Polo, Itanagar",
@@ -857,7 +858,6 @@ const scheduleData = {
         speaker: "",
         venue: "Hotel Donyi Polo, Itanagar",
         type: "Ceremony",
-        icon: Building2,
       },
     ],
   },
@@ -868,21 +868,50 @@ const scheduleData = {
 ========================================================= */
 
 const badgeColors = {
-  Registration: "bg-blue-50 text-blue-700 border-blue-100",
-  Ceremony: "bg-violet-50 text-violet-700 border-violet-100",
-  Keynote: "bg-emerald-50 text-emerald-700 border-emerald-100",
-  Scientific: "bg-cyan-50 text-cyan-700 border-cyan-100",
-  Clinical: "bg-rose-50 text-rose-700 border-rose-100",
-  Discussion: "bg-indigo-50 text-indigo-700 border-indigo-100",
-  Research: "bg-purple-50 text-purple-700 border-purple-100",
-  Workshop: "bg-orange-50 text-orange-700 border-orange-100",
-  Session: "bg-blue-50 text-blue-700 border-blue-100",
-  Interventional: "bg-red-50 text-red-700 border-red-100",
-  Oration: "bg-amber-50 text-amber-700 border-amber-100",
-  Debate: "bg-pink-50 text-pink-700 border-pink-100",
-  Abstracts: "bg-purple-50 text-purple-700 border-purple-100",
-  Quiz: "bg-green-50 text-green-700 border-green-100",
-  Break: "bg-slate-100 text-slate-600 border-slate-200",
+  Registration:
+    "bg-blue-50 text-blue-700 border-blue-100",
+
+  Ceremony:
+    "bg-violet-50 text-violet-700 border-violet-100",
+
+  Keynote:
+    "bg-emerald-50 text-emerald-700 border-emerald-100",
+
+  Scientific:
+    "bg-cyan-50 text-cyan-700 border-cyan-100",
+
+  Clinical:
+    "bg-rose-50 text-rose-700 border-rose-100",
+
+  Discussion:
+    "bg-indigo-50 text-indigo-700 border-indigo-100",
+
+  Research:
+    "bg-purple-50 text-purple-700 border-purple-100",
+
+  Workshop:
+    "bg-orange-50 text-orange-700 border-orange-100",
+
+  Session:
+    "bg-blue-50 text-blue-700 border-blue-100",
+
+  Interventional:
+    "bg-red-50 text-red-700 border-red-100",
+
+  Oration:
+    "bg-amber-50 text-amber-700 border-amber-100",
+
+  Debate:
+    "bg-pink-50 text-pink-700 border-pink-100",
+
+  Abstracts:
+    "bg-purple-50 text-purple-700 border-purple-100",
+
+  Quiz:
+    "bg-green-50 text-green-700 border-green-100",
+
+  Break:
+    "bg-slate-100 text-slate-600 border-slate-200",
 };
 
 /* =========================================================
@@ -903,9 +932,11 @@ function Schedule() {
       opacity: 0,
       y: 24,
     },
+
     visible: {
       opacity: 1,
       y: 0,
+
       transition: {
         duration: 0.55,
         ease: "easeOut",
@@ -915,6 +946,7 @@ function Schedule() {
 
   const stagger = {
     hidden: {},
+
     visible: {
       transition: {
         staggerChildren: 0.07,
@@ -981,6 +1013,7 @@ function Schedule() {
                 className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-200 backdrop-blur sm:px-4 sm:text-xs sm:tracking-[0.18em]"
               >
                 <CalendarDays size={15} className="shrink-0" />
+
                 CSI Northeast Annual Conference 2026
               </motion.div>
 
@@ -989,6 +1022,7 @@ function Schedule() {
                 className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300 sm:text-sm"
               >
                 <Sparkles size={15} />
+
                 Scientific Program
               </motion.div>
 
@@ -1007,10 +1041,10 @@ function Schedule() {
                 variants={fadeUp}
                 className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg"
               >
-                Explore the scientific program of CardioCon Arunachal 2026 —
-                bringing together cardiovascular experts, clinicians,
-                researchers and young professionals for academic discussion
-                and collaborative learning.
+                Explore the scientific program of CardioCon
+                Arunachal 2026 — bringing together cardiovascular
+                experts, clinicians, researchers and young professionals
+                for academic discussion and collaborative learning.
               </motion.p>
 
               <motion.div
@@ -1097,16 +1131,19 @@ function Schedule() {
                   value: "3 Days",
                   label: "23–25 October 2026",
                 },
+
                 {
                   icon: Users,
                   value: "~300 Delegates",
                   label: "Expected Participants",
                 },
+
                 {
                   icon: BookOpen,
                   value: "Scientific",
                   label: "Academic Programme",
                 },
+
                 {
                   icon: Building2,
                   value: "CSI Northeast",
@@ -1180,8 +1217,9 @@ function Schedule() {
               </h2>
 
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                Select a conference day to explore the provisional scientific
-                sessions, workshops, lectures and academic activities.
+                Select a conference day to explore the provisional
+                scientific sessions, workshops, lectures and academic
+                activities.
               </p>
 
             </motion.div>
@@ -1344,16 +1382,17 @@ function Schedule() {
                 {selectedDay.sessions.map((item, index) => {
 
                   /*
-                   * IMPORTANT FIX:
-                   * Some schedule items may not have an icon.
-                   * Always provide a valid Lucide component.
+                   * IMPORTANT:
+                   * Some valid program entries intentionally do not
+                   * specify an icon. FileText is used as a safe
+                   * fallback so React never receives undefined.
                    */
-                  const Icon = item.icon || BookOpen;
+                  const Icon = item.icon || FileText;
 
                   return (
                     <motion.div
                       variants={fadeUp}
-                      key={`${activeDay}-${item.time}-${item.title}`}
+                      key={`${activeDay}-${index}-${item.title}`}
                       className="relative flex gap-3 pb-5 sm:gap-5 sm:pb-7"
                     >
 
@@ -1382,7 +1421,9 @@ function Schedule() {
 
                         {index !==
                           selectedDay.sessions.length - 1 && (
+
                           <div className="mt-2 w-px flex-1 bg-linear-to-b from-blue-300 via-slate-300 to-slate-200" />
+
                         )}
 
                       </div>
@@ -1406,24 +1447,28 @@ function Schedule() {
 
                               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
 
-                                <div className="flex items-center gap-1.5 text-xs font-bold text-blue-700 sm:text-sm">
+                                {item.time && (
+                                  <div className="flex items-center gap-1.5 text-xs font-bold text-blue-700 sm:text-sm">
 
-                                  <Clock3
-                                    size={14}
-                                    className="shrink-0"
-                                  />
+                                    <Clock3
+                                      size={14}
+                                      className="shrink-0"
+                                    />
 
-                                  <span>
-                                    {item.time || "Program"}
-                                  </span>
-
-                                  {item.endTime && (
-                                    <span className="font-normal text-slate-400">
-                                      – {item.endTime}
+                                    <span>
+                                      {item.time}
                                     </span>
-                                  )}
 
-                                </div>
+                                    {item.endTime && (
+                                      <span className="font-normal text-slate-400">
+                                        – {item.endTime}
+                                      </span>
+                                    )}
+
+                                  </div>
+                                )}
+
+                                {/* Mobile badge */}
 
                                 <span
                                   className={`inline-flex rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide sm:hidden ${
@@ -1447,6 +1492,7 @@ function Schedule() {
                               <div className="mt-4 flex flex-col gap-2">
 
                                 {item.speaker && (
+
                                   <div className="flex items-start gap-2">
 
                                     <UserRound
@@ -1459,6 +1505,7 @@ function Schedule() {
                                     </p>
 
                                   </div>
+
                                 )}
 
                                 <div className="flex items-start gap-2">
@@ -1531,8 +1578,8 @@ function Schedule() {
                 </h4>
 
                 <p className="mt-1 text-xs leading-6 text-slate-600 sm:text-sm">
-                  Timed scientific agenda for 23–25 October 2026. Venue:
-                  Hotel Donyi Polo, Itanagar, Arunachal Pradesh.
+                  Timed scientific agenda for 23–25 October 2026.
+                  Venue: Hotel Donyi Polo, Itanagar, Arunachal Pradesh.
                 </p>
 
               </div>
@@ -1586,7 +1633,8 @@ function Schedule() {
 
                 <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
                   The final downloadable program will include confirmed
-                  scientific sessions, faculty, timings and venue information.
+                  scientific sessions, faculty, timings and venue
+                  information.
                 </p>
 
                 <button
@@ -1654,8 +1702,9 @@ function Schedule() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg sm:leading-8">
-              Join the cardiovascular community for three days of scientific
-              learning, academic exchange and professional collaboration.
+              Join the cardiovascular community for three days of
+              scientific learning, academic exchange and professional
+              collaboration.
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
