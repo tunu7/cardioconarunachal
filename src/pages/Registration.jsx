@@ -515,15 +515,15 @@ function Registration() {
                       </td>
 
                       <td className="px-5 py-5 text-center font-semibold text-slate-700">
-                        ₹5,000
-                      </td>
-
-                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
                         ₹10,000
                       </td>
 
                       <td className="px-5 py-5 text-center font-semibold text-slate-700">
                         ₹15,000
+                      </td>
+
+                      <td className="px-5 py-5 text-center font-semibold text-slate-700">
+                        ₹20,000
                       </td>
                     </tr>
                   </tbody>

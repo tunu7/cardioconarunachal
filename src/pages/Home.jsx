@@ -106,7 +106,7 @@ function Home() {
 
   const leadership = [
     {
-      name: "Dr. Rinchin Megeji",
+      name: "Dr. Rinchin Dorjee Megeji",
       role: "Organising Chairperson",
       image: rinchinMegeji,
     },
@@ -127,12 +127,12 @@ function Home() {
     },
     {
       name: "Dr. D.J. Dutta",
-      role: "President CSI Northeast",
+      role: "President, CSI Northeast",
       image: djdutta,
     },
     {
       name: "Dr. Rituparna Baruah",
-      role: "General Secretary CSI Northeast",
+      role: "General Secretary, CSI Northeast",
       image: rituparnabaruah,
     },
     {
@@ -142,7 +142,7 @@ function Home() {
     },
     {
       name: "Dr. HC Kalita",
-      role: "Executive Member CSI Northeast",
+      role: "Executive Member, CSI Northeast",
       image: hckalita,
     },
   ];
