@@ -825,7 +825,7 @@ useEffect(() => {
                 {[
                   ["3", "Conference Days"],
                   ["~300", "Delegates"],
-                  ["CSI NER", "Annual Conference"],
+                  ["CSI NE", "Annual Conference"],
                   ["Itanagar", "Host City"],
                 ].map(([number, label], index) => (
                   <motion.div
