@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -26,10 +25,6 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-/* =========================================================
-   COMMITTEE IMAGES
-========================================================= */
-
 import rinchinMegeji from "../assets/rinchin-megeji.jpeg";
 import tonyEte from "../assets/tony-ete.jpeg";
 import romarDabu from "../assets/romar-davy.jpeg";
@@ -38,9 +33,6 @@ import animeshmishra from "../assets/animesh-mishra.jpeg";
 import rituparnabaruah from "../assets/rituparna-baruah.jpeg";
 import djdutta from "../assets/dj-dutta.jpeg";
 
-/* =========================================================
-   ARUNACHAL CAROUSEL IMAGES
-========================================================= */
 import aeyoLake from "../assets/arunachal/Aeyo-Lake.jpg";
 import pomoValley from "../assets/arunachal/Pomo-Valley.jpg";
 import goldenPagoda1 from "../assets/arunachal/Golden-Pagoda-1.jpg";
@@ -63,11 +55,7 @@ import Lakes from "../assets/arunachal/7-Lakes.png";
 import sunriseDong from "../assets/arunachal/Sunrise-Dong.jpg";
 import cosmosZiro from "../assets/arunachal/Cosmos-Ziro.jpg";
 
-
 function Home() {
-  /* =========================================================
-     ANIMATIONS
-  ========================================================= */
 
   const fadeUp = {
     hidden: { opacity: 0, y: 28 },
@@ -90,30 +78,28 @@ function Home() {
     },
   };
 
-  /* =========================================================
-     DATA
-  ========================================================= */
+
 
   const highlights = [
     {
       icon: Presentation,
       title: "Scientific Sessions",
-      text: "Contemporary discussions on advances, evidence and evolving practices in cardiovascular medicine.",
+      text: "Advances, evidence and emerging practices.",
     },
     {
       icon: HeartPulse,
       title: "Clinical Discussions",
-      text: "Interactive conversations focused on clinical decision-making, complex cases and patient care.",
+      text: "Cases, decision-making and patient care.",
     },
     {
       icon: Microscope,
       title: "Research & Innovation",
-      text: "Encouraging scientific research, emerging ideas and evidence relevant to cardiovascular medicine.",
+      text: "Research, ideas and cardiovascular evidence.",
     },
     {
       icon: Network,
       title: "Professional Collaboration",
-      text: "Connecting cardiologists, physicians, academicians, researchers and the next generation of clinicians.",
+      text: "Connecting clinicians, researchers and academics.",
     },
   ];
 
@@ -174,154 +160,150 @@ function Home() {
     },
   ];
 
-  /* =========================================================
-     ARUNACHAL CAROUSEL
-  ========================================================= */
+
 
   const arunachalSlides = [
   {
     image: ziro,
     title: "Ziro Valley",
     subtitle:
-      "Ziro’s famous heritage system of rice farming and fish growing that made it to UNESCO World Heritage Site.",
+      "UNESCO-listed cultural landscape of rice fields and fish farming.",
   },
   {
     image: ziro4,
     title: "Ziro Valley",
     subtitle:
-      "The iconic lush green rice fields of Ziro rustling beneath the dramatic skies.",
+      "Iconic green rice fields beneath dramatic skies.",
   },
-
 
   {
     image: mechukha2,
     title: "Mechukha",
     subtitle:
-      "A remote Himalayan valley known for breathtaking mountains and open landscapes.",
+      "Remote Himalayan valley of mountains and open landscapes.",
   },
   {
     image: mechukha4,
     title: "Mechukha",
     subtitle:
-      "A fast emerging adventure tourism destination in the global map.",
+      "An emerging Himalayan adventure destination.",
   },
-
 
   {
     image: shergaon,
     title: "Jigaon",
     subtitle:
-      "A peaceful mountain village surrounded by forests, valleys and Himalayan scenery.",
+      "Peaceful mountain village surrounded by forests and valleys.",
   },
 
   {
     image: zemithangGompa,
     title: "Zemithang",
     subtitle:
-      "Gorsam Chorten: A massive, 93-foot tall Buddhist stupa in Zemithang modelled after Nepal’s Boudhanath Stupa.",
+      "Home to the 93-foot Gorsam Chorten Buddhist stupa.",
   },
   {
     image: zemithangTawang,
     title: "Zemithang",
     subtitle:
-      "A remote, untouched Himalayan region in Tawang, rich in natural beauty, culture and history.",
+      "Untouched Himalayan region rich in nature, culture and history.",
   },
   {
     image: aeyoLake,
     title: "Aeyo Lake",
     subtitle:
-      "A pristine high altitude glacial lake situated at roughly 11000 feet in Dibang Valley district",
+      "High-altitude glacial lake in Dibang Valley.",
   },
 
   {
     image: pomoValley,
     title: "Pomo Valley",
     subtitle:
-      "An emerging offbeat Himalayan trekking destination featuring dense rainforests, river crossings and high-altitude alpine meadows in Anini district.",
+      "Offbeat Himalayan destination of forests, rivers and alpine meadows.",
   },
 
    {
     image: mandalaTopDirang,
     title: "Mandala Top",
     subtitle:
-      "Experience the dramatic high-altitude landscapes, nomadic settlements and grazing grounds tied to the Brokpa people, the semi-nomadic yak herders who inhabit the cold mountain regions of West Kameng district.",
+      "High-altitude landscapes and Brokpa yak-herder settlements.",
   },
 
   {
     image: goldenPagoda1,
     title: "Golden Pagoda",
     subtitle:
-      "A magnificent Buddhist landmark in Namsai, reflecting the rich cultural heritage of Arunachal Pradesh.",
+      "Buddhist landmark reflecting Arunachal’s cultural heritage.",
   },
 
   {
     image: goldenPagoda3,
     title: "Golden Pagoda",
     subtitle:
-      "Discover one of Arunachal Pradesh's most beautiful spiritual and architectural landmarks.",
+      "A striking spiritual and architectural landmark.",
   },
 
   {
     image: maduraiLake,
     title: "Sangestar Lake",
     subtitle:
-      "A high-altitude glacial lake, nicknamed “Madhuri Lake’ after the Bollywood actress Madhuri Dixit.",
+      "High-altitude glacial lake, popularly known as Madhuri Lake.",
   },
 
   {
     image: selaLake,
     title: "Sela Lake",
     subtitle:
-      "A spectacular high-altitude lake surrounded by the snow-covered mountains of Arunachal Pradesh.",
+      "Spectacular lake surrounded by snow-covered mountains.",
   },
 
   {
     image: selaPass,
     title: "Sela Pass",
     subtitle:
-      "One of the most iconic high-altitude mountain passes connecting Tawang with the rest of Arunachal Pradesh.",
+      "Iconic high-altitude pass connecting Tawang.",
   },
 
   {
     image: tawangMonastery,
     title: "Tawang Monastery",
     subtitle:
-      "India’s biggest monastery and second globally, it was famously the birthplace of the 6th Dalai Lama.",
+      "India’s largest monastery and birthplace of the 6th Dalai Lama.",
   },
 
   {
     image: siangRiver,
     title: "Siang River",
     subtitle:
-     "Known for its fast blue-green currents, Siang is emerging as a popular destination for white-water rafting and angling.",
+     "Blue-green river known for rafting and angling.",
   },
 
   {
     image: yomgo,
     title: "Yomgo Valley",
     subtitle:
-      "The crystal clear Yomgo flows gracefully past the town of Aalo to merge into the Siang River."
+      "Crystal-clear river valley near Aalo."
   },
 
   {
     image: Lakes,
     title: "Seven Lakes",
     subtitle:
-    "An extreme, off-grid 7-day high-altitude expedition reaching a peak elevation of 14,000 feet (4,000 meters), and covering 40 km trail of virgin rainforests, steep alpine ridges, and glacial lakes like Kahmu-yu and Emuh-ya."
+    "High-altitude expedition through forests, ridges and glacial lakes."
   },
 
   {
     image: sunriseDong,
     title: "Sunrise at Dong Valley",
     subtitle:
-       "Pine covered valley in Anjaw, that witnesses the first sunrise of India."
+       "Eastern valley known for India’s first sunrise."
   },
 
   {
     image: cosmosZiro,
     title: "Cosmos in Ziro",
     subtitle:
-       "Cosmos at Ziro."
+       "Cosmos blooming across Ziro."
   }
 ];
 
@@ -354,9 +336,7 @@ function Home() {
       <Navbar />
 
       <main className="overflow-hidden bg-white pt-20">
-        {/* =====================================================
-            HERO
-        ====================================================== */}
+        {}
 
         <section className="relative isolate overflow-hidden bg-[#061827] text-white">
           <div className="pointer-events-none absolute inset-0">
@@ -434,10 +414,7 @@ function Home() {
                   variants={fadeUp}
                   className="mt-7 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8"
                 >
-                  The Annual Conference of the Cardiology Society of India,
-                  Northeast Chapter — bringing the cardiovascular community
-                  together for scientific exchange, academic collaboration and
-                  clinical advancement.
+                  CSI Northeast’s annual conference for scientific exchange, clinical learning and collaboration.
                 </motion.p>
 
                 <motion.div
@@ -511,7 +488,7 @@ function Home() {
                 </motion.div>
               </motion.div>
 
-              {/* RIGHT HERO */}
+              {}
 
               <motion.div
                 initial={{ opacity: 0, x: 35, scale: 0.97 }}
@@ -610,9 +587,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            EVENT INFORMATION
-        ====================================================== */}
+        {}
 
         <section className="relative z-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -667,9 +642,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            HISTORIC FIRST
-        ====================================================== */}
+        {}
 
         <section className="py-20 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -688,24 +661,18 @@ function Home() {
                 </h2>
 
                 <p className="mt-7 text-lg leading-8 text-slate-600">
-                  For the first time, the prestigious CSI Northeast Annual
-                  Conference will be hosted in Arunachal Pradesh — marking an
-                  important milestone for cardiovascular medicine and academic
-                  healthcare in the state.
+                  For the first time, CSI Northeast Annual Conference comes to Arunachal Pradesh—marking a milestone for cardiovascular medicine in the state.
                 </p>
 
                 <p className="mt-5 leading-8 text-slate-500">
-                  CardioCon Arunachal 2026 reflects the state's growing
-                  contribution to modern healthcare while creating new
-                  opportunities for academic exchange, research, training and
-                  collaboration.
+                  CardioCon strengthens academic medicine, research, training and collaboration across the region.
                 </p>
 
                 <div className="mt-8 space-y-4">
                   {[
-                    "Strengthening cardiovascular academics across the region",
-                    "Encouraging research and scientific innovation",
-                    "Creating mentorship opportunities for young clinicians",
+                    "Strengthen cardiovascular academics",
+                    "Encourage research and innovation",
+                    "Mentor the next generation of clinicians",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <CheckCircle2
@@ -769,9 +736,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            AT A GLANCE
-        ====================================================== */}
+        {}
 
         <section className="bg-slate-50 py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -821,9 +786,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            SCIENTIFIC EXPERIENCE
-        ====================================================== */}
+        {}
 
         <section className="py-20 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -844,9 +807,7 @@ function Home() {
               </h2>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-                A comprehensive academic environment designed around
-                contemporary cardiovascular medicine, clinical practice,
-                scientific research and professional collaboration.
+                Contemporary cardiovascular science, clinical practice, research and collaboration.
               </p>
             </motion.div>
 
@@ -888,9 +849,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            CARDIOLOGY IN ARUNACHAL
-        ====================================================== */}
+        {}
 
         <section className="relative overflow-hidden bg-[#071a2d] py-20 text-white sm:py-24 lg:py-32">
           <div className="pointer-events-none absolute -right-60 -top-60 h-150 w-150 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -914,15 +873,11 @@ function Home() {
                 </h2>
 
                 <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-                  Cardiovascular care in Arunachal Pradesh continues to grow
-                  through expanding specialist services, infrastructure,
-                  interventional cardiology and critical care.
+                  Arunachal’s cardiovascular services are growing through specialist care, infrastructure, intervention and critical care.
                 </p>
 
                 <p className="mt-5 max-w-2xl leading-8 text-slate-400">
-                  CardioCon creates an opportunity to strengthen academic
-                  medicine, research, evidence-based practice and
-                  multidisciplinary collaboration across the region.
+                  CardioCon strengthens academic medicine, research and multidisciplinary collaboration.
                 </p>
               </motion.div>
 
@@ -931,22 +886,22 @@ function Home() {
                   {
                     icon: HeartPulse,
                     title: "Cardiac Care",
-                    text: "Strengthening specialist cardiovascular services.",
+                    text: "Strengthening specialist services.",
                   },
                   {
                     icon: Stethoscope,
                     title: "Clinical Excellence",
-                    text: "Promoting evidence-based clinical practice.",
+                    text: "Promoting evidence-based practice.",
                   },
                   {
                     icon: GraduationCap,
                     title: "Academic Medicine",
-                    text: "Encouraging mentorship, education and training.",
+                    text: "Supporting education, training and mentorship.",
                   },
                   {
                     icon: Microscope,
                     title: "Clinical Research",
-                    text: "Building evidence around regional health challenges.",
+                    text: "Building evidence for regional health challenges.",
                   },
                 ].map(({ icon: Icon, title, text }, index) => (
                   <motion.div
@@ -973,9 +928,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            WHO SHOULD ATTEND
-        ====================================================== */}
+        {}
 
         <section className="py-20 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -996,9 +949,7 @@ function Home() {
                 </h2>
 
                 <p className="mt-6 text-lg leading-8 text-slate-600">
-                  A platform for experienced specialists, academics,
-                  researchers and young clinicians to learn, exchange ideas and
-                  contribute to cardiovascular medicine.
+                  A platform to learn, collaborate and contribute to cardiovascular medicine.
                 </p>
               </motion.div>
 
@@ -1024,9 +975,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            SCIENTIFIC PROGRAM
-        ====================================================== */}
+        {}
 
         <section className="bg-slate-50 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1049,18 +998,15 @@ function Home() {
                   </p>
 
                   <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                    A comprehensive scientific agenda is being prepared.
+                    A comprehensive scientific program is being prepared.
                   </h2>
 
                   <p className="mt-5 max-w-2xl leading-7 text-blue-100/75 sm:text-lg sm:leading-8">
-                    The program will feature contemporary scientific
-                    discussions, clinical insights, research, expert faculty
-                    and collaborative learning opportunities.
+                    Contemporary science, clinical insights, research and expert-led learning.
                   </p>
 
                   <p className="mt-4 text-sm text-blue-200/60">
-                    Detailed sessions and faculty announcements will be
-                    published as they are confirmed.
+                    Sessions and faculty will be announced as confirmed.
                   </p>
                 </div>
 
@@ -1080,9 +1026,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            ORGANISING COMMITTEE
-        ====================================================== */}
+        {}
 
         <section className="py-20 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1101,8 +1045,7 @@ function Home() {
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                  The leadership guiding CardioCon Arunachal 2026 and the
-                  historic hosting of CSI Northeast in Arunachal Pradesh.
+                  The team guiding CardioCon Arunachal 2026 and CSI Northeast’s first conference in Arunachal Pradesh.
                 </p>
               </motion.div>
 
@@ -1162,9 +1105,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            EXPERIENCE ARUNACHAL
-        ====================================================== */}
+        {}
 
         <section className="relative overflow-hidden bg-slate-50 py-20 sm:py-24 lg:py-32">
           <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-cyan-100/50 blur-3xl" />
@@ -1172,7 +1113,7 @@ function Home() {
           <div className="pointer-events-none absolute -right-40 bottom-10 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* HEADING */}
+            {}
 
             <motion.div
               variants={fadeUp}
@@ -1193,14 +1134,11 @@ function Home() {
               </h2>
 
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-                From high Himalayan passes and ancient monasteries to quiet
-                valleys and vibrant cultures, experience the extraordinary
-                landscapes of Arunachal Pradesh during your visit for
-                CardioCon 2026.
+                Explore Himalayan landscapes, monasteries, valleys and cultures during your CardioCon visit.
               </p>
             </motion.div>
 
-            {/* CAROUSEL */}
+            {}
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -1210,7 +1148,7 @@ function Home() {
               className="relative mt-12 overflow-hidden rounded-4xl bg-slate-900 shadow-2xl lg:mt-16"
             >
               <div className="relative h-105 sm:h-130 lg:h-155">
-                {/* IMAGES */}
+                {}
 
                 {arunachalSlides.map((slide, index) => (
                   <motion.div
@@ -1242,7 +1180,7 @@ function Home() {
                   </motion.div>
                 ))}
 
-                {/* TOP LABEL */}
+                {}
 
                 <div className="absolute left-6 top-6 z-20 sm:left-8 sm:top-8">
                   <div className="flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-md">
@@ -1254,14 +1192,14 @@ function Home() {
                   </div>
                 </div>
 
-                {/* SLIDE COUNTER */}
+                {}
 
                 <div className="absolute right-6 top-6 z-20 rounded-full border border-white/20 bg-black/20 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md sm:right-8 sm:top-8">
                   {String(currentSlide + 1).padStart(2, "0")} /{" "}
                   {String(arunachalSlides.length).padStart(2, "0")}
                 </div>
 
-                {/* CONTENT */}
+                {}
 
                 <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-10 lg:p-12">
                   <motion.div
@@ -1285,7 +1223,7 @@ function Home() {
                   </motion.div>
                 </div>
 
-                {/* PREVIOUS BUTTON */}
+                {}
 
                 <button
                   type="button"
@@ -1296,7 +1234,7 @@ function Home() {
                   <ChevronLeft size={22} />
                 </button>
 
-                {/* NEXT BUTTON */}
+                {}
 
                 <button
                   type="button"
@@ -1307,7 +1245,7 @@ function Home() {
                   <ChevronRight size={22} />
                 </button>
 
-                {/* DOTS */}
+                {}
 
                 <div className="absolute bottom-7 right-6 z-30 hidden items-center gap-2 sm:flex sm:right-10 lg:bottom-11 lg:right-12">
                   {arunachalSlides.map((slide, index) => (
@@ -1327,7 +1265,7 @@ function Home() {
               </div>
             </motion.div>
 
-            {/* BOTTOM CAPTION */}
+            {}
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -1348,9 +1286,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            SECRETARIAT
-        ====================================================== */}
+        {}
 
         <section className="border-y border-slate-200 bg-white py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1376,8 +1312,7 @@ function Home() {
                   />
 
                   <p>
-                    Tomo Riba Institute of Health and Medical Sciences (TRIHMS),
-                    Naharlagun, Arunachal Pradesh – 791110
+                    Tomo Riba Institute of Health and Medical Sciences, Naharlagun, Arunachal Pradesh – 791110
                   </p>
                 </div>
 
@@ -1408,9 +1343,7 @@ function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            FINAL CTA
-        ====================================================== */}
+        {}
 
         <section className="relative overflow-hidden bg-blue-800 py-20 text-white sm:py-24">
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
@@ -1467,10 +1400,6 @@ function Home() {
     </>
   );
 }
-
-/* =========================================================
-   SECTION LABEL
-========================================================= */
 
 function SectionLabel({ children }) {
   return (
