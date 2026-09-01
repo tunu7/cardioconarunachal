@@ -1430,7 +1430,7 @@ function Registration() {
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-600 text-white"><Presentation size={21} /></div>
                     <h3 className="mt-5 font-bold text-purple-950">E-Poster Submission</h3>
                     <p className="mt-2 text-sm leading-6 text-purple-950/65">Submit your E-Poster according to the conference guidelines.</p>
-                    <Link to="/e-poster-submission" className="group mt-5 inline-flex items-center gap-2 text-sm font-bold text-purple-700">Submit E-Poster<ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></Link>
+                    <Link to="/presentation-submission" className="group mt-5 inline-flex items-center gap-2 text-sm font-bold text-purple-700">Submit E-Poster<ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></Link>
                   </div>
 
                   {/* Secretariat */}
@@ -1522,29 +1522,7 @@ function Registration() {
                 <Link to="/presentation-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-purple-700 hover:shadow-lg">Submit E-Poster<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
               </div>
 
-              <div className="mt-7 rounded-2xl border border-purple-100 bg-white p-5 sm:p-6">
-                <div className="flex items-center gap-3"><Presentation size={19} className="text-purple-600" /><h4 className="font-bold text-purple-950">E-Poster Guidelines</h4></div>
-                <div className="mt-5 space-y-3">
-                  {[
-                    "File format should be PowerPoint (.PPT/.PPTX).",
-                    "Each Poster Presentation will be for 5 minutes only.",
-                    "The Poster Presentation should be prepared in portrait format.",
-                    "The Total size of the presentation should not exceed 10 MB.",
-                    "1 slide per Poster only.",
-                    "Animation/movies/sounds will not be supported; please submit in a static required template format only.",
-                    "Illustrations/images/photographs used in the E-poster should be enlarged enough to show relevant details.",
-                    "Only Submitted posters will be awarded E-Poster presentation certificates.",
-                    "The E-Poster Presentation needs to be presented in the given template only.",
-                    "The Presentation should be submitted on or before the last date given.",
-                    "If the Presentation is submitted at the last moment and problem occur during the conference the organising team won’t be held responsible.",
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3 rounded-xl border border-purple-100 bg-purple-50/50 p-4">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-600 text-[11px] font-bold text-white">{index + 1}</span>
-                      <p className="text-xs leading-6 text-slate-700 sm:text-sm">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+             
             </div>
 
         {/* =====================================================

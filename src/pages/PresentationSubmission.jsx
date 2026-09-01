@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowLeft,
   ArrowRight,
   CheckCircle2,
   Clock3,
   FileText,
   Mail,
   MonitorPlay,
+  Presentation,
   ShieldCheck,
   Upload,
   User,
@@ -48,7 +48,6 @@ function PresentationSubmission() {
       setError(
         "Please upload a PowerPoint file (.ppt or .pptx)."
       );
-
       event.target.value = "";
       setFile(null);
       return;
@@ -58,7 +57,6 @@ function PresentationSubmission() {
       setError(
         "The presentation file must not exceed 10 MB."
       );
-
       event.target.value = "";
       setFile(null);
       return;
@@ -137,7 +135,9 @@ function PresentationSubmission() {
       const data = {
         formType: "presentation",
 
-        name: String(formData.get("name") || "").trim(),
+        name: String(
+          formData.get("name") || ""
+        ).trim(),
 
         email: String(
           formData.get("email") || ""
@@ -323,13 +323,6 @@ function PresentationSubmission() {
 
           <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
 
-            <Link
-              to="/presentation-guidelines"
-              className="inline-flex items-center gap-2 text-sm font-bold text-cyan-200 hover:text-white"
-            >
-              <ArrowLeft size={16} />
-              Presentation Guidelines
-            </Link>
 
             <div className="mt-6 max-w-4xl">
 
@@ -346,6 +339,56 @@ function PresentationSubmission() {
                 Upload your PowerPoint presentation for
                 CardioCon Arunachal 2026.
               </p>
+
+            </div>
+          </div>
+        </section>
+
+        {/* E-POSTER GUIDELINES */}
+
+        <section>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mt-7 rounded-2xl border border-purple-100 bg-white p-5 sm:p-6">
+
+              <div className="flex items-center gap-3">
+                <Presentation
+                  size={19}
+                  className="text-purple-600"
+                />
+
+                <h4 className="font-bold text-purple-950">
+                  E-Poster Guidelines
+                </h4>
+              </div>
+
+              <div className="mt-5 space-y-3">
+                {[
+                  "File format should be PowerPoint (.PPT/.PPTX).",
+                  "Each Poster Presentation will be for 5 minutes only.",
+                  "The Poster Presentation should be prepared in portrait format.",
+                  "The Total size of the presentation should not exceed 10 MB.",
+                  "1 slide per Poster only.",
+                  "Animation/movies/sounds will not be supported; please submit in a static required template format only.",
+                  "Illustrations/images/photographs used in the E-poster should be enlarged enough to show relevant details.",
+                  "Only Submitted posters will be awarded E-Poster presentation certificates.",
+                  "The E-Poster Presentation needs to be presented in the given template only.",
+                  "The Presentation should be submitted on or before the last date given.",
+                  "If the Presentation is submitted at the last moment and problem occur during the conference the organising team won’t be held responsible.",
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 rounded-xl border border-purple-100 bg-purple-50/50 p-4"
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-600 text-[11px] font-bold text-white">
+                      {index + 1}
+                    </span>
+
+                    <p className="text-xs leading-6 text-slate-700 sm:text-sm">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
             </div>
           </div>
@@ -500,6 +543,7 @@ function PresentationSubmission() {
                     />
 
                   </label>
+
                 </div>
 
                 {/* ERROR */}
@@ -542,6 +586,7 @@ function PresentationSubmission() {
                 </div>
 
               </form>
+
             </div>
 
             {/* SIDEBAR */}
@@ -585,6 +630,7 @@ function PresentationSubmission() {
                   />
 
                 </div>
+
               </div>
 
               <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
@@ -616,12 +662,17 @@ function PresentationSubmission() {
                     </Link>
 
                   </div>
+
                 </div>
+
               </div>
 
             </aside>
+
           </div>
+
         </section>
+
       </main>
 
       <Footer />
@@ -701,6 +752,7 @@ function Input({
         />
 
       </div>
+
     </div>
   );
 }
@@ -732,6 +784,7 @@ function SectionTitle({
         </p>
 
       </div>
+
     </div>
   );
 }
@@ -763,6 +816,7 @@ function Requirement({
         </p>
 
       </div>
+
     </div>
   );
 }
@@ -771,7 +825,10 @@ function Requirement({
 // SIMPLE RULER ICON
 // =====================================================
 
-function RulerIcon({ size = 18, className = "" }) {
+function RulerIcon({
+  size = 18,
+  className = "",
+}) {
   return (
     <span
       style={{

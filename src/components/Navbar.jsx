@@ -21,7 +21,6 @@ function Navbar() {
   { name: "Speakers", path: "/speakers" },
   { name: "Schedule", path: "/schedule" },
   { name: "Registration", path: "/registration" },
-  { name: "Presentations", path: "/presentation-guidelines" },
   { name: "Contact", path: "/contact" },
 ];
 

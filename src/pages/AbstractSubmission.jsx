@@ -560,44 +560,6 @@ function AbstractSubmission() {
         </section>
 
         {/* =====================================================
-            INFORMATION
-        ===================================================== */}
-
-        <section className="border-b border-slate-100 bg-white py-12 sm:py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-
-              <InfoCard
-                icon={FileText}
-                title="PDF Format"
-                text="Upload your abstract as a PDF file."
-              />
-
-              <InfoCard
-                icon={ShieldCheck}
-                title="5 MB Maximum"
-                text="Please keep your PDF within the file size limit."
-              />
-
-              <InfoCard
-                icon={BadgeCheck}
-                title="Scientific Review"
-                text="Submissions will be reviewed by the committee."
-              />
-
-              <InfoCard
-                icon={CalendarDays}
-                title="23–25 October"
-                text="CardioCon Arunachal 2026."
-              />
-
-            </div>
-
-          </div>
-        </section>
-
-        {/* =====================================================
             ORAL PRESENTATION GUIDELINES
             FULL WIDTH — ABOVE FORM
         ===================================================== */}
@@ -1088,7 +1050,7 @@ function AbstractSubmission() {
                     <SummaryItem
                       icon={ShieldCheck}
                       label="Maximum Size"
-                      value="5 MB"
+                      value="50 MB"
                     />
 
                   </div>
@@ -1249,34 +1211,6 @@ function FormSectionHeader({
 function FormDivider() {
   return (
     <div className="my-10 border-t border-slate-100" />
-  );
-}
-
-// =========================================================
-// INFO CARD
-// =========================================================
-
-function InfoCard({
-  icon: Icon,
-  title,
-  text,
-}) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5">
-
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-        <Icon size={19} />
-      </div>
-
-      <h3 className="mt-4 text-sm font-bold text-slate-900">
-        {title}
-      </h3>
-
-      <p className="mt-1 text-xs leading-5 text-slate-500">
-        {text}
-      </p>
-
-    </div>
   );
 }
 

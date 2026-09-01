@@ -278,14 +278,15 @@ function Footer() {
                   </p>
 
                   <p className="mt-1 break-all text-sm text-slate-300 transition group-hover:text-white">
-                    cardiocon2026@gmail.com
+                    cardioconarunachal@gmail.com
                   </p>
                 </div>
               </a>
 
               {/* Phone */}
               <a
-                href="tel:+91XXXXXXXXXX"
+                href="tel:+91 70056 16088,+91 90893 47570
+"
                 className="group flex items-start gap-3"
               >
                 <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-cyan-300 transition group-hover:bg-cyan-400/10">
@@ -298,7 +299,7 @@ function Footer() {
                   </p>
 
                   <p className="mt-1 text-sm text-slate-300 transition group-hover:text-white">
-                    +91 XXXXX XXXXX
+                    +91 70056 16088, +91 90893 47570
                   </p>
                 </div>
               </a>
