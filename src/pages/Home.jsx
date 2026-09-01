@@ -112,7 +112,7 @@ function Home() {
     },
     {
       name: "Dr. Tony Ete",
-      role: "General Secretary",
+      role: "Organising Secretary",
       image: tonyEte,
     },
     {

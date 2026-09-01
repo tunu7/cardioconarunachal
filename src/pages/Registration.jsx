@@ -19,7 +19,6 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  MonitorPlay,
   HeartPulse,
   Info,
   FileText,
@@ -29,6 +28,8 @@ import {
   BadgeCheck,
   Landmark,
   Sparkles,
+  ClipboardList,
+  Presentation,
 } from "lucide-react";
 
 /* =========================================================
@@ -586,95 +587,146 @@ function Registration() {
               </div>
             </div>
 
-            {/* Abstract submission */}
+            {/* =====================================================
+                REGISTRATION GUIDELINES
+            ====================================================== */}
+
+            <div className="mt-6 rounded-3xl border border-blue-100 bg-blue-50 p-6 sm:p-8">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white">
+                  <ClipboardList size={23} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">Before Registration</p>
+                  <h3 className="mt-1 text-xl font-bold text-blue-950">Registration Guidelines</h3>
+                  <p className="mt-2 max-w-3xl text-sm leading-6 text-blue-950/65">Please read the following registration, cancellation, refund and payment guidelines carefully before completing your registration.</p>
+                </div>
+              </div>
+
+              <div className="mt-7 grid gap-3 md:grid-cols-2">
+                {[
+                  "CARDIOCON ARUNACHAL 2026 would be a Physical Conference.",
+                  "Registration is complimentary but compulsory for all including Faculty, Chairpersons, Speakers, and Invited Delegates.",
+                  "Registration fees is complimentary for all delegates except Accompanying persons and Industries.",
+                  "Registration fees for Accompanying persons / Industries will be considered as per the date of receipt of payment.",
+                  "Registration is non-transferable.",
+                  "Please provide the correct email ID and mobile number. All communication will be through such modes only.",
+                  "Conference Organizers are not responsible for postal delays, failure of delivery by post, or failure of electronic communication.",
+                  "Registration is mandatory for accompanying persons above 5 years of age.",
+                  "Accompanying persons and children will not be permitted in the scientific sessions.",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3 rounded-xl border border-blue-100 bg-white p-4">
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-blue-600" />
+                    <p className="text-xs leading-6 text-slate-700 sm:text-sm">{item}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-red-100 bg-red-50 p-5 sm:p-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-100 text-red-700"><Info size={19} /></div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-red-600">Cancellation & Refund</p>
+                    <h4 className="mt-1 text-lg font-bold text-red-950">Cancellation & Refund Policy</h4>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-red-950/75">All cancellation requests should be sent by email only.</p>
+                <div className="mt-4 overflow-hidden rounded-xl border border-red-100 bg-white">
+                  <div className="grid grid-cols-[1fr_auto] border-b border-red-100 p-4 text-sm"><span className="text-slate-600">Up to 30th September 2026</span><span className="font-bold text-red-700">50% refund only</span></div>
+                  <div className="grid grid-cols-[1fr_auto] border-b border-red-100 p-4 text-sm"><span className="text-slate-600">1st October – 15th October 2026</span><span className="font-bold text-red-700">25% refund only</span></div>
+                  <div className="grid grid-cols-[1fr_auto] p-4 text-sm"><span className="text-slate-600">After 15th October 2026</span><span className="font-bold text-red-700">No refund</span></div>
+                </div>
+                <div className="mt-4 space-y-2 text-xs leading-6 text-red-950/70 sm:text-sm">
+                  <p>• All refunds will be made after a deduction of 18% GST.</p>
+                  <p>• All refunds will be made 30 days after completion of the conference.</p>
+                  <p>• Application bank charges will not be refunded for online registration.</p>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700"><CreditCard size={19} /></div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-slate-500">Payment Options</p>
+                    <h4 className="mt-1 text-lg font-bold text-slate-900">NEFT / RTGS & Offline Payment</h4>
+                  </div>
+                </div>
+                <div className="mt-5 space-y-4 text-sm leading-6 text-slate-600">
+                  <p>The registration form needs to be filled out using the online portal available on the website or the physical form attached below.</p>
+                  <p>After making NEFT / RTGS payment, the delegate has to upload the payment details online in the portal or send an email to <a href="mailto:cardioconarunachal@gmail.com" className="font-bold text-blue-700 hover:underline">cardioconarunachal@gmail.com</a> and provide the Transaction Details of the payment.</p>
+                  <p>The confirmation will be sent to the delegate email ID within 7 working days.</p>
+                  <p><span className="font-bold text-slate-900">Offline payment:</span> Demand draft to be drawn in favor of <span className="font-bold text-slate-900">CSI NORTHEAST CHAPTER</span> payable in Naharlagun. Please send the registration details along with payment i.e., Demand Draft to <a href="mailto:cardioconarunachal@gmail.com" className="font-bold text-blue-700 hover:underline">cardioconarunachal@gmail.com</a>.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* =====================================================
+                ABSTRACT SUBMISSION
+            ====================================================== */}
+
             <div className="mt-6 rounded-3xl border border-indigo-100 bg-indigo-50 p-6 sm:p-8">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white">
-                    <FileText size={23} />
-                  </div>
-
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white"><FileText size={23} /></div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-600">
-                      Academic Submission
-                    </p>
-
-                    <h3 className="mt-1 text-xl font-bold text-indigo-950">
-                      Abstract Submission
-                    </h3>
-
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-950/65">
-                      Submit your conference abstract through the dedicated
-                      abstract submission form. PDF format is required.
-                    </p>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-600">Academic Submission</p>
+                    <h3 className="mt-1 text-xl font-bold text-indigo-950">Abstract Submission</h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-950/65">Submit your conference abstract through the dedicated abstract submission form. PDF format is required.</p>
                   </div>
                 </div>
+                <Link to="/abstract-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-indigo-700 hover:shadow-lg">Submit Abstract<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
+              </div>
 
-                <Link
-                  to="/abstract-submission"
-                  className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-indigo-700 hover:shadow-lg"
-                >
-                  Submit Abstract
-
-                  <ArrowRight
-                    size={17}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </Link>
-                {/* Presentation submission */}
-<div className="mt-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-6 sm:p-8">
-  <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-    <div className="flex items-start gap-4">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-600 text-white">
-        <MonitorPlay size={23} />
-      </div>
-
-      <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-600">
-          Scientific Presentation
-        </p>
-
-        <h3 className="mt-1 text-xl font-bold text-cyan-950">
-          Presentation Submission
-        </h3>
-
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-cyan-950/65">
-          If your abstract has been accepted for presentation,
-          upload your PowerPoint presentation according to the
-          conference guidelines.
-        </p>
-
-        <p className="mt-2 text-xs font-bold text-cyan-700">
-          PPT/PPTX • Portrait • Maximum 10 MB • 5 minutes
-        </p>
-      </div>
-    </div>
-
-    <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-      <Link
-        to="/presentation-guidelines"
-        className="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-200 bg-white px-5 py-3.5 text-sm font-bold text-cyan-700 transition hover:bg-cyan-100"
-      >
-        Guidelines
-      </Link>
-
-      <Link
-        to="/presentation-submission"
-        className="group inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-cyan-700 hover:shadow-lg"
-      >
-        Submit Presentation
-
-        <ArrowRight
-          size={17}
-          className="transition-transform group-hover:translate-x-1"
-        />
-      </Link>
-    </div>
-  </div>
-</div>
+              <div className="mt-7 rounded-2xl border border-indigo-100 bg-white p-5 sm:p-6">
+                <div className="flex items-center gap-3"><FileText size={19} className="text-indigo-600" /><h4 className="font-bold text-indigo-950">Abstract Submission Guidelines</h4></div>
+                <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4">
+                  <p className="text-xs leading-6 text-amber-800 sm:text-sm">Please follow the official abstract submission requirements provided by the organising committee. The specific abstract formatting, word limit, file format and submission deadline were not included in the supplied guidelines.</p>
+                </div>
               </div>
             </div>
-          </div>
+
+            {/* =====================================================
+                E-POSTER SUBMISSION
+            ====================================================== */}
+
+            <div className="mt-6 rounded-3xl border border-purple-100 bg-purple-50 p-6 sm:p-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-600 text-white"><Presentation size={23} /></div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-600">Academic Submission</p>
+                    <h3 className="mt-1 text-xl font-bold text-purple-950">E-Poster Submission</h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-purple-950/65">Submit your E-Poster according to the official conference presentation requirements.</p>
+                  </div>
+                </div>
+                <Link to="/presentation-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-purple-700 hover:shadow-lg">Submit E-Poster<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
+              </div>
+
+              <div className="mt-7 rounded-2xl border border-purple-100 bg-white p-5 sm:p-6">
+                <div className="flex items-center gap-3"><Presentation size={19} className="text-purple-600" /><h4 className="font-bold text-purple-950">E-Poster Guidelines</h4></div>
+                <div className="mt-5 space-y-3">
+                  {[
+                    "File format should be PowerPoint (.PPT/.PPTX).",
+                    "Each Poster Presentation will be for 5 minutes only.",
+                    "The Poster Presentation should be prepared in portrait format.",
+                    "The Total size of the presentation should not exceed 10 MB.",
+                    "1 slide per Poster only.",
+                    "Animation/movies/sounds will not be supported; please submit in a static required template format only.",
+                    "Illustrations/images/photographs used in the E-poster should be enlarged enough to show relevant details.",
+                    "Only Submitted posters will be awarded E-Poster presentation certificates.",
+                    "The E-Poster Presentation needs to be presented in the given template only.",
+                    "The Presentation should be submitted on or before the last date given.",
+                    "If the Presentation is submitted at the last moment and problem occur during the conference the organising team won’t be held responsible.",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3 rounded-xl border border-purple-100 bg-purple-50/50 p-4">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-600 text-[11px] font-bold text-white">{index + 1}</span>
+                      <p className="text-xs leading-6 text-slate-700 sm:text-sm">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            </div>
         </section>
 
         {/* =====================================================
@@ -1437,6 +1489,14 @@ function Registration() {
                         className="transition-transform group-hover:translate-x-1"
                       />
                     </Link>
+                  </div>
+
+                  {/* E-Poster */}
+                  <div className="rounded-2xl border border-purple-100 bg-purple-50 p-5 sm:p-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-600 text-white"><Presentation size={21} /></div>
+                    <h3 className="mt-5 font-bold text-purple-950">E-Poster Submission</h3>
+                    <p className="mt-2 text-sm leading-6 text-purple-950/65">Submit your E-Poster according to the conference guidelines.</p>
+                    <Link to="/e-poster-submission" className="group mt-5 inline-flex items-center gap-2 text-sm font-bold text-purple-700">Submit E-Poster<ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></Link>
                   </div>
 
                   {/* Secretariat */}

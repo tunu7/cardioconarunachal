@@ -152,7 +152,7 @@ function About() {
         ["Dr. Naba Kumar Bezbaruah", "Patron in Chief"],
         ["Dr. Animesh Mishra", "Patron"],
         ["Dr. Rinchin Dorjee Megeji", "Organising Chairperson"],
-        ["Dr. Tony Ete", "General Secretary "],
+        ["Dr. Tony Ete", "Organising Secretary "],
         ["Dr. Romar Dabu", "Convenor"],
         ["Dr. Amit Malviya", "Scientific Chairperson"],
       ],
