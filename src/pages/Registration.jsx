@@ -660,72 +660,6 @@ function Registration() {
               </div>
             </div>
 
-            {/* =====================================================
-                ABSTRACT SUBMISSION
-            ====================================================== */}
-
-            <div className="mt-6 rounded-3xl border border-indigo-100 bg-indigo-50 p-6 sm:p-8">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white"><FileText size={23} /></div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-600">Academic Submission</p>
-                    <h3 className="mt-1 text-xl font-bold text-indigo-950">Abstract Submission</h3>
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-950/65">Submit your conference abstract through the dedicated abstract submission form. PDF format is required.</p>
-                  </div>
-                </div>
-                <Link to="/abstract-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-indigo-700 hover:shadow-lg">Submit Abstract<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
-              </div>
-
-              <div className="mt-7 rounded-2xl border border-indigo-100 bg-white p-5 sm:p-6">
-                <div className="flex items-center gap-3"><FileText size={19} className="text-indigo-600" /><h4 className="font-bold text-indigo-950">Abstract Submission Guidelines</h4></div>
-                <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4">
-                  <p className="text-xs leading-6 text-amber-800 sm:text-sm">Please follow the official abstract submission requirements provided by the organising committee. The specific abstract formatting, word limit, file format and submission deadline were not included in the supplied guidelines.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* =====================================================
-                E-POSTER SUBMISSION
-            ====================================================== */}
-
-            <div className="mt-6 rounded-3xl border border-purple-100 bg-purple-50 p-6 sm:p-8">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-600 text-white"><Presentation size={23} /></div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-600">Academic Submission</p>
-                    <h3 className="mt-1 text-xl font-bold text-purple-950">E-Poster Submission</h3>
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-purple-950/65">Submit your E-Poster according to the official conference presentation requirements.</p>
-                  </div>
-                </div>
-                <Link to="/presentation-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-purple-700 hover:shadow-lg">Submit E-Poster<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
-              </div>
-
-              <div className="mt-7 rounded-2xl border border-purple-100 bg-white p-5 sm:p-6">
-                <div className="flex items-center gap-3"><Presentation size={19} className="text-purple-600" /><h4 className="font-bold text-purple-950">E-Poster Guidelines</h4></div>
-                <div className="mt-5 space-y-3">
-                  {[
-                    "File format should be PowerPoint (.PPT/.PPTX).",
-                    "Each Poster Presentation will be for 5 minutes only.",
-                    "The Poster Presentation should be prepared in portrait format.",
-                    "The Total size of the presentation should not exceed 10 MB.",
-                    "1 slide per Poster only.",
-                    "Animation/movies/sounds will not be supported; please submit in a static required template format only.",
-                    "Illustrations/images/photographs used in the E-poster should be enlarged enough to show relevant details.",
-                    "Only Submitted posters will be awarded E-Poster presentation certificates.",
-                    "The E-Poster Presentation needs to be presented in the given template only.",
-                    "The Presentation should be submitted on or before the last date given.",
-                    "If the Presentation is submitted at the last moment and problem occur during the conference the organising team won’t be held responsible.",
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3 rounded-xl border border-purple-100 bg-purple-50/50 p-4">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-600 text-[11px] font-bold text-white">{index + 1}</span>
-                      <p className="text-xs leading-6 text-slate-700 sm:text-sm">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
             </div>
         </section>
 
@@ -1370,7 +1304,7 @@ function Registration() {
                     duration: 0.55,
                     delay: 0.08,
                   }}
-                  className="space-y-4 sm:space-y-5 lg:sticky lg:top-28"
+                  className="hidden lg:block space-y-4 lg:sticky lg:top-28"
                 >
                   {/* Summary */}
                   <div className="relative overflow-hidden rounded-3xl bg-[#071a2d] text-white shadow-xl">
@@ -1545,75 +1479,73 @@ function Registration() {
           </div>
         </section>
 
+
         {/* =====================================================
-            IMPORTANT INFORMATION
-        ====================================================== */}
+                ABSTRACT SUBMISSION
+            ====================================================== */}
 
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <motion.div
-              ref={successSectionRef}
-              initial={{
-                opacity: 0,
-                y: 25,
-                scale: 0.98,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              className="mx-auto w-full max-w-3xl"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-700 text-white sm:h-12 sm:w-12">
-                  <Info size={22} />
-                </div>
-
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700 sm:text-xs">
-                    Before You Register
-                  </p>
-
-                  <h2 className="mt-2 text-2xl font-bold tracking-tight text-blue-950 sm:text-3xl">
-                    Registration Information
-                  </h2>
-                </div>
-              </div>
-
-              <div className="mt-7 grid gap-3 sm:mt-8 md:grid-cols-2">
-                {[
-                  "Please provide accurate personal and professional information.",
-                  "Select the delegate category applicable to your professional status.",
-                  "Professional or student identification may be requested for applicable categories.",
-                  "Faculty & Delegates can register free of charge.",
-                  "Last date of registration is 10th October 2026.",
-                  "Please provide your arrival and departure dates for conference arrangements.",
-                  "Food preference and allergy information will help the organising team plan meals.",
-                  "Payment instructions and bank details will be followed as provided by the organising committee.",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 p-4"
-                  >
-                    <CheckCircle2
-                      size={18}
-                      className="mt-0.5 shrink-0 text-emerald-600"
-                    />
-
-                    <p className="text-xs leading-6 text-slate-700 sm:text-sm">
-                      {item}
-                    </p>
+            <div className="mt-6 rounded-3xl border border-indigo-100 bg-indigo-50 p-6 sm:p-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white"><FileText size={23} /></div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-600">Academic Submission</p>
+                    <h3 className="mt-1 text-xl font-bold text-indigo-950">Abstract Submission</h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-950/65">Submit your conference abstract through the dedicated abstract submission form. PDF format is required.</p>
                   </div>
-                ))}
+                </div>
+                <Link to="/abstract-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-indigo-700 hover:shadow-lg">Submit Abstract<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
               </div>
-            </motion.div>
-          </div>
-        </section>
+
+              <div className="mt-7 rounded-2xl border border-indigo-100 bg-white p-5 sm:p-6">
+                <div className="flex items-center gap-3"><FileText size={19} className="text-indigo-600" /><h4 className="font-bold text-indigo-950">Abstract Submission Guidelines</h4></div>
+                <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4">
+                  <p className="text-xs leading-6 text-amber-800 sm:text-sm">Please follow the official abstract submission requirements provided by the organising committee. The specific abstract formatting, word limit, file format and submission deadline were not included in the supplied guidelines.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* =====================================================
+                E-POSTER SUBMISSION
+            ====================================================== */}
+
+            <div className="mt-6 rounded-3xl border border-purple-100 bg-purple-50 p-6 sm:p-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-600 text-white"><Presentation size={23} /></div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-600">Academic Submission</p>
+                    <h3 className="mt-1 text-xl font-bold text-purple-950">E-Poster Submission</h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-purple-950/65">Submit your E-Poster according to the official conference presentation requirements.</p>
+                  </div>
+                </div>
+                <Link to="/presentation-submission" className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-purple-700 hover:shadow-lg">Submit E-Poster<ArrowRight size={17} className="transition-transform group-hover:translate-x-1" /></Link>
+              </div>
+
+              <div className="mt-7 rounded-2xl border border-purple-100 bg-white p-5 sm:p-6">
+                <div className="flex items-center gap-3"><Presentation size={19} className="text-purple-600" /><h4 className="font-bold text-purple-950">E-Poster Guidelines</h4></div>
+                <div className="mt-5 space-y-3">
+                  {[
+                    "File format should be PowerPoint (.PPT/.PPTX).",
+                    "Each Poster Presentation will be for 5 minutes only.",
+                    "The Poster Presentation should be prepared in portrait format.",
+                    "The Total size of the presentation should not exceed 10 MB.",
+                    "1 slide per Poster only.",
+                    "Animation/movies/sounds will not be supported; please submit in a static required template format only.",
+                    "Illustrations/images/photographs used in the E-poster should be enlarged enough to show relevant details.",
+                    "Only Submitted posters will be awarded E-Poster presentation certificates.",
+                    "The E-Poster Presentation needs to be presented in the given template only.",
+                    "The Presentation should be submitted on or before the last date given.",
+                    "If the Presentation is submitted at the last moment and problem occur during the conference the organising team won’t be held responsible.",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3 rounded-xl border border-purple-100 bg-purple-50/50 p-4">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-600 text-[11px] font-bold text-white">{index + 1}</span>
+                      <p className="text-xs leading-6 text-slate-700 sm:text-sm">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
         {/* =====================================================
             CONTACT CTA
